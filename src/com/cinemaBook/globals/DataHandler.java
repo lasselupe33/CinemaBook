@@ -1,4 +1,4 @@
-package com.cinemaBook.controller;
+package com.cinemaBook.globals;
 
 import java.util.HashMap;
 import java.sql.*;

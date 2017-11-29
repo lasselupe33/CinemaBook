@@ -3,10 +3,10 @@ package com.cinemaBook.model;
 public class Film {
     private String name;
     private String description;
-    private int rating;
+    private double rating;
     private int minAge;
 
-    public Film(String name, String description, int rating, int minAge) {
+    public Film(String name, double rating, int minAge) {
         this.name = name;
         this.description = description;
         this.rating = rating;
@@ -21,7 +21,7 @@ public class Film {
         return description;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 

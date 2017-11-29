@@ -1,6 +1,6 @@
 package com.cinemaBook.bootstrap;
 
-import com.cinemaBook.controller.DataHandler;
+import com.cinemaBook.globals.DataHandler;
 import java.util.Date;
 import java.util.HashMap;
 
