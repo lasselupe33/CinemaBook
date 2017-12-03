@@ -5,6 +5,7 @@ import com.cinemaBook.globals.State;
 import com.cinemaBook.globals.ViewTypes;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * This class has the responsibility to render the main frame in which the other views will be rendered.
@@ -70,32 +71,40 @@ public class MainPane extends JFrame {
      * This method inserts the buttons to change between tabs.
      */
     private void insertTabButtons() {
-        // Setup defaults for buttons
+        // Default values
         int padding = 20;
-        int button_location_x = padding;
-        int button_location_y = padding;
-        int button_width = 140;
         int button_height = 30;
 
-        // Create first button
+        // Create new panel
+        JPanel tabPanel = new JPanel();
+
+        // Create flowLayout and set alignment
+        FlowLayout flowLayout = new FlowLayout();
+        flowLayout.setAlignment(FlowLayout.LEFT);
+
+        // Apply flowLayout to tabPanel
+        tabPanel.setLayout(flowLayout);
+
+        // Create new booking button
         JButton bookingsViewButton = new JButton("Create booking");
 
-        // Position properly
-        bookingsViewButton.setBounds(button_location_x, button_location_y, button_width, button_height);
-
-        // Add event listener
         bookingsViewButton.addActionListener(e -> handleNavigation(ViewTypes.ScreeningsView));
-        add(bookingsViewButton);
 
-        // Create second button
+        tabPanel.add(bookingsViewButton);
+
+        // Create booking overview button
         JButton bookingsOverviewButton = new JButton("Edit bookings");
 
-        // Position next to first button
-        bookingsOverviewButton.setBounds(button_location_x + button_width, button_location_y, button_width, button_height);
-
-        // Add event listener
         bookingsOverviewButton.addActionListener(e -> handleNavigation(ViewTypes.AuditoriumView));
-        add(bookingsOverviewButton);
+
+        tabPanel.add(bookingsOverviewButton);
+
+        // Set tabPanel location and size
+        tabPanel.setBounds(padding, padding, State.viewWidth - padding*2, button_height);
+
+        // Add tabPanel to Component
+        add(tabPanel);
+        
     }
 
     /**
