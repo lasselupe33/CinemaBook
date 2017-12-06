@@ -11,10 +11,6 @@ public class Seat {
         this.reserved = isReserved;
     }
 
-    public String getSeatId() {
-        return row + " - " + column;
-    }
-
     public int getRow() {
         return row;
     }

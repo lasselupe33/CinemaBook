@@ -1,6 +1,12 @@
 package com.cinemaBook.bootstrap;
 
 import com.cinemaBook.globals.DataHandler;
+import com.cinemaBook.model.Booking;
+import com.cinemaBook.model.Customer;
+import com.cinemaBook.model.Screening;
+import com.cinemaBook.model.Seat;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -22,6 +28,7 @@ public class MockDatabase {
         createScreeningInfo();
         createCustomersTable();
         createSeatAssignmentTable();
+        createBookingTable();
     }
 
     /**
@@ -159,10 +166,69 @@ public class MockDatabase {
             "row INT NOT NULL," +
             "col INT NOT NULL," +
             "isReserved BOOLEAN," +
-            "customer_id INT NOT NULL," +
-            "CONSTRAINT UC_Person UNIQUE (screening_id, row, col)," +
-            "FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)" +
+            "CONSTRAINT UC_Person UNIQUE (screening_id, row, col)" +
         ")";
         dataHandler.createTable(query);
+    }
+
+    /**
+     * Create table for bookings
+     */
+    private void createBookingTable() {
+        // Create the table
+        String query = "CREATE TABLE Bookings (" +
+            "booking_id INT PRIMARY KEY AUTO_INCREMENT," +
+            "customer_id INT NOT NULL," +
+            "screening_id INT NOT NULL," +
+            "reserved_seats VARCHAR(255) NOT NULL," +
+            "FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)," +
+            "FOREIGN KEY (screening_id) REFERENCES Screenings(screening_id)" +
+        ")";
+        dataHandler.createTable(query);
+
+        // CREATE TESTBOOKING1
+        ArrayList<Seat> reservedSeats = new ArrayList<>();
+
+        // Create seat reservations
+        reservedSeats.add(new Seat(2, 3, true));
+        reservedSeats.add(new Seat(4, 5, true));
+
+        // Create booking model
+        Customer customer = new Customer("Lasse Agersten", "123", "hej@gmail.com");
+        Screening screening = dataHandler.getScreenings(-1).get(0);
+        Booking booking = new Booking(customer, screening, reservedSeats);
+
+        // Submit booking model
+        dataHandler.submitBooking(booking);
+
+        // CREATE TESTBOOKING2
+        ArrayList<Seat> reservedSeats2 = new ArrayList<>();
+
+        // Create seat reservations
+        reservedSeats2.add(new Seat(1, 5, true));
+        reservedSeats2.add(new Seat(1, 4, true));
+        reservedSeats2.add(new Seat(1, 3, true));
+
+        // Create booking model
+        customer = new Customer("Lasse Agersten", "123", "hej@gmail.com");
+        screening = dataHandler.getScreenings(-1).get(0);
+        booking = new Booking(customer, screening, reservedSeats2);
+
+        // Submit booking model
+        dataHandler.submitBooking(booking);
+
+        // CREATE TESTBOOKING3
+        ArrayList<Seat> reservedSeats3 = new ArrayList<>();
+
+        // Create seat reservations
+        reservedSeats3.add(new Seat(3, 5, true));
+
+        // Create booking model
+        customer = new Customer("Mads Rued", "1233446", "hej@gmail.com");
+        screening = dataHandler.getScreenings(-1).get(0);
+        booking = new Booking(customer, screening, reservedSeats3);
+
+        // Submit booking model
+        dataHandler.submitBooking(booking);
     }
 }

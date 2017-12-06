@@ -30,4 +30,8 @@ public class SeatAssignment {
     public boolean isSeatReserved(int row, int column) {
         return seatAssignment[row][column].isReserved();
     }
+
+    public Seat getSeat(int row, int column) {
+        return seatAssignment[row][column];
+    }
 }

@@ -2,20 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b585772-54ea-4cde-b771-9d2d72db566f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Auditorium.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Auditorium.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Screening.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Screening.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Seat.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Seat.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/cinemaBook/globals/DataHandlerTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,6 +49,12 @@
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="sql11207684@sql11.freemysqlhosting.net" type="e3449647:DbNodeDescriptor" />
         <item name="sql11207684" type="e3449647:DbNodeDescriptor" />
+        <item name="Bookings" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="sql11207684@sql11.freemysqlhosting.net" type="e3449647:DbNodeDescriptor" />
+        <item name="sql11207684" type="e3449647:DbNodeDescriptor" />
         <item name="Customers" type="e3449647:DbNodeDescriptor" />
       </path>
       <path>
@@ -78,38 +80,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="primeApp.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="primeApp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state relative-caret-position="1122">
+              <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MockDatabase.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MockDatabase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="160" column="31" lean-forward="false" selection-start-line="160" selection-start-column="24" selection-end-line="160" selection-end-column="31" />
+            <state relative-caret-position="352">
+              <caret line="196" column="47" lean-forward="false" selection-start-line="196" selection-start-column="42" selection-end-line="196" selection-end-column="47" />
               <folding>
-                <marker date="1512570630664" expanded="true" signature="2326:2608" ph="CREATE TABLE... Films" />
-                <marker date="1512570630664" expanded="true" signature="4142:4526" ph="CREATE TABLE... Screenings" />
+                <marker date="1512589522611" expanded="true" signature="2533:2815" ph="CREATE TABLE... Films" />
+                <marker date="1512589522611" expanded="true" signature="4349:4733" ph="CREATE TABLE... Screenings" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Screening.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java">
+      <file leaf-file-name="Booking.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="39" column="69" lean-forward="false" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
-              <folding>
-                <element signature="e#726#727#0" expanded="true" />
-                <element signature="e#751#752#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,48 +116,83 @@
       <file leaf-file-name="DataHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4913">
-              <caret line="297" column="13" lean-forward="false" selection-start-line="297" selection-start-column="13" selection-end-line="297" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="456" column="51" lean-forward="false" selection-start-line="456" selection-start-column="51" selection-end-line="456" selection-end-column="51" />
               <folding>
-                <marker date="1512575551296" expanded="true" signature="1985:2011" ph="SET FOREIGN_... " />
-                <marker date="1512575551296" expanded="true" signature="2516:2527" ph="DROP TABLE m... " />
-                <marker date="1512575551296" expanded="true" signature="2516:2543" ph="DROP TABLE +... " />
-                <marker date="1512575551296" expanded="true" signature="2826:2852" ph="SET FOREIGN_... " />
-                <marker date="1512575551296" expanded="true" signature="4518:4587" ph="INSERT INTO missingValue... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5436" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5479" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5517" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5555" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5556" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5595" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5637" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5667" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5668" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5701" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5740" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5741" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5775" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5776" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5810" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5832" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5864" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5897" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5901" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5930" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:5953" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:6012" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:6043" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="5394:6055" ph="SELECT s.scr... " />
-                <marker date="1512575551296" expanded="true" signature="8596:8646" ph="SELECT * FRO... SeatAssignments" />
-                <marker date="1512575551296" expanded="true" signature="10281:10314" ph="SELECT * FRO... Customers" />
-                <marker date="1512575551296" expanded="true" signature="10281:10321" ph="SELECT * FRO... Customers" />
-                <marker date="1512575551296" expanded="true" signature="10281:10361" ph="SELECT COUNT... Customers" />
-                <marker date="1512575551296" expanded="true" signature="10281:10363" ph="SELECT COUNT... Customers" />
-                <marker date="1512575551296" expanded="true" signature="10281:10385" ph="SELECT COUNT... Customers" />
-                <marker date="1512575551296" expanded="true" signature="10281:10542" ph="SELECT custo... Customers" />
-                <marker date="1512575551296" expanded="true" signature="11242:11265" ph="SELECT LAST_... " />
-                <marker date="1512575551296" expanded="true" signature="11242:11268" ph="SELECT LAST_... " />
+                <marker date="1512591107907" expanded="true" signature="1928:1954" ph="SET FOREIGN_... " />
+                <marker date="1512591107907" expanded="true" signature="2459:2470" ph="DROP TABLE m... " />
+                <marker date="1512591107907" expanded="true" signature="2459:2486" ph="DROP TABLE +... " />
+                <marker date="1512591107907" expanded="true" signature="2769:2795" ph="SET FOREIGN_... " />
+                <marker date="1512591107907" expanded="true" signature="4461:4530" ph="INSERT INTO missingValue... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5329" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5372" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5410" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5448" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5449" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5488" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5530" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5560" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5561" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5594" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5633" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5634" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5668" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5669" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5703" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5725" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5757" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5790" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5794" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5823" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5846" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:5847" ph="SELECT s.scr... Screenings" />
+                <marker date="1512591107907" expanded="true" signature="5287:5942" ph="SELECT s.scr... Screenings" />
+                <marker date="1512591107907" expanded="true" signature="5287:5998" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:6029" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="5287:6041" ph="SELECT s.scr... " />
+                <marker date="1512591107907" expanded="true" signature="8005:8069" ph="SELECT * FRO... BOOKINGS" />
+                <marker date="1512591107907" expanded="true" signature="10519:10608" ph="SELECT reser... Bookings" />
+                <marker date="1512591107907" expanded="true" signature="11229:11267" ph="UPDATE Booki... " />
+                <marker date="1512591107907" expanded="true" signature="11229:11316" ph="UPDATE Booki... " />
+                <marker date="1512591107907" expanded="true" signature="11229:11335" ph="UPDATE Booki... " />
+                <marker date="1512591107907" expanded="true" signature="11722:11792" ph="SELECT scree... Bookings" />
+                <marker date="1512591107907" expanded="true" signature="11722:11811" ph="SELECT scree... Bookings" />
+                <marker date="1512591107907" expanded="true" signature="11722:11813" ph="SELECT scree... Bookings" />
+                <marker date="1512591107907" expanded="true" signature="11722:11814" ph="SELECT scree... Bookings" />
+                <marker date="1512591107907" expanded="true" signature="12202:12243" ph="DELETE FROM " />
+                <marker date="1512591107907" expanded="true" signature="12202:12262" ph="DELETE FROM " />
+                <marker date="1512591107907" expanded="true" signature="13178:13204" ph="SELECT LAST_... " />
+                <marker date="1512591107907" expanded="true" signature="14644:14694" ph="SELECT * FRO... SeatAssignment" />
+                <marker date="1512591107907" expanded="true" signature="15646:15907" ph="SELECT custo... Customers" />
+                <marker date="1512591107907" expanded="true" signature="17487:17513" ph="SELECT LAST_... " />
+                <marker date="1512591107907" expanded="true" signature="19171:19310" ph="DELETE FROM " />
+                <marker date="1512591107907" expanded="true" signature="19171:19398" ph="DELETE FROM " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatAssignment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+              <folding>
+                <element signature="e#822#823#0" expanded="true" />
+                <element signature="e#885#886#0" expanded="true" />
+                <element signature="e#933#934#0" expanded="true" />
+                <element signature="e#983#984#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,11 +200,21 @@
       <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="170">
               <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Seat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
-                <element signature="e#604#605#0" expanded="true" />
-                <element signature="e#632#633#0" expanded="true" />
+                <element signature="e#363#364#0" expanded="true" />
+                <element signature="e#392#393#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -185,8 +229,8 @@
         <option value="Arquillian JUnit Test Class" />
         <option value="JUnit5 Test Class" />
         <option value="Singleton" />
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -195,6 +239,11 @@
       <find>startTime</find>
       <find>system.out.print</find>
       <find>reserved seats</find>
+      <find>insertSeat</find>
+      <find>submit</find>
+      <find>int[]</find>
+      <find>delete</find>
+      <find>Seat[]</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -235,19 +284,20 @@
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/AuditoriumController.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/View.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/MainPane.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/ScreeningsView.java" />
         <option value="$PROJECT_DIR$/test/com/cinemaBook/model/CustomerTest.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Film.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" />
+        <option value="$PROJECT_DIR$/test/com/cinemaBook/globals/DataHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" />
       </list>
     </option>
@@ -640,7 +690,7 @@
       <workItem from="1512425760274" duration="2236000" />
       <workItem from="1512428471823" duration="169000" />
       <workItem from="1512554535671" duration="18957000" />
-      <workItem from="1512577048298" duration="163000" />
+      <workItem from="1512577048298" duration="12332000" />
     </task>
     <servers />
   </component>
@@ -656,7 +706,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56579000" />
+    <option name="totallyTimeSpent" value="68748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -664,17 +714,17 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19300106" sideWeight="0.475" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19300106" sideWeight="0.46875" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32979852" sideWeight="0.5395833" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32661718" sideWeight="0.40677083" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32661718" sideWeight="0.42135417" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32661718" sideWeight="0.5932292" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32979852" sideWeight="0.46041667" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.43333334" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18854167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26302084" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -704,26 +754,18 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="10" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <marker date="1512570630664" expanded="true" signature="2326:2608" ph="CREATE TABLE... Films" />
-            <marker date="1512570630664" expanded="true" signature="4142:4526" ph="CREATE TABLE... Screenings" />
+            <marker date="1512589522611" expanded="true" signature="2533:2815" ph="CREATE TABLE... Films" />
+            <marker date="1512589522611" expanded="true" signature="4349:4733" ph="CREATE TABLE... Screenings" />
           </folding>
         </state>
       </provider>
@@ -1032,16 +1074,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/cinemaBook/globals/RouterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/State.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1087,14 +1119,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1162,104 +1186,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-          <folding>
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="30" column="56" lean-forward="false" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
-          <folding>
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="23" />
           <folding>
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="e#604#605#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4913">
-          <caret line="297" column="13" lean-forward="false" selection-start-line="297" selection-start-column="13" selection-end-line="297" selection-end-column="13" />
-          <folding>
-            <marker date="1512575551296" expanded="true" signature="1985:2011" ph="SET FOREIGN_... " />
-            <marker date="1512575551296" expanded="true" signature="2516:2527" ph="DROP TABLE m... " />
-            <marker date="1512575551296" expanded="true" signature="2516:2543" ph="DROP TABLE +... " />
-            <marker date="1512575551296" expanded="true" signature="2826:2852" ph="SET FOREIGN_... " />
-            <marker date="1512575551296" expanded="true" signature="4518:4587" ph="INSERT INTO missingValue... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5436" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5479" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5517" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5555" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5556" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5595" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5637" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5667" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5668" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5701" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5740" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5741" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5775" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5776" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5810" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5832" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5864" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5897" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5901" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5930" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:5953" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:6012" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:6043" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="5394:6055" ph="SELECT s.scr... " />
-            <marker date="1512575551296" expanded="true" signature="8596:8646" ph="SELECT * FRO... SeatAssignments" />
-            <marker date="1512575551296" expanded="true" signature="10281:10314" ph="SELECT * FRO... Customers" />
-            <marker date="1512575551296" expanded="true" signature="10281:10321" ph="SELECT * FRO... Customers" />
-            <marker date="1512575551296" expanded="true" signature="10281:10361" ph="SELECT COUNT... Customers" />
-            <marker date="1512575551296" expanded="true" signature="10281:10363" ph="SELECT COUNT... Customers" />
-            <marker date="1512575551296" expanded="true" signature="10281:10385" ph="SELECT COUNT... Customers" />
-            <marker date="1512575551296" expanded="true" signature="10281:10542" ph="SELECT custo... Customers" />
-            <marker date="1512575551296" expanded="true" signature="11242:11265" ph="SELECT LAST_... " />
-            <marker date="1512575551296" expanded="true" signature="11242:11268" ph="SELECT LAST_... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="39" column="69" lean-forward="false" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
-          <folding>
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1272,42 +1205,164 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        <state relative-caret-position="451">
+          <caret line="39" column="69" lean-forward="false" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql">
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
+        <state relative-caret-position="204">
+          <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
           <folding>
-            <marker date="1512575593038" expanded="true" signature="0:14" ph="SELECT * FRO... Customers" />
+            <element signature="e#554#555#0" expanded="false" />
+            <element signature="e#631#632#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java">
+    <entry file="file://$PROJECT_DIR$/test/com/cinemaBook/globals/RouterTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+        <state relative-caret-position="391">
+          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/cinemaBook/globals/DataHandlerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+          <folding>
+            <element signature="e#822#823#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+            <element signature="e#983#984#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="160" column="31" lean-forward="false" selection-start-line="160" selection-start-column="24" selection-end-line="160" selection-end-column="31" />
+        <state relative-caret-position="352">
+          <caret line="196" column="47" lean-forward="false" selection-start-line="196" selection-start-column="42" selection-end-line="196" selection-end-column="47" />
           <folding>
-            <marker date="1512570630664" expanded="true" signature="2326:2608" ph="CREATE TABLE... Films" />
-            <marker date="1512570630664" expanded="true" signature="4142:4526" ph="CREATE TABLE... Screenings" />
+            <marker date="1512589522611" expanded="true" signature="2533:2815" ph="CREATE TABLE... Films" />
+            <marker date="1512589522611" expanded="true" signature="4349:4733" ph="CREATE TABLE... Screenings" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="456" column="51" lean-forward="false" selection-start-line="456" selection-start-column="51" selection-end-line="456" selection-end-column="51" />
+          <folding>
+            <marker date="1512591107907" expanded="true" signature="1928:1954" ph="SET FOREIGN_... " />
+            <marker date="1512591107907" expanded="true" signature="2459:2470" ph="DROP TABLE m... " />
+            <marker date="1512591107907" expanded="true" signature="2459:2486" ph="DROP TABLE +... " />
+            <marker date="1512591107907" expanded="true" signature="2769:2795" ph="SET FOREIGN_... " />
+            <marker date="1512591107907" expanded="true" signature="4461:4530" ph="INSERT INTO missingValue... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5329" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5372" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5410" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5448" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5449" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5488" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5530" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5560" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5561" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5594" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5633" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5634" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5668" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5669" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5703" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5725" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5757" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5790" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5794" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5823" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5846" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:5847" ph="SELECT s.scr... Screenings" />
+            <marker date="1512591107907" expanded="true" signature="5287:5942" ph="SELECT s.scr... Screenings" />
+            <marker date="1512591107907" expanded="true" signature="5287:5998" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:6029" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="5287:6041" ph="SELECT s.scr... " />
+            <marker date="1512591107907" expanded="true" signature="8005:8069" ph="SELECT * FRO... BOOKINGS" />
+            <marker date="1512591107907" expanded="true" signature="10519:10608" ph="SELECT reser... Bookings" />
+            <marker date="1512591107907" expanded="true" signature="11229:11267" ph="UPDATE Booki... " />
+            <marker date="1512591107907" expanded="true" signature="11229:11316" ph="UPDATE Booki... " />
+            <marker date="1512591107907" expanded="true" signature="11229:11335" ph="UPDATE Booki... " />
+            <marker date="1512591107907" expanded="true" signature="11722:11792" ph="SELECT scree... Bookings" />
+            <marker date="1512591107907" expanded="true" signature="11722:11811" ph="SELECT scree... Bookings" />
+            <marker date="1512591107907" expanded="true" signature="11722:11813" ph="SELECT scree... Bookings" />
+            <marker date="1512591107907" expanded="true" signature="11722:11814" ph="SELECT scree... Bookings" />
+            <marker date="1512591107907" expanded="true" signature="12202:12243" ph="DELETE FROM " />
+            <marker date="1512591107907" expanded="true" signature="12202:12262" ph="DELETE FROM " />
+            <marker date="1512591107907" expanded="true" signature="13178:13204" ph="SELECT LAST_... " />
+            <marker date="1512591107907" expanded="true" signature="14644:14694" ph="SELECT * FRO... SeatAssignment" />
+            <marker date="1512591107907" expanded="true" signature="15646:15907" ph="SELECT custo... Customers" />
+            <marker date="1512591107907" expanded="true" signature="17487:17513" ph="SELECT LAST_... " />
+            <marker date="1512591107907" expanded="true" signature="19171:19310" ph="DELETE FROM " />
+            <marker date="1512591107907" expanded="true" signature="19171:19398" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

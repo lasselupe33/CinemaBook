@@ -4,6 +4,7 @@ import com.cinemaBook.model.*;
 
 import java.lang.reflect.Executable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.sql.*;
 import java.util.Map;
@@ -26,9 +27,6 @@ public class DataHandler {
 
     // Store a reference to the dataHandler
     private static final DataHandler instance = new DataHandler();
-
-    // Fields used for caching
-    private ArrayList<Screening> screeningsCache;
 
     /**
      * The constructor sets up the connection with the database and creates the default statement.
@@ -122,31 +120,22 @@ public class DataHandler {
             statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (Exception e) {
             System.out.println("Failed to insert data..");
+            System.out.println(table);
+            System.out.println(columns);
             System.out.println(e.getMessage());
         }
     }
 
-    public void getScreeningSeatings() {
-
-    }
-
-    public void getBookings() {
-
-    }
-
     /**
      * Method that returns the entire list of screenings found in the cinema.
+     *
+     * @param screening_id The id of the desired screening. Set to -1 to fetch all screenings.
      */
-    public ArrayList<Screening> getScreenings() {
-        // If screenings have already been fetched, return the cached screenings.
-        if (screeningsCache != null) {
-            return screeningsCache;
-        }
-
+    public ArrayList<Screening> getScreenings(int screening_id) {
         try {
             ArrayList<Screening> screenings = new ArrayList<>();
 
-            // Get all screenings and their associated fields
+            // Get all selected screenings and their associated fields
             String query = "SELECT " +
                 "s.screening_id," +
                 "s.screening_startTime," +
@@ -164,6 +153,7 @@ public class DataHandler {
                 "Auditoriums a," +
                 "Films f " +
             "WHERE " +
+                (screening_id != -1 ? "s.screening_id = '" + screening_id + "' AND " : "") +
                 "s.auditorium_id = a.auditorium_id AND " +
                 "s.film_id = f.film_id";
 
@@ -189,9 +179,6 @@ public class DataHandler {
                 screenings.add(new Screening(screeningId, startTime, film, auditorium, seatAssignment));
             }
 
-            // Cache screenings for future reference
-            this.screeningsCache = screenings;
-
             // Return the list of screenings
             return screenings;
         } catch (Exception e) {
@@ -204,6 +191,148 @@ public class DataHandler {
     }
 
     /**
+     * This method is made in order to get a list of bookings made by a customer
+     * @param customer A customer model
+     * @return an arrayList of bookings made by a customer - Will be null if no customer exist
+     */
+    public ArrayList<Booking> getBookingsByCustomer(Customer customer) {
+        int customer_id = this.getCustomerId(customer);
+
+        // If no customer id exist, then there will be no associated bookings..
+        if (customer_id == -1) {
+            return null;
+        } else {
+            try {
+                // Execute query to get all bookings for the customer
+                String query = "SELECT * FROM Bookings WHERE customer_id = '" + customer_id + "';";
+                ResultSet rs = connection.createStatement().executeQuery(query);
+
+                ArrayList<Booking> bookings = new ArrayList<>();
+
+                // Loop over bookings and add them to the array
+                while (rs.next()) {
+                    // Get the associated screening
+                    Screening screening = this.getScreenings(rs.getInt("screening_id")).get(0);
+
+                    // Get the reserved seats and format them into an array usable in the code.
+                    ArrayList<Seat> reservedSeats = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
+
+                    // Create a booking model with the fetched information
+                    Booking booking = new Booking(customer, screening, reservedSeats);
+
+                    // Store its id as well
+                    booking.setId(rs.getInt("booking_id"));
+
+                    // Add the booking to the list of user bookings
+                    bookings.add(booking);
+                }
+
+                return bookings;
+            } catch (Exception e) {
+                throw new Error("Couldn't fetch bookings for customer with id=" + customer_id + ". " + e.getMessage());
+            }
+        }
+    }
+
+    /**
+     * This function submits a booking to the database based on the booking object passed.
+     *
+     * In other words, it creates a customer if he/she doesn't exist yet, while also updating the seatAssignment for the
+     * given screening
+     */
+    public void submitBooking(Booking booking) {
+        // Insert the customer into the database
+        int customer_id = insertCustomer(booking.getCustomer());
+
+        // Get the screening ID
+        int screening_id = booking.getScreening().getId();
+
+        // Update the reserved seats in the database
+        insertSeatReservation(screening_id, booking.getReservedSeats());
+
+        // Store the booking
+        insertBooking(customer_id, screening_id, booking);
+    }
+
+    /**
+     * When updating a booking, the old seats will be cleared from the seatAssignment and afterwards the new will be
+     * added.
+     *
+     * Furthermore the booking entry will be updated as well.
+     *
+     * @param booking_id
+     * @param newReservedSeats
+     */
+    public void updateBooking(int booking_id, ArrayList<Seat> newReservedSeats) {
+        try {
+            // First, get the list of old seats
+            ResultSet rs = statement.executeQuery("SELECT screening_id, reserved_seats FROM Bookings WHERE booking_id = '" + booking_id + "';");
+            rs.next();
+            ArrayList<Seat> oldReservedSeats = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
+
+            // Delete old seats
+            int screening_id = rs.getInt("screening_id");
+            this.deleteSeatReservation(screening_id, oldReservedSeats);
+
+            // Now add the list of new seats
+            this.insertSeatReservation(screening_id, newReservedSeats);
+
+            // Finally update the booking with the new seats
+            String reservedSeatsString = this.convertReservedSeatsToString(newReservedSeats);
+            statement.executeUpdate("UPDATE Bookings SET reserved_seats = '" + reservedSeatsString + "' WHERE booking_id = '" + booking_id + "';");
+        } catch (Exception e) {
+            throw new Error("Failed to update booking: " + e.getMessage());
+        }
+    }
+
+    /**
+     * When called this deletes a booking along with its reserved seats.
+     */
+    public void deleteBooking(int booking_id) {
+        try {
+            // First, get the list of seats to delete.
+            ResultSet rs = statement.executeQuery("SELECT screening_id, reserved_seats FROM Bookings WHERE booking_id = '" + booking_id + "';");
+            rs.next();
+            ArrayList<Seat> seatsToBeDeleted = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
+
+            // Delete the old seats
+            int screening_id = rs.getInt("screening_id");
+            this.deleteSeatReservation(screening_id, seatsToBeDeleted);
+
+            // Now delete the booking!
+            statement.executeUpdate("DELETE FROM Bookings WHERE booking_id = '" + booking_id + "';");
+        } catch (Exception e) {
+            throw new Error("Failed to delete booking! " + e.getMessage());
+        }
+    }
+
+    /**
+     * This function inserts a booking into the booking table
+     * @param customer_id The id of the customer
+     * @param screening_id The id of the screening
+     * @param booking The bookingModel
+     */
+    private void insertBooking(int customer_id, int screening_id, Booking booking) {
+        HashMap<String, String> bookingMap = new HashMap<>();
+        bookingMap.put("customer_id", "" + customer_id);
+        bookingMap.put("screening_id", "" + screening_id);
+        bookingMap.put("reserved_seats", convertReservedSeatsToString(booking.getReservedSeats()));
+        this.insertData("Bookings", bookingMap);
+
+        try {
+            // Create a new statement to get the id of the newly inserted booking
+            ResultSet idResultSet = statement.executeQuery("SELECT LAST_INSERT_ID() id");
+            idResultSet.next();
+
+            // Update the booking model with the newly created id
+            booking.setId(idResultSet.getInt("id"));
+        } catch (Exception e) {
+            System.out.println("Failed to set the id of the booking..");
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
      * This function generates the seatAssignment for a given screening.
      *
      * @param screeningId The id of the screening.
@@ -211,7 +340,7 @@ public class DataHandler {
      * @param auditoriumColumns The amount of columns in the auditorium.
      * @return The seatAssignments in a two dimensional array
      */
-    public Seat[][] getSeatAssignment(int screeningId, int auditoriumRows, int auditoriumColumns) {
+    private Seat[][] getSeatAssignment(int screeningId, int auditoriumRows, int auditoriumColumns) {
         Seat[][] seats = new Seat[auditoriumRows][auditoriumColumns];
 
         // Loop through the seats array and populate with empty seats
@@ -247,30 +376,11 @@ public class DataHandler {
     }
 
     /**
-     * This function submits a booking to the database based on the booking object passed.
-     *
-     * In other words, it creates a customer if he/she doesn't exist yet, while also updating the seatAssignment for the
-     * given screening
+     * Internal helper that returns the id of a customer
+     * @param customer
+     * @return The id of the customer. Will return "-1" if the customer doesn't exist in the database
      */
-    public void submitBooking(Booking booking) {
-        // Insert the customer into the database
-        int customer_id = insertCustomer(booking.getCustomer());
-
-        int screening_id = booking.getScreening().getId();
-
-        // Update the reserved seats in the database
-        insertSeatReservation(screening_id, customer_id, booking.getReservedSeats());
-    }
-
-
-    /**
-     * Internal helper that inserts a customer to a database (if the customer doesn't exist yet), and then returns the
-     * customer id
-     *
-     * @param customer The customer object
-     * @return The id of the inserted customer
-     */
-    private int insertCustomer(Customer customer) {
+    private int getCustomerId(Customer customer) {
         try {
             String query = "SELECT customer_id FROM Customers WHERE " +
                     "customer_name = '" + customer.getName() + "' AND " +
@@ -281,8 +391,34 @@ public class DataHandler {
 
             int customer_id;
 
-            // Only create a new user if none exists with the given information
+            // If a user haven't been found, then set the customer id to "-1", i.e. not existing
             if (!rs.next()) {
+                customer_id = -1;
+            } else {
+                // Else, retrieve the customerID
+                customer_id = rs.getInt("customer_id");
+            }
+
+            return customer_id;
+        } catch (Exception e) {
+            throw new Error("Failed to retrieve customer id! " + e.getMessage());
+        }
+    }
+
+    /**
+     * Internal helper that inserts a customer to a database (if the customer doesn't exist yet), and then returns the
+     * customer id
+     *
+     * @param customer The customer object
+     * @return The id of the inserted customer
+     */
+    private int insertCustomer(Customer customer) {
+        try {
+            // Get customer id
+            int customer_id = getCustomerId(customer);
+
+            // Only insert customer if he/she doens't exist already in the database
+            if (customer_id == -1) {
                 HashMap<String, String> customerMap = new HashMap<>();
                 customerMap.put("customer_name", customer.getName());
                 customerMap.put("customer_phone", customer.getPhone());
@@ -292,12 +428,14 @@ public class DataHandler {
                 // Create a new statement to get the id of the newly inserted customer
                 ResultSet idResultSet = statement.executeQuery("SELECT LAST_INSERT_ID() id");
                 idResultSet.next();
-                customer_id = idResultSet.getInt("id");
+
+                // Return the id of the newly inserted customer
+                return idResultSet.getInt("id");
             } else {
-                customer_id = rs.getInt("customer_id");
+                // Else just return the customer id
+                return customer_id;
             }
 
-            return customer_id;
         } catch (Exception e) {
             throw new Error("Error while inserting user to database... " + e.getMessage());
         }
@@ -306,19 +444,42 @@ public class DataHandler {
     /**
      * Internal helper that updates the reservation of seats for a given screening
      */
-    private void insertSeatReservation(int screeningId, int customer_id, ArrayList<Integer[]> seats) {
+    private void insertSeatReservation(int screeningId, ArrayList<Seat> seats) {
+        Screening screening = this.getScreenings(screeningId).get(0);
+
         // Loop over all the seat reservations and insert the data into the database
-        for (Integer[] seat : seats) {
+        for (Seat seat : seats) {
             HashMap<String, String> seatInformation = new HashMap<>();
             // Create info map
             seatInformation.put("screening_id", "" + screeningId);
-            seatInformation.put("customer_id", "" + customer_id);
-            seatInformation.put("row", "" + seat[0]);
-            seatInformation.put("col", "" + seat[1]);
+            seatInformation.put("row", "" + seat.getRow());
+            seatInformation.put("col", "" + seat.getColumn());
             seatInformation.put("isReserved", "1");
 
             // Insert data!
             this.insertData("SeatAssignment", seatInformation);
+        }
+    }
+
+    /**
+     * This method deletes seatReservations.
+     *
+     * @param screeningId The id of the screening in which the seats are
+     * @param seats an arrayList of seats that contains an array with the row and a column value for a seat.
+     */
+    private void deleteSeatReservation(int screeningId, ArrayList<Seat> seats) {
+        for (Seat seat : seats) {
+            try {
+                String query = "DELETE FROM SeatAssignment WHERE " +
+                        "screening_id = '" + screeningId + "' AND " +
+                        "row = '" + seat.getRow() + "' AND " +
+                        "col = '" + seat.getColumn() + "'" +
+                        ";";
+                statement.executeUpdate(query);
+            } catch (Exception e) {
+                throw new Error("Failed to delete seat with row=" + seat.getRow() + " and col=" + seat.getColumn() + ". " + e.getMessage());
+            }
+
         }
     }
 
@@ -361,5 +522,47 @@ public class DataHandler {
         } catch (Exception e) {
             throw new Error("Error occurred while creating a filmModel... " + e.getMessage());
         }
+    }
+
+    /**
+     * Internal helper that formats the reserved seats of a booking to a string
+     * @param reservedSeats the ArrayList of reserved seats of the booking
+     * @return A string in the form of "row1,col1:row2,col2:row3:col3....
+     */
+    private String convertReservedSeatsToString(ArrayList<Seat> reservedSeats) {
+        // Convert arrayList of reserved seats into string of the following form "x1,y1:x2,y2:x3,y3...."
+        String seatsString = "";
+        for (int i = 0; i < reservedSeats.size(); i++) {
+            // Add a single seat with the row first followed by a comma and then the column
+            seatsString += reservedSeats.get(i).getRow() + "," + reservedSeats.get(i).getColumn();
+
+            // If this isn't the last reserved seat add a ":" to be used as a delimiter
+            if (i != reservedSeats.size() - 1) {
+                seatsString += ":";
+            }
+        }
+
+        return seatsString;
+    }
+
+    /**
+     * Internal helper that formats a string of reserved seats of a booking back into an ArrayList<Seat>
+     * that contains arrays of seats with a row and a column value.
+     *
+     * @param reservedSeatsString the string of reserved seats of the booking
+     * @return an arrayList of reserved seats rows and columns.
+     */
+    private ArrayList<Seat> convertReservedSeatsStringToArray(String reservedSeatsString) {
+        ArrayList<Seat> reservedSeats = new ArrayList<>();
+
+        String[] seats = reservedSeatsString.split(":");
+
+        for (String seat : seats) {
+            // Convert seat string to an array where the first index is the row and the second the column
+            int[] seatInfo = Arrays.stream(seat.split(",")).mapToInt(Integer::parseInt).toArray();
+            reservedSeats.add(new Seat(seatInfo[0], seatInfo[1], true));
+        }
+
+        return reservedSeats;
     }
 }
