@@ -3,10 +3,12 @@ package com.cinemaBook.model;
 public class Seat {
     private int row;
     private int column;
+    private boolean reserved;
 
-    public Seat(int row, int column) {
+    public Seat(int row, int column, boolean isReserved) {
         this.row = row;
         this.column = column;
+        this.reserved = isReserved;
     }
 
     public String getSeatId() {
@@ -19,5 +21,11 @@ public class Seat {
 
     public int getColumn() {
         return column;
+    }
+
+    public boolean isReserved() { return reserved; }
+
+    public void setReserved(boolean reservedState) {
+        this.reserved = reservedState;
     }
 }

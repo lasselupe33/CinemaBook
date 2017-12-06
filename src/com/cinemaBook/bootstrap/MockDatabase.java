@@ -21,7 +21,7 @@ public class MockDatabase {
         createFilmInfo();
         createScreeningInfo();
         createCustomersTable();
-        createSeatAssignmentsTable();
+        createSeatAssignmentTable();
     }
 
     /**
@@ -150,14 +150,15 @@ public class MockDatabase {
     }
 
     /**
-     * Create table for seatAssignments
+     * Create table for seatAssignment
      */
-    private void createSeatAssignmentsTable() {
+    private void createSeatAssignmentTable() {
         // Create the table
-        String query = "CREATE TABLE SeatAssignments (" +
+        String query = "CREATE TABLE SeatAssignment (" +
             "screening_id INT NOT NULL," +
             "row INT NOT NULL," +
             "col INT NOT NULL," +
+            "isReserved BOOLEAN," +
             "customer_id INT NOT NULL," +
             "CONSTRAINT UC_Person UNIQUE (screening_id, row, col)," +
             "FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)" +

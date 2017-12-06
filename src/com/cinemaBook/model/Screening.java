@@ -11,23 +11,31 @@ public class Screening {
     private Date startTime;
     private Film filmPlaying;
     private Auditorium auditorium;
+    private SeatAssignment seatAssignment;
 
-    public Screening(int screeningId, Date startTime, Film filmPlaying, Auditorium auditorium) {
+    public Screening(int screeningId, Date startTime, Film filmPlaying, Auditorium auditorium, SeatAssignment seatAssignment) {
         this.id = screeningId;
         this.startTime = startTime;
         this.filmPlaying = filmPlaying;
         this.auditorium = auditorium;
+        this.seatAssignment = seatAssignment;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public Date getStartTime() {
         return startTime;
     }
 
-    public Film getFilmPlaying() {
+    public Film getFilm() {
         return filmPlaying;
     }
 
     public Auditorium getAuditorium() {
         return auditorium;
     }
+
+    public SeatAssignment getSeatAssignment() { return seatAssignment; }
 }
