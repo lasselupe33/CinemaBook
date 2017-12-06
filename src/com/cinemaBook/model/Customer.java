@@ -5,12 +5,12 @@ package com.cinemaBook.model;
  */
 public class Customer {
     private String name;
-    private String number;
+    private String phone;
     private String email;
 
-    public Customer(String name, String number, String email) {
+    public Customer(String name, String phone, String email) {
         this.name = name;
-        this.number = number;
+        this.phone = phone;
         this.email = email;
     }
 
@@ -24,8 +24,8 @@ public class Customer {
     /**
      * @return Returns the phone number of the customer
      */
-    public String getNumber() {
-        return number;
+    public String getPhone() {
+        return phone;
     }
 
     /**

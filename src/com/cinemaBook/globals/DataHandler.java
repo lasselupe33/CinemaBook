@@ -55,6 +55,9 @@ public class DataHandler {
      */
     public void clearData() {
         try {
+            // Delete all data unconditionally
+            statement.executeQuery("SET FOREIGN_KEY_CHECKS = 0");
+
             // Execute query to get all tables in database
             String query = "SHOW TABLES";
             ResultSet rs = statement.executeQuery(query);
@@ -70,6 +73,13 @@ public class DataHandler {
         } catch (Exception e) {
             System.out.println("Couldn't clear tables..");
             System.out.println(e.getMessage());
+        } finally {
+            try {
+                // Enable foreign keys again
+                statement.executeQuery("SET FOREIGN_KEY_CHECKS = 1");
+            } catch (Exception e) {
+                throw new Error("Foreign key checks couldn't be enabled again!");
+            }
         }
     }
 
@@ -115,16 +125,8 @@ public class DataHandler {
         }
     }
 
-    public void updateData() {
-
-    }
-
-    public void deleteData() {
-
-    }
-
     /**
-     * Method that returns the entire list of screenigns found in the cinema.
+     * Method that returns the entire list of screenings found in the cinema.
      */
     public ArrayList<Screening> getScreenings() {
         // If screenings have already been fetched, return the cached screenings.
@@ -135,25 +137,41 @@ public class DataHandler {
         try {
             ArrayList<Screening> screenings = new ArrayList<>();
 
-            // Get all screenings
-            String query = "SELECT * FROM Screenings";
-            ResultSet rs = statement.executeQuery(query);
+            // Get all screenings and their associated fields
+            String query = "SELECT " +
+                "s.screening_id," +
+                "s.screening_startTime," +
+                "a.auditorium_id," +
+                "a.auditorium_name," +
+                "a.auditorium_rows," +
+                "a.auditorium_columns," +
+                "f.film_id," +
+                "f.film_name," +
+                "f.film_description," +
+                "f.film_rating," +
+                "f.film_minAge " +
+            "FROM " +
+                "Screenings s," +
+                "Auditoriums a," +
+                "Films f " +
+            "WHERE " +
+                "s.auditorium_id = a.auditorium_id AND " +
+                "s.film_id = f.film_id";
 
-            Statement auditoriumStatement = connection.createStatement();
+            // Execute the query
+            ResultSet rs = statement.executeQuery(query);
 
             // Loop over all active screenings
             while (rs.next()) {
-                // Get related film
-                int filmId = rs.getInt("filmID");
-                Film film = getFilm(filmId);
+                // Get related filmModel
+                Film film = createFilmModel(rs);
 
                 // Get related auditorium
-                int auditoriumId = rs.getInt("auditoriumID");
-                Auditorium auditorium = getAuditorium(auditoriumId);
+                Auditorium auditorium = createAuditoriumModel(rs);
 
                 // Get screening specific information
-                Date startTime = new Date(rs.getLong("startTime"));
-                int screeningId = rs.getInt("sID");
+                Date startTime = rs.getDate("screening_startTime");
+                int screeningId = rs.getInt("screening_id");
 
                 // Create screeningModel and add it to the array of all screenings
                 screenings.add(new Screening(screeningId, startTime, film, auditorium));
@@ -174,62 +192,43 @@ public class DataHandler {
     }
 
     /**
-     * Method that returns a filmModel, given a specific film ID.
-     * Will only be called by internal DataHandler methods.
+     * Internal helper that creates an auditorium model, based on a ResultSet already fetched
      *
-     * @param fID a film ID
-     * @return Returns a filmModel.
+     * @return Returns an auditoriumModel
      */
-    private Film getFilm(int fID) {
+    private Auditorium createAuditoriumModel(ResultSet rs) {
         try {
-            // Create secondary statements to ensure other resultSets won't be overwritten
-            Statement filmStatement = connection.createStatement();
+            // Get information related to the auditorium model
+            int auditorium_id = rs.getInt("auditorium_id");
+            String auditorium_name = rs.getString("auditorium_name");
+            int auditorium_rows = rs.getInt("auditorium_rows");
+            int auditorium_columns = rs.getInt("auditorium_columns");
 
-            // Retrieve information about the film
-            ResultSet film = filmStatement.executeQuery("SELECT * FROM Films WHERE fID = " + fID + ";");
-
-            // Move cursor to film
-            film.next();
-
-            // Store film info
-            String filmName = film.getString("name");
-            Double filmRating = film.getDouble("rating");
-            int filmMinAge = film.getInt("minAge");
-
-            // Create a new model to store this data and return it
-            return new Film(filmName, filmRating, filmMinAge);
+            // Create and return the auditorium model
+            return new Auditorium(auditorium_id, auditorium_name, auditorium_rows, auditorium_columns);
         } catch (Exception e) {
-            throw new Error("Failed to retrieve film... " + e.getMessage());
+            throw new Error("Error occurred while creating an auditoriumModel... " + e.getMessage());
         }
     }
 
     /**
-     * Method that returns an auditoriumModel, given a specific auditorium ID.
-     * Will only be called by internal DataHandler methods.
+     * Internal helper that creates a film model, based on a ResultSet already fetched
      *
-     * @param aID an auditorium ID
-     * @return Returns an auditoriumModel.
+     * @return Returns a filmModel
      */
-    private Auditorium getAuditorium(int aID) {
+    private Film createFilmModel(ResultSet rs) {
         try {
-            // Create secondary statements to ensure other resultSets won't be overwritten
-            Statement auditoriumStatement = connection.createStatement();
+            // Get information related to the auditorium model
+            int film_id = rs.getInt("film_id");
+            String film_name = rs.getString("film_name");
+            String film_description = rs.getString("film_description");
+            double film_rating = rs.getDouble("film_rating");
+            int film_minAge = rs.getInt("film_minAge");
 
-            // Retrieve information about the auditorium
-            ResultSet auditorium = auditoriumStatement.executeQuery("SELECT * FROM Auditoriums WHERE aID = " + aID + ";");
-
-            // Move cursor to film
-            auditorium.next();
-
-            // Store film info
-            String auditoriumName = auditorium.getString("name");
-            int auditoriumRows = auditorium.getInt("rows");
-            int auditoriumSeatsPerRow = auditorium.getInt("seatsPerRow");
-
-            // Create a new model to store this data and return it
-            return new Auditorium(auditoriumName, auditoriumRows, auditoriumSeatsPerRow);
+            // Create and return the auditorium model
+            return new Film(film_id, film_name, film_description, film_rating, film_minAge);
         } catch (Exception e) {
-            throw new Error("Failed to retrieve auditorium... " + e.getMessage());
+            throw new Error("Error occurred while creating a filmModel... " + e.getMessage());
         }
     }
 }

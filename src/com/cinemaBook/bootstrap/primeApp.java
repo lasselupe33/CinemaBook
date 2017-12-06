@@ -9,13 +9,18 @@ import java.util.ArrayList;
 
 public class primeApp {
     public static void main(String[] args) {
-        if (false) {
+        if (true) {
             // Create database mock up
             MockDatabase mockUp = new MockDatabase();
             mockUp.createDatabaseMockUp();
         }
 
+        Screening test = DataHandler.getInstance().getScreenings().get(0);
+        System.out.println(test.getStartTime());
+
         // default to ScreeningsView
-        Router.getInstance().updateLocation(ViewTypes.ScreeningsView);
+        if (false) {
+            Router.getInstance().updateLocation(ViewTypes.ScreeningsView);
+        }
     }
 }
