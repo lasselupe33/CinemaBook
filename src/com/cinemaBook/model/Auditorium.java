@@ -12,4 +12,8 @@ public class Auditorium {
     public int getAmountOfSeats() {
         return this.seats.length * this.seats[0].length;
     }
+
+    public String getName() {
+        return name;
+    }
 }
