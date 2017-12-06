@@ -9,7 +9,7 @@ public class Auditorium {
         this.seats = new int[rows][seatPerRow];
     }
 
-    protected int getAmountOfSeats() {
+    public int getAmountOfSeats() {
         return this.seats.length * this.seats[0].length;
     }
 }

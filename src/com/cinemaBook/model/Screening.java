@@ -1,17 +1,25 @@
 package com.cinemaBook.model;
 
+import java.util.Date;
+
+/**
+ * This model contains information about a single screening (i.e. a movie being displayed in a given auditorium at a
+ * given time)
+ */
 public class Screening {
-    private int startTime;
+    private int id;
+    private Date startTime;
     private Film filmPlaying;
     private Auditorium auditorium;
 
-    public Screening(int startTime, Film filmPlaying, Auditorium auditorium) {
+    public Screening(int screeningId, Date startTime, Film filmPlaying, Auditorium auditorium) {
+        this.id = screeningId;
         this.startTime = startTime;
         this.filmPlaying = filmPlaying;
         this.auditorium = auditorium;
     }
 
-    public int getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 

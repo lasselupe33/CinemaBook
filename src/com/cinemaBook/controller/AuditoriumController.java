@@ -6,11 +6,12 @@ import com.cinemaBook.view.MainPane;
 public class AuditoriumController extends Controller {
     private AuditoriumView view;
 
-    public AuditoriumController(AuditoriumView view) {
-        this.view = view;
+    public AuditoriumController() {
+        super();
     }
 
     public void initialize() {
+        this.view = new AuditoriumView();
         MainPane.getInstance().swapComponent(view);
     }
 }

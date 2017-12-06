@@ -57,7 +57,7 @@ public class MainPane extends JFrame {
         }
 
         // Add new component to frame
-        add(newComponent);
+        getContentPane().add(newComponent);
 
         // .. And add reference to class as well
         currentComponent = newComponent;

@@ -8,7 +8,7 @@ import java.util.HashMap;
  * The sole purpose of this class is to mock the database with dummy data if this haven't been done yet.
  */
 public class MockDatabase {
-    private DataHandler dataHandler = new DataHandler();
+    private DataHandler dataHandler = DataHandler.getInstance();
 
     /**
      * When this method is called, it'll go ahead and insert mockup data into the database.

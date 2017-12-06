@@ -3,11 +3,6 @@ package com.cinemaBook.globals;
 import com.cinemaBook.controller.AuditoriumController;
 import com.cinemaBook.controller.Controller;
 import com.cinemaBook.controller.ScreeningsController;
-import com.cinemaBook.model.Auditorium;
-import com.cinemaBook.model.Film;
-import com.cinemaBook.model.Screening;
-import com.cinemaBook.view.AuditoriumView;
-import com.cinemaBook.view.ScreeningsView;
 
 /**
  * The purpose of this singleton is to ensure that the correct controller is being used, depending on which view is
@@ -31,27 +26,18 @@ public class Router {
      * @param newView The view to change to
      */
     public void updateLocation(ViewTypes newView) {
-        // Update the current view
-        State.currentView = newView;
         Controller controller;
 
-        // Depending on the new view, determine which MVC-model that should be rendered
-        switch (State.currentView) {
+        // Depending on the new view, determine which MVC-model that should be utilized
+        switch (newView) {
             case ScreeningsView:
-                // Create models with necessary data
-                Screening screeningModel = new Screening(123, new Film("test", 5.4, 12), new Auditorium("sal 1", 4, 5));
-                ScreeningsView screeningsView = new ScreeningsView();
-
                 // Create the controller
-                controller = new ScreeningsController(screeningModel, screeningsView);
+                controller = new ScreeningsController();
                 break;
 
             case AuditoriumView:
-                // Create models with the necessary data
-                AuditoriumView auditoriumView = new AuditoriumView();
-
                 // Create the controller
-                controller = new AuditoriumController(auditoriumView);
+                controller = new AuditoriumController();
                 break;
 
             default:
@@ -59,10 +45,10 @@ public class Router {
                 throw new Error("This view isn't handled yet!");
         }
 
-        // Initialize the MVC
-        controller.initialize();
-
         // Expose the current controller
         State.currentController = controller;
+
+        // Initialize the MVC
+        controller.initialize();
     }
 }

@@ -1,7 +1,11 @@
 package com.cinemaBook.bootstrap;
 
+import com.cinemaBook.globals.DataHandler;
 import com.cinemaBook.globals.Router;
 import com.cinemaBook.globals.ViewTypes;
+import com.cinemaBook.model.Screening;
+
+import java.util.ArrayList;
 
 public class primeApp {
     public static void main(String[] args) {
@@ -12,7 +16,6 @@ public class primeApp {
         }
 
         // default to ScreeningsView
-        Router router = Router.getInstance();
-        router.updateLocation(ViewTypes.ScreeningsView);
+        Router.getInstance().updateLocation(ViewTypes.ScreeningsView);
     }
 }

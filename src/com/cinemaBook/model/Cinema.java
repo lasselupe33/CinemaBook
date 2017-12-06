@@ -9,6 +9,8 @@ public class Cinema {
 
     /**
      * Set the name of the cinema
+     *
+     * Redundant model...?
      */
     public Cinema(ArrayList<Auditorium> auditoriums, ArrayList<Screening> screenings) {
         this.name = "Test biograf";

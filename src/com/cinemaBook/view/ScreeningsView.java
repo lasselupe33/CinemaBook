@@ -10,7 +10,9 @@ public class ScreeningsView extends View {
         super();
     }
 
-    public void paint(Graphics g) {
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         g.drawString("Hello", 200, 300);
     }
 }

@@ -1,9 +1,17 @@
 package com.cinemaBook.globals;
 
+import com.cinemaBook.model.Auditorium;
+import com.cinemaBook.model.Film;
+import com.cinemaBook.model.Screening;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.sql.*;
 import static java.util.stream.Collectors.joining;
 
+/**
+ * This singleton has the responsibility for handling all communication between the database and the main application.
+ */
 public class DataHandler {
     // Database credentials
     private static final String db = "sql11207684";
@@ -15,10 +23,16 @@ public class DataHandler {
     private Connection connection;
     private Statement statement;
 
+    // Store a reference to the dataHandler
+    private static final DataHandler instance = new DataHandler();
+
+    // Fields used for caching
+    private ArrayList<Screening> screeningsCache;
+
     /**
      * The constructor sets up the connection with the database and creates the default statement.
      */
-    public DataHandler() {
+    private DataHandler() {
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             this.connection = DriverManager.getConnection(db_url, user, password);
@@ -28,6 +42,11 @@ public class DataHandler {
             System.out.println(e.getMessage());
         }
     }
+
+    /**
+     * Returns a refernece to the DataHandler
+     */
+    public static DataHandler getInstance() { return instance; }
 
     /**
      * This function is used to clear all tables within the database.
@@ -50,6 +69,19 @@ public class DataHandler {
             }
         } catch (Exception e) {
             System.out.println("Couldn't clear tables..");
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * The following method creates a table.
+     * This should only be necessary to use in the MockDatabase class during database creation.
+     */
+    public void createTable(String query) {
+        try {
+            statement.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println("Failed to create table..");
             System.out.println(e.getMessage());
         }
     }
@@ -92,15 +124,112 @@ public class DataHandler {
     }
 
     /**
-     * The following method creates a table.
-     * This should only be necessary to use in the MockDatabase class during database creation.
+     * Method that returns the entire list of screenigns found in the cinema.
      */
-    public void createTable(String query) {
+    public ArrayList<Screening> getScreenings() {
+        // If screenings have already been fetched, return the cached screenings.
+        if (screeningsCache != null) {
+            return screeningsCache;
+        }
+
         try {
-            statement.executeUpdate(query);
+            ArrayList<Screening> screenings = new ArrayList<>();
+
+            // Get all screenings
+            String query = "SELECT * FROM Screenings";
+            ResultSet rs = statement.executeQuery(query);
+
+            Statement auditoriumStatement = connection.createStatement();
+
+            // Loop over all active screenings
+            while (rs.next()) {
+                // Get related film
+                int filmId = rs.getInt("filmID");
+                Film film = getFilm(filmId);
+
+                // Get related auditorium
+                int auditoriumId = rs.getInt("auditoriumID");
+                Auditorium auditorium = getAuditorium(auditoriumId);
+
+                // Get screening specific information
+                Date startTime = new Date(rs.getLong("startTime"));
+                int screeningId = rs.getInt("sID");
+
+                // Create screeningModel and add it to the array of all screenings
+                screenings.add(new Screening(screeningId, startTime, film, auditorium));
+            }
+
+            // Cache screenings for future reference
+            this.screeningsCache = screenings;
+
+            // Return the list of screenings
+            return screenings;
         } catch (Exception e) {
-            System.out.println("Failed to create table..");
+            System.out.println("Failed to retrieve screenings...");
             System.out.println(e.getMessage());
+        }
+
+        // If we get here, then no screenings have been found. Therefore null is returned
+        return null;
+    }
+
+    /**
+     * Method that returns a filmModel, given a specific film ID.
+     * Will only be called by internal DataHandler methods.
+     *
+     * @param fID a film ID
+     * @return Returns a filmModel.
+     */
+    private Film getFilm(int fID) {
+        try {
+            // Create secondary statements to ensure other resultSets won't be overwritten
+            Statement filmStatement = connection.createStatement();
+
+            // Retrieve information about the film
+            ResultSet film = filmStatement.executeQuery("SELECT * FROM Films WHERE fID = " + fID + ";");
+
+            // Move cursor to film
+            film.next();
+
+            // Store film info
+            String filmName = film.getString("name");
+            Double filmRating = film.getDouble("rating");
+            int filmMinAge = film.getInt("minAge");
+
+            // Create a new model to store this data and return it
+            return new Film(filmName, filmRating, filmMinAge);
+        } catch (Exception e) {
+            throw new Error("Failed to retrieve film... " + e.getMessage());
+        }
+    }
+
+    /**
+     * Method that returns an auditoriumModel, given a specific auditorium ID.
+     * Will only be called by internal DataHandler methods.
+     *
+     * @param aID an auditorium ID
+     * @return Returns an auditoriumModel.
+     */
+    private Auditorium getAuditorium(int aID) {
+        try {
+            // Create secondary statements to ensure other resultSets won't be overwritten
+            Statement auditoriumStatement = connection.createStatement();
+
+            // Retrieve information about the auditorium
+            ResultSet auditorium = auditoriumStatement.executeQuery("SELECT * FROM Auditoriums WHERE aID = " + aID + ";");
+
+            // Move cursor to film
+            auditorium.next();
+
+            // Store film info
+            String auditoriumName = auditorium.getString("name");
+            int auditoriumRows = auditorium.getInt("rows");
+            int auditoriumSeatsPerRow = auditorium.getInt("seatsPerRow");
+
+            // Create a new model to store this data and return it
+            return new Auditorium(auditoriumName, auditoriumRows, auditoriumSeatsPerRow);
+        } catch (Exception e) {
+            throw new Error("Failed to retrieve auditorium... " + e.getMessage());
         }
     }
 }
