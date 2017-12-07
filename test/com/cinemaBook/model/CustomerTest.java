@@ -15,7 +15,7 @@ public class CustomerTest {
         Customer testCustomer = new Customer("Lasse Agersten", "+4512345678", "someemail@gmail.com");
 
         assertEquals("Lasse Agersten", testCustomer.getName());
-        assertEquals("+4512345678", testCustomer.getNumber());
+        assertEquals("+4512345678", testCustomer.getPhone());
         assertEquals("someemail@gmail.com", testCustomer.getEmail());
     }
 }

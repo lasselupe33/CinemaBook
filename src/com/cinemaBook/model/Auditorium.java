@@ -1,16 +1,28 @@
 package com.cinemaBook.model;
 
 public class Auditorium {
+    private int id;
     private String name;
-    private int[][] seats;
+    private int rows;
+    private int columns;
 
-    public Auditorium(String name, int rows, int seatPerRow) {
+    public Auditorium(int id, String name, int rows, int columns) {
+        this.id = id;
         this.name = name;
-        this.seats = new int[rows][seatPerRow];
+        this.rows = rows;
+        this.columns = columns;
     }
 
     public int getAmountOfSeats() {
-        return this.seats.length * this.seats[0].length;
+        return this.rows * this.columns;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
     }
 
     public String getName() {

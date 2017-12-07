@@ -16,7 +16,7 @@ public class BookingSelectionView extends JComponent{
         tableModel.addColumn("Minimum age");
 
         screenings.getScreenings().forEach(screening ->
-            tableModel.addRow(new Object[] {screening.getFilmPlaying().getName(), screening.getStartTime(), screening.getAuditorium().getName(), screening.getFilmPlaying().getMinAge()})
+            tableModel.addRow(new Object[] {screening.getFilm().getName(), screening.getStartTime(), screening.getAuditorium().getName(), screening.getFilm().getMinAge()})
         );
 
         JTable table = new JTable();

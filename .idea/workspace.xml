@@ -2,32 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b585772-54ea-4cde-b771-9d2d72db566f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/cinemaBook/globals/RouterTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/cinemaBook/model/CustomerTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/cinemaBook/globals/DataHandlerTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Cinema.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Auditorium.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Auditorium.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Cinema.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Cinema.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Film.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Film.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Screening.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Screening.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Seat.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Seat.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cinemaBook.iml" afterPath="$PROJECT_DIR$/cinemaBook.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/controller/AuditoriumController.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/controller/AuditoriumController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/controller/Controller.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/controller/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/globals/Router.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/globals/Router.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/globals/State.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/globals/State.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Cinema.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Cinema.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Film.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Film.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/AuditoriumView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/AuditoriumView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/MainPane.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/MainPane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/ScreeningsView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/ScreeningsView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/View.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/View.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/cinemaBook/model/CustomerTest.java" afterPath="$PROJECT_DIR$/test/com/cinemaBook/model/CustomerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,6 +61,18 @@
         <item name="" type="eadb38e5:DatabaseStructure$Root" />
         <item name="sql11207684@sql11.freemysqlhosting.net" type="e3449647:DbNodeDescriptor" />
         <item name="sql11207684" type="e3449647:DbNodeDescriptor" />
+        <item name="Bookings" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="sql11207684@sql11.freemysqlhosting.net" type="e3449647:DbNodeDescriptor" />
+        <item name="sql11207684" type="e3449647:DbNodeDescriptor" />
+        <item name="Customers" type="e3449647:DbNodeDescriptor" />
+      </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="sql11207684@sql11.freemysqlhosting.net" type="e3449647:DbNodeDescriptor" />
+        <item name="sql11207684" type="e3449647:DbNodeDescriptor" />
         <item name="Films" type="e3449647:DbNodeDescriptor" />
       </path>
       <path>
@@ -73,48 +81,106 @@
         <item name="sql11207684" type="e3449647:DbNodeDescriptor" />
         <item name="Screenings" type="e3449647:DbNodeDescriptor" />
       </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="sql11207684@sql11.freemysqlhosting.net" type="e3449647:DbNodeDescriptor" />
+        <item name="sql11207684" type="e3449647:DbNodeDescriptor" />
+        <item name="SeatAssignment" type="e3449647:DbNodeDescriptor" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ScreeningsView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/ScreeningsView.java">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="216">
+              <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainPane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/MainPane.java">
+      <file leaf-file-name="BookingSelectionView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
+            <state relative-caret-position="414">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MockDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2340">
+              <caret line="234" column="0" lean-forward="false" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1512648808685" expanded="true" signature="8863:8871" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScreeningsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java">
+      <file leaf-file-name="Booking.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-              <folding />
+            <state relative-caret-position="288">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding>
+                <marker date="1512648808685" expanded="true" signature="753:760" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="primeApp.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java">
+      <file leaf-file-name="DataHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="4104">
+              <caret line="568" column="0" lean-forward="false" selection-start-line="568" selection-start-column="0" selection-end-line="568" selection-end-column="0" />
+              <folding>
+                <marker date="1512648808685" expanded="true" signature="23266:23272" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeatAssignment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+              <folding>
+                <element signature="e#822#823#0" expanded="true" />
+                <element signature="e#885#886#0" expanded="true" />
+                <element signature="e#933#934#0" expanded="true" />
+                <element signature="e#983#984#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+              <folding>
+                <marker date="1512648808685" expanded="false" signature="627:633" ph=" }" />
+                <marker date="1512648808685" expanded="true" signature="639:699" ph="/**...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Seat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,6 +200,18 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>startTime</find>
+      <find>system.out.print</find>
+      <find>reserved seats</find>
+      <find>insertSeat</find>
+      <find>submit</find>
+      <find>int[]</find>
+      <find>delete</find>
+      <find>Seat[]</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -149,10 +227,8 @@
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/cinema.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/auditorium.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/com/cinemaBook/model.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/com/cinemaBook/CinemaInitializer.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/initializer/mockDatabase.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/initializer/mockDatabase.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/initializer/startApp.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/DataHandler.java" />
@@ -165,25 +241,32 @@
         <option value="$PROJECT_DIR$/src/com/cinemaBook/globals/Views.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/AuditoriumView.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Cinema.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/CustomerTest.java" />
         <option value="$PROJECT_DIR$/test/cinemaBook/model/CustomerTest.java" />
         <option value="$PROJECT_DIR$/test/com/cinemaBook/globals/RouterTest.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/globals/State.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/Controller.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/globals/Router.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/AuditoriumController.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Film.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/View.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/MainPane.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/ScreeningsView.java" />
+        <option value="$PROJECT_DIR$/test/com/cinemaBook/model/CustomerTest.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Film.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" />
+        <option value="$PROJECT_DIR$/test/com/cinemaBook/globals/DataHandlerTest.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java" />
       </list>
     </option>
   </component>
@@ -194,10 +277,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="-546" />
+    <option name="y" value="27" />
+    <option name="width" value="2550" />
+    <option name="height" value="852" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -217,8 +300,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -307,6 +388,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -315,7 +398,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dependencies/mysql.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cinemaBoooking" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -345,7 +428,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.primeApp">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.cinemaBook.bootstrap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.cinemaBook.bootstrap.App" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="cinemaBook" />
+      <envs />
+    </configuration>
     <configuration name="CustomerTest.testCustomer" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -477,25 +579,6 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="mockDatabase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.cinemaBook.bootstrap.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.cinemaBook.controller.initializer.mockDatabase" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="cinemaBook" />
-      <envs />
-    </configuration>
     <configuration name="primeApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -535,21 +618,26 @@
       <envs />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.mockDatabase" />
-      <item index="1" class="java.lang.String" itemvalue="Application.startApp" />
-      <item index="2" class="java.lang.String" itemvalue="Application.primeApp" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.RouterTest" />
-      <item index="4" class="java.lang.String" itemvalue="Android JUnit.CustomerTest.testCustomer" />
+      <item index="0" class="java.lang.String" itemvalue="Application.startApp" />
+      <item index="1" class="java.lang.String" itemvalue="Application.primeApp" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.RouterTest" />
+      <item index="3" class="java.lang.String" itemvalue="Android JUnit.CustomerTest.testCustomer" />
+      <item index="4" class="java.lang.String" itemvalue="Application.App" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.primeApp" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.RouterTest" />
-        <item index="2" class="java.lang.String" itemvalue="Android JUnit.CustomerTest.testCustomer" />
-        <item index="3" class="java.lang.String" itemvalue="Application.startApp" />
-        <item index="4" class="java.lang.String" itemvalue="Application.mockDatabase" />
+        <item index="0" class="java.lang.String" itemvalue="Application.App" />
+        <item index="1" class="java.lang.String" itemvalue="Application.primeApp" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.RouterTest" />
+        <item index="3" class="java.lang.String" itemvalue="Android JUnit.CustomerTest.testCustomer" />
+        <item index="4" class="java.lang.String" itemvalue="Application.startApp" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -574,7 +662,8 @@
       <workItem from="1512417777263" duration="7843000" />
       <workItem from="1512425760274" duration="2236000" />
       <workItem from="1512428471823" duration="169000" />
-      <workItem from="1512554535671" duration="80000" />
+      <workItem from="1512554535671" duration="18957000" />
+      <workItem from="1512577048298" duration="12332000" />
     </task>
     <servers />
   </component>
@@ -590,41 +679,41 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37539000" />
+    <option name="totallyTimeSpent" value="68748000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="27" width="2560" height="1413" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.4875" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1923972" sideWeight="0.465625" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21314952" sideWeight="0.5286458" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32660976" sideWeight="0.40859374" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21314952" sideWeight="0.47135416" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32660976" sideWeight="0.5914062" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16145833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26302084" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1671875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18981972" sideWeight="0.49375" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18981972" sideWeight="0.49166667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.02545069" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26302084" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.43333334" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,482 +727,40 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="10" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="89" column="38" lean-forward="false" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
-          <folding>
-            <marker date="1512427031729" expanded="true" signature="2424:2435" ph="DROP TABLE m... " />
-            <marker date="1512427031729" expanded="true" signature="2424:2451" ph="DROP TABLE +... " />
-            <marker date="1512427031729" expanded="true" signature="4141:4210" ph="INSERT INTO missingValue... " />
-            <marker date="1512427031729" expanded="true" signature="4945:4969" ph="SELECT * FRO... Screenings" />
-            <marker date="1512427031729" expanded="true" signature="6838:6870" ph="SELECT * FRO... Films" />
-            <marker date="1512427031729" expanded="true" signature="7994:8032" ph="SELECT * FRO... Films" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="51" column="43" lean-forward="false" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
-          <folding>
-            <marker date="1512421804356" expanded="true" signature="2131:2337" ph="CREATE TABLE... Films" />
-            <marker date="1512421804356" expanded="true" signature="3297:3511" ph="CREATE TABLE... Screenings" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <marker date="1512421804356" expanded="true" signature="2131:2337" ph="CREATE TABLE... Films" />
-            <marker date="1512421804356" expanded="true" signature="3297:3511" ph="CREATE TABLE... Screenings" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cinemaBook.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/com/cinemaBook/model.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/com/cinemaBook/model/Customer.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/com/cinemaBook/CinemaInitializer.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/initializer/mockDatabase.java" />
-    <entry file="das://table:/77e67e35/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/sql11207684.Films">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://table:/77e67e35/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/sql11207684.Films" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/initializer/startApp.java" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/77e67e35/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/sql11207684.Auditoriums">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/77e67e35/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/sql11207684.Screenings">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://table:/77e67e35/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/sql11207684.Auditoriums" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/Fer.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/RouterTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Cinema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.cinemaBook.model.Screening">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.cinemaBook.model.Screening</OriginalElement>
-          <nodes>
-            <node x="" y="">com.cinemaBook.model.Screening</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="50.0" y="15.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.cinemaBook.controller">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.cinemaBook.controller</OriginalElement>
-          <nodes>
-            <node x="" y="">com.cinemaBook.controller.ScreeningsController</node>
-            <node x="" y="">com.cinemaBook.controller.AuditoriumController</node>
-            <node x="" y="">com.cinemaBook.controller.Controller</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="170.0" y="54.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.cinemaBook.model">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.cinemaBook.model</OriginalElement>
-          <nodes>
-            <node x="" y="">com.cinemaBook.model.Customer</node>
-            <node x="" y="">com.cinemaBook.model.Seat</node>
-            <node x="" y="">com.cinemaBook.model.Screening</node>
-            <node x="" y="">com.cinemaBook.model.Auditorium</node>
-            <node x="" y="">com.cinemaBook.model.Booking</node>
-            <node x="" y="">com.cinemaBook.model.Film</node>
-            <node x="" y="">com.cinemaBook.model.Cinema</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="127.0" y="126.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.cinemaBook.view">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.cinemaBook.view</OriginalElement>
-          <nodes>
-            <node x="" y="">com.cinemaBook.view.MainPane</node>
-            <node x="" y="">com.cinemaBook.view.View</node>
-            <node x="" y="">com.cinemaBook.view.AuditoriumView</node>
-            <node x="" y="">com.cinemaBook.view.ScreeningsView</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="142.0" y="91.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.cinemaBook.bootstrap">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.cinemaBook.bootstrap</OriginalElement>
-          <nodes>
-            <node x="" y="">com.cinemaBook.bootstrap.MockDatabase</node>
-            <node x="" y="">com.cinemaBook.bootstrap.primeApp</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="63.0" y="52.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="190.43139880952384" y="342.8678385416667">com.cinemaBook.bootstrap</node>
-            <node x="350.0" y="456.8678385416667">images</node>
-            <node x="179.0" y="456.8678385416667">netscape</node>
-            <node x="512.0" y="456.8678385416667">oracle</node>
-            <node x="145.36473214285715" y="144.86783854166669">com.cinemaBook.controller</node>
-            <node x="0.0" y="530.8678385416667">com.oracle</node>
-            <node x="286.0" y="604.8678385416667">org</node>
-            <node x="173.53139880952384" y="243.86783854166669">com.cinemaBook.globals</node>
-            <node x="203.0" y="15.867838541666686">com.cinemaBook.view</node>
-            <node x="367.8647321428572" y="0.0">toolbarButtonGraphics</node>
-            <node x="156.0" y="530.8678385416667">com.mysql</node>
-            <node x="0.0" y="604.8678385416667">sun</node>
-            <node x="0.0" y="456.8678385416667">META-INF</node>
-            <node x="428.0" y="604.8678385416667">jdk</node>
-            <node x="616.0" y="530.8678385416667">java</node>
-            <node x="466.0" y="530.8678385416667">javax</node>
-            <node x="143.0" y="604.8678385416667">com.sun</node>
-            <node x="40.0" y="15.867838541666686">com.cinemaBook.model</node>
-            <node x="312.0" y="530.8678385416667">javafx</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="com.cinemaBook.bootstrap" target="com.cinemaBook.bootstrap">
-              <point x="-32.5" y="14.5" />
-              <point x="222.93139880952384" y="391.8678385416667" />
-              <point x="170.43139880952384" y="391.8678385416667" />
-              <point x="170.43139880952384" y="364.6178385416667" />
-              <point x="-65.0" y="7.25" />
-            </edge>
-            <edge source="com.cinemaBook.model" target="com.cinemaBook.model">
-              <point x="-48.428571428571445" y="14.5" />
-              <point x="48.071428571428555" y="64.86783854166669" />
-              <point x="20.0" y="64.86783854166669" />
-              <point x="20.0" y="40.03450520833337" />
-              <point x="-56.5" y="9.666666666666686" />
-            </edge>
-            <edge source="com.cinemaBook.controller" target="com.cinemaBook.model">
-              <point x="-52.0" y="-14.5" />
-              <point x="158.36473214285715" y="124.86783854166669" />
-              <point x="128.78571428571428" y="124.86783854166669" />
-              <point x="32.28571428571428" y="14.5" />
-            </edge>
-            <edge source="com.cinemaBook.globals" target="com.cinemaBook.globals">
-              <point x="-23.4" y="14.5" />
-              <point x="208.63139880952383" y="302.8678385416667" />
-              <point x="143.53139880952384" y="302.8678385416667" />
-              <point x="143.53139880952384" y="251.11783854166669" />
-              <point x="-58.5" y="-7.25" />
-            </edge>
-            <edge source="com.cinemaBook.globals" target="com.cinemaBook.model">
-              <point x="-51.1875" y="-14.5" />
-              <point x="180.84389880952384" y="223.86783854166669" />
-              <point x="97.96428571428571" y="223.86783854166669" />
-              <point x="97.96428571428571" y="124.86783854166669" />
-              <point x="96.5" y="124.86783854166669" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="com.cinemaBook.globals" target="com.cinemaBook.controller">
-              <point x="-21.9375" y="-14.5" />
-              <point x="210.09389880952384" y="203.86783854166669" />
-              <point x="167.0313988095238" y="203.86783854166669" />
-              <point x="-43.33333333333334" y="14.5" />
-            </edge>
-            <edge source="com.cinemaBook.controller" target="com.cinemaBook.view">
-              <point x="26.0" y="-14.5" />
-              <point x="236.36473214285715" y="124.86783854166669" />
-              <point x="248.0625" y="124.86783854166669" />
-              <point x="-6.4375" y="14.5" />
-            </edge>
-            <edge source="com.cinemaBook.bootstrap" target="com.cinemaBook.globals">
-              <point x="-43.33333333333334" y="-14.5" />
-              <point x="212.0980654761905" y="322.8678385416667" />
-              <point x="232.03139880952384" y="322.8678385416667" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="com.cinemaBook.view" target="com.cinemaBook.view">
-              <point x="-32.1875" y="14.5" />
-              <point x="222.3125" y="74.86783854166669" />
-              <point x="173.0" y="74.86783854166669" />
-              <point x="173.0" y="23.117838541666686" />
-              <point x="-51.5" y="-7.25" />
-            </edge>
-            <edge source="com.cinemaBook.view" target="com.cinemaBook.globals">
-              <point x="45.0625" y="14.5" />
-              <point x="299.5625" y="104.86783854166669" />
-              <point x="307.8647321428572" y="104.86783854166669" />
-              <point x="307.8647321428572" y="223.86783854166669" />
-              <point x="283.2188988095238" y="223.86783854166669" />
-              <point x="51.1875" y="-14.5" />
-            </edge>
-            <edge source="com.cinemaBook.view" target="com.cinemaBook.controller">
-              <point x="6.4375" y="14.5" />
-              <point x="260.9375" y="124.86783854166669" />
-              <point x="262.3647321428572" y="124.86783854166669" />
-              <point x="52.0" y="-14.5" />
-            </edge>
-            <edge source="com.cinemaBook.globals" target="com.cinemaBook.view">
-              <point x="21.9375" y="-14.5" />
-              <point x="253.96889880952384" y="203.86783854166669" />
-              <point x="285.8647321428572" y="203.86783854166669" />
-              <point x="285.8647321428572" y="124.86783854166669" />
-              <point x="273.8125" y="124.86783854166669" />
-              <point x="19.3125" y="14.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-123.0" y="470.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.cinemaBook">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.cinemaBook</OriginalElement>
-          <nodes>
-            <node x="" y="">com.cinemaBook.model.Customer</node>
-            <node x="" y="">com.cinemaBook.globals.State</node>
-            <node x="" y="">com.cinemaBook.view.MainPane</node>
-            <node x="" y="">com.cinemaBook.model.Auditorium</node>
-            <node x="" y="">com.cinemaBook.model.Booking</node>
-            <node x="" y="">com.cinemaBook.model.Film</node>
-            <node x="" y="">com.cinemaBook.view.AuditoriumView</node>
-            <node x="" y="">com.cinemaBook.model.Cinema</node>
-            <node x="" y="">com.cinemaBook.globals.ViewTypes</node>
-            <node x="" y="">com.cinemaBook.model.Seat</node>
-            <node x="" y="">com.cinemaBook.controller.ScreeningsController</node>
-            <node x="" y="">com.cinemaBook.controller.AuditoriumController</node>
-            <node x="" y="">com.cinemaBook.model.Screening</node>
-            <node x="" y="">com.cinemaBook.globals.Router</node>
-            <node x="" y="">com.cinemaBook.controller.Controller</node>
-            <node x="" y="">com.cinemaBook.bootstrap.MockDatabase</node>
-            <node x="" y="">com.cinemaBook.view.View</node>
-            <node x="" y="">com.cinemaBook.view.ScreeningsView</node>
-            <node x="" y="">com.cinemaBook.globals.DataHandler</node>
-            <node x="" y="">com.cinemaBook.bootstrap.primeApp</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="131.0" y="206.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
+    <entry file="uml://JAVA/com.cinemaBook.model.Screening" />
+    <entry file="uml://JAVA/com.cinemaBook.controller" />
+    <entry file="uml://JAVA/com.cinemaBook.model" />
+    <entry file="uml://JAVA/com.cinemaBook.view" />
+    <entry file="uml://JAVA/com.cinemaBook.bootstrap" />
+    <entry file="uml://JAVA/" />
+    <entry file="uml://JAVA/com.cinemaBook" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/CustomerTest.java" />
     <entry file="file://$PROJECT_DIR$/test/wef.java" />
     <entry file="file://$PROJECT_DIR$/test/cinemaBook/model/Customer.java" />
-    <entry file="file://$PROJECT_DIR$/../Afleveringer/B/Date/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Afleveringer/B/Date/TestDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/cinemaBook/model/CustomerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/cinemaBook/globals/RouterTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding>
-            <element signature="e#448#449#0" expanded="false" />
-            <element signature="e#475#476#0" expanded="false" />
-            <element signature="e#580#581#0" expanded="false" />
-            <element signature="e#609#610#0" expanded="false" />
-            <element signature="e#706#707#0" expanded="false" />
-            <element signature="e#734#735#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="80" column="56" lean-forward="true" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
-          <folding>
-            <marker date="1512421804356" expanded="true" signature="2131:2337" ph="CREATE TABLE... Films" />
-            <marker date="1512421804356" expanded="true" signature="3297:3511" ph="CREATE TABLE... Screenings" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Afleveringer/B/Date/Date.java" />
+    <entry file="file://$PROJECT_DIR$/../Afleveringer/B/Date/TestDate.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/State.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/ViewTypes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1131,48 +778,52 @@
           <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#240#241#0" expanded="false" />
-            <element signature="e#263#264#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#325#326#0" expanded="false" />
+            <element signature="e#402#403#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/ViewTypes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/MainPane.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/ScreeningsView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding>
+            <element signature="e#211#212#0" expanded="false" />
+            <element signature="e#234#235#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/Router.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="39" column="53" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="53" />
+        <state relative-caret-position="541">
+          <caret line="51" column="29" lean-forward="false" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Film.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#367#368#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-          <folding>
-            <marker date="1512427031729" expanded="true" signature="2424:2435" ph="DROP TABLE m... " />
-            <marker date="1512427031729" expanded="true" signature="2424:2451" ph="DROP TABLE +... " />
-            <marker date="1512427031729" expanded="true" signature="4141:4210" ph="INSERT INTO missingValue... " />
-            <marker date="1512427031729" expanded="true" signature="4945:4969" ph="SELECT * FRO... Screenings" />
-            <marker date="1512427031729" expanded="true" signature="6838:6870" ph="SELECT * FRO... Films" />
-            <marker date="1512427031729" expanded="true" signature="7994:8032" ph="SELECT * FRO... Films" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Cinema.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1181,36 +832,152 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java">
+    <entry file="file://$PROJECT_DIR$/test/com/cinemaBook/model/CustomerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        <state relative-caret-position="102">
+          <caret line="9" column="62" lean-forward="true" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/MainPane.java">
+    <entry file="das://table:/77e67e35/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/sql11207684.Screenings" />
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Film.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="70" column="21" lean-forward="false" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
+        <state relative-caret-position="170">
+          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/ScreeningsView.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java___jb_tmp___" />
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="451">
+          <caret line="39" column="69" lean-forward="false" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/cinemaBook/globals/RouterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/cinemaBook/globals/DataHandlerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <marker date="1512648808685" expanded="false" signature="627:633" ph=" }" />
+            <marker date="1512648808685" expanded="true" signature="639:699" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+          <folding>
+            <element signature="e#822#823#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+            <element signature="e#983#984#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2340">
+          <caret line="234" column="0" lean-forward="false" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+          <folding>
+            <marker date="1512648808685" expanded="true" signature="8863:8871" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql" />
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <marker date="1512648808685" expanded="true" signature="753:760" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4104">
+          <caret line="568" column="0" lean-forward="false" selection-start-line="568" selection-start-column="0" selection-end-line="568" selection-end-column="0" />
+          <folding>
+            <marker date="1512648808685" expanded="true" signature="23266:23272" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="785">
+          <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>

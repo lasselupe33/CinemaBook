@@ -16,7 +16,7 @@ public class ScreeningsController extends Controller {
      * Sets up the ScreeningsController with the needed view and models
      */
     public ScreeningsController() {
-        this.screenings = DataHandler.getInstance().getScreenings();
+        this.screenings = DataHandler.getInstance().getScreenings(-1);
     }
 
     public void initialize() {
