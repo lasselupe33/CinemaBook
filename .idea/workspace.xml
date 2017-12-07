@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b585772-54ea-4cde-b771-9d2d72db566f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/cinemaBook/globals/DataHandlerTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Cinema.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Auditorium.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Auditorium.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Film.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Film.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Screening.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Screening.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Seat.class" afterPath="$PROJECT_DIR$/out/production/cinemaBook/com/cinemaBook/model/Seat.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Film.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Film.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/cinemaBook/model/CustomerTest.java" afterPath="$PROJECT_DIR$/test/com/cinemaBook/model/CustomerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/MainView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/MainView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,8 +78,28 @@
       <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            <state relative-caret-position="378">
+              <caret line="76" column="40" lean-forward="false" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/MainView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="25" column="29" lean-forward="false" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -105,8 +108,8 @@
       <file leaf-file-name="BookingSelectionView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -115,11 +118,9 @@
       <file leaf-file-name="MockDatabase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2340">
-              <caret line="234" column="0" lean-forward="false" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-              <folding>
-                <marker date="1512648808685" expanded="true" signature="8863:8871" ph="{...}" />
-              </folding>
+            <state relative-caret-position="260">
+              <caret line="198" column="57" lean-forward="false" selection-start-line="198" selection-start-column="48" selection-end-line="198" selection-end-column="57" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,11 +128,9 @@
       <file leaf-file-name="Booking.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="486">
               <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding>
-                <marker date="1512648808685" expanded="true" signature="753:760" ph="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -210,6 +209,7 @@
       <find>int[]</find>
       <find>delete</find>
       <find>Seat[]</find>
+      <find>screening</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -266,6 +266,8 @@
         <option value="$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/view/MainView.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java" />
       </list>
     </option>
@@ -307,11 +309,6 @@
             <path>
               <item name="cinemaBook" type="b2602c69:ProjectViewProjectNode" />
               <item name="cinemaBook" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cinemaBook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cinemaBook" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cinemaBook" type="b2602c69:ProjectViewProjectNode" />
@@ -687,13 +684,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1923972" sideWeight="0.465625" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1923972" sideWeight="0.4640625" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32660976" sideWeight="0.40859374" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32583398" sideWeight="0.41054687" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32660976" sideWeight="0.5914062" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32583398" sideWeight="0.5894531" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -732,8 +729,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/com/cinemaBook/model.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/com/cinemaBook/model/Customer.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/com/cinemaBook/CinemaInitializer.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/initializer/mockDatabase.java" />
     <entry file="das://table:/77e67e35/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/sql11207684.Films" />
@@ -927,27 +922,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2340">
-          <caret line="234" column="0" lean-forward="false" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
-          <folding>
-            <marker date="1512648808685" expanded="true" signature="8863:8871" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql" />
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <marker date="1512648808685" expanded="true" signature="753:760" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4104">
@@ -966,18 +941,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="198" column="57" lean-forward="false" selection-start-line="198" selection-start-column="48" selection-end-line="198" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        <state relative-caret-position="378">
+          <caret line="76" column="40" lean-forward="false" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="29" lean-forward="false" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="21" lean-forward="true" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
           <folding />
         </state>
       </provider>

@@ -15,7 +15,7 @@ public class MainView extends JFrame {
         tabPane = new JTabbedPane();
 
         // Create the frame and add the tabPane
-        JFrame frame = new JFrame("Swing MVC Demo");
+        JFrame frame = new JFrame("CinemaBook");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(tabPane);
         frame.setBounds(0, 0, 600, 400);

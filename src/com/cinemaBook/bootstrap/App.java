@@ -74,6 +74,8 @@ public class App {
         DataHandler dataHandler = DataHandler.getInstance();
         ArrayList<Screening> screeningList = dataHandler.getScreenings(-1);
 
+        System.out.println(screeningList);
+
         // Getting the tabPane from the main view
         JTabbedPane tabPane = MainView.getInstance().getTabPane();
 
