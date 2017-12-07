@@ -1,18 +1,21 @@
-package com.cinemaBook.view;
+package com.cinemaBook.view.bookingViews;
 
 import com.cinemaBook.model.Screenings;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.function.Function;
 
-public class BookingSelectionView extends JComponent{
-    public BookingSelectionView() {
+public class ScreeningSelectionView extends JComponent{
+    public ScreeningSelectionView() {
         super();
         setLayout(new FlowLayout());
     }
 
-    public void display(Screenings screenings) {
+    public void display(Screenings screenings, Function<Integer, Void> func) {
 
         DefaultTableModel tableModel = new DefaultTableModel();
 
@@ -26,6 +29,14 @@ public class BookingSelectionView extends JComponent{
         });
 
         JTable table = new JTable(tableModel);
+
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent listSelectionEvent) {
+                System.out.println(listSelectionEvent.getFirstIndex());
+                func.apply(listSelectionEvent.getFirstIndex());
+            }
+        });
 
         add(table);
     }
