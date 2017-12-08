@@ -16,10 +16,16 @@ import java.util.function.Function;
 public class SeatSelectionView extends JComponent{
     private ArrayList<Seat> seats;
 
+    private AuditoriumView auditoriumView;
+
     public SeatSelectionView() {
         super();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+        seats = new ArrayList<>();
+    }
+
+    private void reset() {
         seats = new ArrayList<>();
     }
 
@@ -30,7 +36,15 @@ public class SeatSelectionView extends JComponent{
 
         add(filmLabel);
 
-        AuditoriumView auditoriumView = new AuditoriumView();
+        auditoriumView = new AuditoriumView(seat -> {
+            seats.add(seat);
+            auditoriumView.display(screening.getAuditorium(), screening.getSeatAssignment(), seats);
+            return null;
+        }, index -> {
+            seats.remove((int) index);
+            auditoriumView.display(screening.getAuditorium(), screening.getSeatAssignment(), seats);
+            return null;
+        });
 
         auditoriumView.display(screening.getAuditorium(), screening.getSeatAssignment(), seats);
 
@@ -41,6 +55,7 @@ public class SeatSelectionView extends JComponent{
         JButton cancelButton = new JButton("Cancel");
 
         cancelButton.addActionListener(e -> {
+            reset();
             onCancel.apply(null);
         });
 
@@ -48,13 +63,13 @@ public class SeatSelectionView extends JComponent{
 
         JButton nextButton = new JButton("Next");
 
-        nextButton.addActionListener(e -> {
-            onSubmit.apply(seats);
-        });
+        nextButton.addActionListener(e ->
+            onSubmit.apply(seats)
+        );
 
         navigationPanel.add(nextButton);
 
-        navigationPanel.setSize(getWidth(), 40);
+        navigationPanel.setSize(getWidth(), 30);
 
         add(navigationPanel);
     }
