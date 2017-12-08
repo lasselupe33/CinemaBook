@@ -1,5 +1,6 @@
 package com.cinemaBook.view;
 
+import com.cinemaBook.model.Customer;
 import com.cinemaBook.model.Screenings;
 import com.cinemaBook.view.bookingViews.CustomerInputView;
 import com.cinemaBook.view.bookingViews.ScreeningSelectionView;
@@ -35,7 +36,7 @@ public class BookingView extends JComponent {
         add(seatSelectionView, SeatSelection);
     }
 
-    public void display(Screenings screenings, String currentView, Function<Integer, Void> onScreeningSelected, int screeningId) {
+    public void display(Screenings screenings, String currentView, Function<Integer, Void> onScreeningSelected, int screeningId, Function<Customer, Void> onCustomerSubmit) {
 
         cl.show(this, currentView);
 
@@ -47,10 +48,13 @@ public class BookingView extends JComponent {
                 });
                 break;
             case CustomerInput:
-                customerInputView.display(screenings.getScreenings().get(screeningId));
+                customerInputView.display(screenings.find(s -> s.getId() == screeningId), customer -> {
+                    onCustomerSubmit.apply(customer);
+                    return null;
+                });
                 break;
             case SeatSelection:
-                seatSelectionView.display(screenings.getScreenings().get(screeningId));
+                seatSelectionView.display(screenings.find(s -> s.getId() == screeningId));
                 break;
             default:
                 throw new RuntimeException("How did you even get here?");

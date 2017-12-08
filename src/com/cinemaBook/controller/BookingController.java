@@ -1,17 +1,19 @@
 package com.cinemaBook.controller;
 
+import com.cinemaBook.model.Customer;
 import com.cinemaBook.model.Screenings;
 import com.cinemaBook.view.BookingView;
 
 public class BookingController {
-    final static String ScreeningSelection = "ScreeningSelectionView";
-    final static String CustomerInput = "CustomerInputView";
-    final static String SeatSelection = "SeatSelectionView";
+    private final static String ScreeningSelection = "ScreeningSelectionView";
+    private final static String CustomerInput = "CustomerInputView";
+    private final static String SeatSelection = "SeatSelectionView";
 
     private BookingView view;
     private Screenings screenings;
     private String currentView;
     private int screeningId;
+    private Customer customer;
 
     public BookingController(BookingView view, Screenings screenings) {
         this.view = view;
@@ -26,6 +28,11 @@ public class BookingController {
             this.currentView = CustomerInput;
             display();
             return null;
-        }, screeningId);
+        }, screeningId, customer -> {
+            this.customer = customer;
+            this.currentView = SeatSelection;
+            display();
+            return null;
+        });
     }
 }

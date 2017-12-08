@@ -16,6 +16,7 @@ public class ScreeningSelectionView extends JComponent{
     }
 
     public void display(Screenings screenings, Function<Integer, Void> func) {
+        removeAll();
 
         DefaultTableModel tableModel = new DefaultTableModel();
 
@@ -33,8 +34,7 @@ public class ScreeningSelectionView extends JComponent{
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent listSelectionEvent) {
-                System.out.println(listSelectionEvent.getFirstIndex());
-                func.apply(listSelectionEvent.getFirstIndex());
+                func.apply(screenings.getScreenings().get(listSelectionEvent.getFirstIndex()).getId());
             }
         });
 

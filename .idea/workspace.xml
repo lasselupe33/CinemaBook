@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b585772-54ea-4cde-b771-9d2d72db566f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/CustomerInputView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatSelectionView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/BookingSelectionView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/ScreeningSelectionView.java" />
+    <list default="true" id="3b585772-54ea-4cde-b771-9d2d72db566f" name="Default" comment="Work in progress seat selection view">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/AuditoriumView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/AuditoriumView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/model/Screenings.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/model/Screenings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/CustomerInputView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/CustomerInputView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/ScreeningSelectionView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/ScreeningSelectionView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatSelectionView.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatSelectionView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,8 +80,8 @@
       <file leaf-file-name="BookingView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="579">
+              <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,12 +89,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookingController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Screenings.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Screenings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="16" column="62" lean-forward="false" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+            <state relative-caret-position="126">
+              <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerInputView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/CustomerInputView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,8 +126,8 @@
       <file leaf-file-name="SeatSelectionView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatSelectionView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="126">
+              <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -114,7 +137,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/ViewTypes.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+              <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -123,7 +146,7 @@
       <file leaf-file-name="AuditoriumView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/AuditoriumView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
+            <state relative-caret-position="450">
               <caret line="34" column="38" lean-forward="false" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
               <folding>
                 <element signature="e#545#546#0" expanded="true" />
@@ -133,59 +156,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuditoriumController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/AuditoriumController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SeatAssignment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/SeatAssignment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="38" column="30" lean-forward="false" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-              <folding>
-                <element signature="e#933#934#0" expanded="true" />
-                <element signature="e#983#984#0" expanded="true" />
-                <element signature="e#1017#1018#0" expanded="true" />
-                <element signature="e#1054#1055#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Auditorium.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Auditorium.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding>
-                <element signature="e#498#499#0" expanded="true" />
-                <element signature="e#528#529#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Screening.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Screening.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="39" column="69" lean-forward="false" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScreeningSelectionView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ScreeningSelectionView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/ScreeningSelectionView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+            <state relative-caret-position="468">
+              <caret line="33" column="59" lean-forward="false" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -220,6 +195,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Mikkel Kailow &lt;mkai@itu.dk&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -230,8 +210,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/com/cinemaBook/model.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/com/cinemaBook/CinemaInitializer.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/initializer/mockDatabase.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/initializer/mockDatabase.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/initializer/startApp.java" />
@@ -276,11 +254,13 @@
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/BookingSeatView.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatView.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/BookingSelectionView.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/CustomerInputView.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/Test.form" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/ScreeningSelectionView.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatSelectionView.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/CustomerInputView.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatSelectionView.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Screenings.java" />
       </list>
     </option>
   </component>
@@ -314,6 +294,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -406,8 +388,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -690,7 +670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512652891037</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Subviews using CardLayout">
+      <created>1512662637117</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1512662637117</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -708,24 +695,23 @@
     <option name="totallyTimeSpent" value="68748000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="2560" height="1413" extended-state="6" />
+    <frame x="-546" y="27" width="2560" height="1413" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1923972" sideWeight="0.45625" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1923972" sideWeight="0.4546875" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32583398" sideWeight="0.41640624" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1923972" sideWeight="0.5453125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32583398" sideWeight="0.5835937" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32583398" sideWeight="0.5796875" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971296" sideWeight="0.4984375" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1671875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971296" sideWeight="0.49492186" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -740,6 +726,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26302084" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.43333334" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32971296" sideWeight="0.49492186" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -750,7 +737,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="display table of screenings" />
-    <option name="LAST_COMMIT_MESSAGE" value="display table of screenings" />
+    <MESSAGE value="Subviews using CardLayout" />
+    <MESSAGE value="Work in progress seat selection view" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work in progress seat selection view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -762,9 +751,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/initializer/startApp.java" />
-    <entry file="das://table:/77e67e35/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/sql11207684.Auditoriums" />
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/Fer.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/RouterTest.java" />
     <entry file="uml://JAVA/com.cinemaBook.model.Screening" />
@@ -864,17 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding>
-            <marker date="1512648808685" expanded="false" signature="627:633" ph=" }" />
-            <marker date="1512648808685" expanded="true" signature="639:699" ph="/**...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -894,14 +869,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -955,8 +923,8 @@
         <state relative-caret-position="414">
           <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -974,10 +942,10 @@
         <state relative-caret-position="612">
           <caret line="38" column="30" lean-forward="false" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
           <folding>
-            <element signature="e#933#934#0" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1054#1055#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="false" />
+            <element signature="e#983#984#0" expanded="false" />
+            <element signature="e#1017#1018#0" expanded="false" />
+            <element signature="e#1054#1055#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -985,14 +953,14 @@
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/ViewTypes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/AuditoriumView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
+        <state relative-caret-position="450">
           <caret line="34" column="38" lean-forward="false" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
           <folding>
             <element signature="e#545#546#0" expanded="true" />
@@ -1001,44 +969,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/CustomerInputView.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/ScreeningSelectionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="32" column="32" lean-forward="false" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/Test.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatSelectionView.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/BookingView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        <state relative-caret-position="579">
+          <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/CustomerInputView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatSelectionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+        <state relative-caret-position="126">
+          <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/model/Screenings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="16" column="62" lean-forward="false" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/ScreeningSelectionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="33" column="59" lean-forward="false" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
           <folding />
         </state>
       </provider>

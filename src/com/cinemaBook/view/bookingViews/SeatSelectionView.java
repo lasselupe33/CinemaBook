@@ -14,10 +14,15 @@ import java.util.function.Function;
 public class SeatSelectionView extends JComponent{
     public SeatSelectionView() {
         super();
-        setLayout(new FlowLayout());
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
     public void display(Screening screening) {
+        removeAll();
+
+        JLabel filmLabel = new JLabel(screening.getFilm().getName());
+
+        add(filmLabel);
 
         AuditoriumView auditoriumView = new AuditoriumView();
 
