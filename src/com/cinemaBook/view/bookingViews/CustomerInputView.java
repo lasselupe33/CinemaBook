@@ -57,7 +57,7 @@ public class CustomerInputView extends JComponent{
 
         navigationPanel.add(cancelButton);
 
-        JButton nextButton = new JButton("Next");
+        JButton nextButton = new JButton("Submit");
 
         nextButton.addActionListener(e -> {
             Customer customer = new Customer(nameField.getText(), phoneField.getText(), mailField.getText());

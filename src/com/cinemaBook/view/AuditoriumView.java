@@ -1,10 +1,12 @@
 package com.cinemaBook.view;
 
 import com.cinemaBook.model.Auditorium;
+import com.cinemaBook.model.Seat;
 import com.cinemaBook.model.SeatAssignment;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -13,14 +15,16 @@ import java.util.Arrays;
 public class AuditoriumView extends JComponent {
     private Auditorium auditorium;
     private SeatAssignment seatAssignment;
+    private ArrayList<Seat> pendingSeats;
 
     public AuditoriumView() {
         super();
     }
 
-    public void display(Auditorium auditorium, SeatAssignment seatAssignment) {
+    public void display(Auditorium auditorium, SeatAssignment seatAssignment, ArrayList<Seat> pendingSeats) {
         this.auditorium = auditorium;
         this.seatAssignment = seatAssignment;
+        this.pendingSeats = pendingSeats;
 
         repaint();
     }
@@ -32,8 +36,6 @@ public class AuditoriumView extends JComponent {
 
         int marginWidth = getWidth() - ((seatSize+2) * auditorium.getColumns());
         int marginHeight = getHeight() - ((seatSize+2) * auditorium.getRows());
-        System.out.println(marginWidth);
-        System.out.println(marginHeight);
 
         Arrays.stream(seatAssignment.getSeats()).forEach(row -> Arrays.stream(row).forEach(seat -> {
             if (seat.isReserved()) {
@@ -44,5 +46,10 @@ public class AuditoriumView extends JComponent {
 
             g.fillRect(marginWidth/2 + seat.getColumn() * (seatSize + 2), marginHeight/2 + seat.getRow() * (seatSize + 2), seatSize, seatSize);
         }));
+
+        pendingSeats.forEach(seat -> {
+            g.setColor(Color.BLUE);
+            g.fillRect(marginWidth/2 + seat.getColumn() * (seatSize + 2), marginHeight/2 + seat.getRow() * (seatSize + 2), seatSize, seatSize);
+        });
     }
 }
