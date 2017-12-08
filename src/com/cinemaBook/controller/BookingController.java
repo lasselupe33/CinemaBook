@@ -22,13 +22,23 @@ public class BookingController {
         this.screeningId = -1;
     }
 
+    public void reset() {
+        currentView = ScreeningSelection;
+        screeningId = -1;
+        customer = null;
+        display();
+    }
+
     public void display() {
         view.display(screenings, currentView, id -> {
             this.screeningId = id;
             this.currentView = CustomerInput;
             display();
             return null;
-        }, screeningId, customer -> {
+        }, screeningId, e -> {
+            reset();
+            return null;
+        }, customer -> {
             this.customer = customer;
             this.currentView = SeatSelection;
             display();

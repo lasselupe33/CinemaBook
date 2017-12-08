@@ -4,6 +4,7 @@ import com.cinemaBook.model.Customer;
 import com.cinemaBook.model.Screening;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.function.Function;
 
 public class CustomerInputView extends JComponent{
@@ -12,7 +13,7 @@ public class CustomerInputView extends JComponent{
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    public void display(Screening screening, Function<Customer, Void> onSubmit) {
+    public void display(Screening screening, Function<Void, Void> onCancel, Function<Customer, Void> onSubmit) {
         removeAll();
 
         JLabel filmLabel = new JLabel(screening.getFilm().getName());
@@ -46,14 +47,25 @@ public class CustomerInputView extends JComponent{
 
         add(mailField);
 
+        JPanel navigationPanel = new JPanel(new FlowLayout());
 
-        JButton submitButton = new JButton("Submit");
+        JButton cancelButton = new JButton("Cancel");
 
-        submitButton.addActionListener(e -> {
+        cancelButton.addActionListener(e -> {
+            onCancel.apply(null);
+        });
+
+        navigationPanel.add(cancelButton);
+
+        JButton nextButton = new JButton("Next");
+
+        nextButton.addActionListener(e -> {
             Customer customer = new Customer(nameField.getText(), phoneField.getText(), mailField.getText());
             onSubmit.apply(customer);
         });
 
-        add(submitButton);
+        navigationPanel.add(nextButton);
+
+        add(navigationPanel);
     }
 }

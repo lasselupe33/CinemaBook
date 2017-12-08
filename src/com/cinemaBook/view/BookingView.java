@@ -36,7 +36,7 @@ public class BookingView extends JComponent {
         add(seatSelectionView, SeatSelection);
     }
 
-    public void display(Screenings screenings, String currentView, Function<Integer, Void> onScreeningSelected, int screeningId, Function<Customer, Void> onCustomerSubmit) {
+    public void display(Screenings screenings, String currentView, Function<Integer, Void> onScreeningSelected, int screeningId, Function<Void, Void> onCancel, Function<Customer, Void> onCustomerSubmit) {
 
         cl.show(this, currentView);
 
@@ -48,13 +48,19 @@ public class BookingView extends JComponent {
                 });
                 break;
             case CustomerInput:
-                customerInputView.display(screenings.find(s -> s.getId() == screeningId), customer -> {
+                customerInputView.display(screenings.find(s -> s.getId() == screeningId), e -> {
+                    onCancel.apply(null);
+                    return null;
+                },customer -> {
                     onCustomerSubmit.apply(customer);
                     return null;
                 });
                 break;
             case SeatSelection:
-                seatSelectionView.display(screenings.find(s -> s.getId() == screeningId));
+                seatSelectionView.display(screenings.find(s -> s.getId() == screeningId), e -> {
+                    onCancel.apply(null);
+                    return null;
+                });
                 break;
             default:
                 throw new RuntimeException("How did you even get here?");
