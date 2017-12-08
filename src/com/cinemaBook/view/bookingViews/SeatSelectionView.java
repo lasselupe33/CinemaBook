@@ -63,9 +63,10 @@ public class SeatSelectionView extends JComponent{
 
         JButton nextButton = new JButton("Next");
 
-        nextButton.addActionListener(e ->
-            onSubmit.apply(seats)
-        );
+        nextButton.addActionListener(e -> {
+            onSubmit.apply(seats);
+            reset();
+        });
 
         navigationPanel.add(nextButton);
 

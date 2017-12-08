@@ -1,5 +1,7 @@
 package com.cinemaBook.controller;
 
+import com.cinemaBook.globals.DataHandler;
+import com.cinemaBook.model.Booking;
 import com.cinemaBook.model.Customer;
 import com.cinemaBook.model.Screenings;
 import com.cinemaBook.model.Seat;
@@ -26,11 +28,12 @@ public class BookingController {
         this.screeningId = -1;
     }
 
-    public void reset() {
+    private void reset() {
         currentView = ScreeningSelection;
         screeningId = -1;
         customer = null;
         seats = new ArrayList<>();
+        screenings = new Screenings(DataHandler.getInstance().getScreenings(-1));
         display();
     }
 
@@ -45,7 +48,15 @@ public class BookingController {
             return null;
         }, customer -> {
             this.customer = customer;
-            this.currentView = SeatSelection;
+            System.out.println(customer);
+            System.out.println(seats);
+            System.out.println(screenings.find(s -> s.getId() == screeningId));
+            try {
+                DataHandler.getInstance().submitBooking(new Booking(customer, screenings.find(s -> s.getId() == screeningId), seats));
+            } catch (Error e) {
+                System.out.println(e.getMessage());
+            }
+            reset();
             display();
             return null;
         }, seats -> {
