@@ -2,12 +2,10 @@ package com.cinemaBook.globals;
 
 import com.cinemaBook.model.*;
 
-import java.lang.reflect.Executable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.sql.*;
-import java.util.Map;
 
 import static java.util.stream.Collectors.joining;
 
@@ -555,6 +553,7 @@ public class DataHandler {
     private ArrayList<Seat> convertReservedSeatsStringToArray(String reservedSeatsString) {
         ArrayList<Seat> reservedSeats = new ArrayList<>();
 
+        // Split the string of reserved seats into an array containing the individual seats
         String[] seats = reservedSeatsString.split(":");
 
         for (String seat : seats) {

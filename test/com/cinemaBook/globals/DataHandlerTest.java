@@ -9,5 +9,6 @@ import java.util.HashMap;
 import static org.junit.Assert.*;
 
 public class DataHandlerTest {
+    @Test
 
 }
