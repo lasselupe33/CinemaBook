@@ -7,6 +7,7 @@ import com.cinemaBook.model.Screenings;
 import com.cinemaBook.model.Seat;
 import com.cinemaBook.view.BookingView;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class BookingController {
@@ -48,12 +49,13 @@ public class BookingController {
             return null;
         }, customer -> {
             this.customer = customer;
-            System.out.println(customer);
-            System.out.println(seats);
-            System.out.println(screenings.find(s -> s.getId() == screeningId));
             try {
                 DataHandler.getInstance().submitBooking(new Booking(customer, screenings.find(s -> s.getId() == screeningId), seats));
             } catch (Error e) {
+                JOptionPane.showMessageDialog(view,
+                        e.getMessage(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
                 System.out.println(e.getMessage());
             }
             reset();

@@ -4,6 +4,7 @@ import com.cinemaBook.model.Customer;
 import com.cinemaBook.model.Screening;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.function.Function;
 
@@ -16,38 +17,56 @@ public class CustomerInputView extends JComponent{
     public void display(Screening screening, Function<Void, Void> onCancel, Function<Customer, Void> onSubmit) {
         removeAll();
 
-        JLabel filmLabel = new JLabel(screening.getFilm().getName());
+        DefaultTableModel tableModel = new DefaultTableModel();
 
-        add(filmLabel);
+        tableModel.addColumn("Title");
+        tableModel.addColumn("Time");
+        tableModel.addColumn("Auditorium");
+        tableModel.addColumn("Minimum age");
+        tableModel.addColumn("Seats left");
 
+        tableModel.addRow(new Object[]{screening.getFilm().getName(), screening.getStartTime(), screening.getAuditorium().getName(), Integer.toString(screening.getFilm().getMinAge()), screening.getSeatAssignment().getAmountOfAvailableSeats()});
+
+        JTable table = new JTable(tableModel);
+
+        add(table);
+
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
         JLabel nameLabel = new JLabel("Name:");
 
-        add(nameLabel);
+        panel.add(nameLabel);
 
         JTextField nameField = new JTextField();
 
-        add(nameField);
+        panel.add(nameField);
 
 
         JLabel phoneLabel = new JLabel("Phone:");
 
-        add(phoneLabel);
+        panel.add(phoneLabel);
 
         JTextField phoneField = new JTextField();
 
-        add(phoneField);
+        panel.add(phoneField);
 
 
         JLabel mailLabel = new JLabel("Email:");
 
-        add(mailLabel);
+        panel.add(mailLabel);
 
         JTextField mailField = new JTextField();
 
-        add(mailField);
+        panel.add(mailField);
 
-        JPanel navigationPanel = new JPanel(new FlowLayout());
+        add(panel);
+
+        JPanel navigationPanel = new JPanel();
+        navigationPanel.setLayout(new BoxLayout(navigationPanel, BoxLayout.LINE_AXIS));
+        navigationPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        navigationPanel.add(Box.createHorizontalGlue());
 
         JButton cancelButton = new JButton("Cancel");
 

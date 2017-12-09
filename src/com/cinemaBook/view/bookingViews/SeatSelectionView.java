@@ -32,10 +32,21 @@ public class SeatSelectionView extends JComponent{
     public void display(Screening screening, Function<Void, Void> onCancel, Function<ArrayList<Seat>, Void> onSubmit) {
         removeAll();
 
-        JLabel filmLabel = new JLabel(screening.getFilm().getName());
+        DefaultTableModel tableModel = new DefaultTableModel();
 
-        add(filmLabel);
+        tableModel.addColumn("Title");
+        tableModel.addColumn("Time");
+        tableModel.addColumn("Auditorium");
+        tableModel.addColumn("Minimum age");
+        tableModel.addColumn("Seats left");
 
+        tableModel.addRow(new Object[]{screening.getFilm().getName(), screening.getStartTime(), screening.getAuditorium().getName(), Integer.toString(screening.getFilm().getMinAge()), screening.getSeatAssignment().getAmountOfAvailableSeats()});
+
+        JTable table = new JTable(tableModel);
+
+        add(table);
+
+        // Add auditorium view
         auditoriumView = new AuditoriumView(seat -> {
             seats.add(seat);
             auditoriumView.display(screening.getAuditorium(), screening.getSeatAssignment(), seats);
@@ -50,7 +61,10 @@ public class SeatSelectionView extends JComponent{
 
         add(auditoriumView);
 
-        JPanel navigationPanel = new JPanel(new FlowLayout());
+        JPanel navigationPanel = new JPanel();
+        navigationPanel.setLayout(new BoxLayout(navigationPanel, BoxLayout.LINE_AXIS));
+        navigationPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        navigationPanel.add(Box.createHorizontalGlue());
 
         JButton cancelButton = new JButton("Cancel");
 

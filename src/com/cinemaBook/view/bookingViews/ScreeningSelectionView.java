@@ -12,7 +12,7 @@ import java.util.function.Function;
 public class ScreeningSelectionView extends JComponent{
     public ScreeningSelectionView() {
         super();
-        setLayout(new FlowLayout());
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
     public void display(Screenings screenings, Function<Integer, Void> onSubmit) {
@@ -24,9 +24,10 @@ public class ScreeningSelectionView extends JComponent{
         tableModel.addColumn("Time");
         tableModel.addColumn("Auditorium");
         tableModel.addColumn("Minimum age");
+        tableModel.addColumn("Seats left");
 
         screenings.getScreenings().forEach(screening -> {
-            tableModel.addRow(new Object[]{screening.getFilm().getName(), screening.getStartTime(), screening.getAuditorium().getName(), Integer.toString(screening.getFilm().getMinAge())});
+            tableModel.addRow(new Object[]{screening.getFilm().getName(), screening.getStartTime(), screening.getAuditorium().getName(), Integer.toString(screening.getFilm().getMinAge()), screening.getSeatAssignment().getAmountOfAvailableSeats()});
         });
 
         JTable table = new JTable(tableModel);
@@ -38,6 +39,6 @@ public class ScreeningSelectionView extends JComponent{
             }
         });
 
-        add(table);
+        add(new JScrollPane(table));
     }
 }
