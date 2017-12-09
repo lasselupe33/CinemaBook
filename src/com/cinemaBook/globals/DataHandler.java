@@ -169,7 +169,7 @@ public class DataHandler {
                 Auditorium auditorium = createAuditoriumModel(rs);
 
                 // Get screening specific information
-                Date startTime = rs.getDate("screening_startTime");
+                Date startTime = new Date(rs.getTimestamp("screening_startTime").getTime());
                 int screeningId = rs.getInt("screening_id");
 
                 // Get seat assignment for the given screening
