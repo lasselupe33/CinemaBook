@@ -1,10 +1,7 @@
 package com.cinemaBook.controller;
 
 import com.cinemaBook.globals.DataHandler;
-import com.cinemaBook.model.Booking;
-import com.cinemaBook.model.Customer;
-import com.cinemaBook.model.Screenings;
-import com.cinemaBook.model.Seat;
+import com.cinemaBook.model.*;
 import com.cinemaBook.view.BookingView;
 
 import javax.swing.*;
@@ -19,6 +16,7 @@ public class BookingController {
     private Screenings screenings;
     private String currentView;
     private int screeningId;
+    private Screening selectedScreening;
     private ArrayList<Seat> seats;
     private Customer customer;
 
@@ -29,7 +27,7 @@ public class BookingController {
         this.screeningId = -1;
     }
 
-    private void reset() {
+    public void reset() {
         currentView = ScreeningSelection;
         screeningId = -1;
         customer = null;
@@ -38,34 +36,53 @@ public class BookingController {
         display();
     }
 
+    public Screenings getScreenings() {
+        return screenings;
+    }
+
+    public String getCurrentView() {
+        return currentView;
+    }
+
+    public int getScreeningId() {
+        return screeningId;
+    }
+
+    public Screening getSelectedScreening() {
+        return selectedScreening;
+    }
+
+    public void onScreeningSelected(int id) {
+        this.screeningId = id;
+        this.selectedScreening = screenings.find(s -> s.getId() == screeningId);
+        this.currentView = SeatSelection;
+        display();
+    }
+
+    public void onCustomerSubmit(Customer customer) {
+        this.customer = customer;
+
+        try {
+            DataHandler.getInstance().submitBooking(new Booking(customer, selectedScreening, seats));
+        } catch (Error e) {
+            JOptionPane.showMessageDialog(view,
+                    e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.getMessage());
+        }
+
+        reset();
+        display();
+    }
+
+    public void onSeatSubmit(ArrayList<Seat> seats) {
+        this.seats = seats;
+        this.currentView = CustomerInput;
+        display();
+    }
+
     public void display() {
-        view.display(screenings, currentView, id -> {
-            this.screeningId = id;
-            this.currentView = SeatSelection;
-            display();
-            return null;
-        }, screeningId, e -> {
-            reset();
-            return null;
-        }, customer -> {
-            this.customer = customer;
-            try {
-                DataHandler.getInstance().submitBooking(new Booking(customer, screenings.find(s -> s.getId() == screeningId), seats));
-            } catch (Error e) {
-                JOptionPane.showMessageDialog(view,
-                        e.getMessage(),
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE);
-                System.out.println(e.getMessage());
-            }
-            reset();
-            display();
-            return null;
-        }, seats -> {
-            this.seats = seats;
-            this.currentView = CustomerInput;
-            display();
-            return null;
-        });
+        view.display(this);
     }
 }

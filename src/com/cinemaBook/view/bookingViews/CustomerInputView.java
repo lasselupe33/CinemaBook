@@ -1,5 +1,6 @@
 package com.cinemaBook.view.bookingViews;
 
+import com.cinemaBook.controller.BookingController;
 import com.cinemaBook.model.Customer;
 import com.cinemaBook.model.Screening;
 
@@ -14,7 +15,7 @@ public class CustomerInputView extends JComponent{
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    public void display(Screening screening, Function<Void, Void> onCancel, Function<Customer, Void> onSubmit) {
+    public void display(BookingController controller) {
         removeAll();
 
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -25,7 +26,13 @@ public class CustomerInputView extends JComponent{
         tableModel.addColumn("Minimum age");
         tableModel.addColumn("Seats left");
 
-        tableModel.addRow(new Object[]{screening.getFilm().getName(), screening.getStartTime(), screening.getAuditorium().getName(), Integer.toString(screening.getFilm().getMinAge()), screening.getSeatAssignment().getAmountOfAvailableSeats()});
+        tableModel.addRow(new Object[]{
+            controller.getSelectedScreening().getFilm().getName(),
+            controller.getSelectedScreening().getStartTime(),
+            controller.getSelectedScreening().getAuditorium().getName(),
+            Integer.toString(controller.getSelectedScreening().getFilm().getMinAge()),
+            controller.getSelectedScreening().getSeatAssignment().getAmountOfAvailableSeats()
+        });
 
         JTable table = new JTable(tableModel);
 
@@ -71,7 +78,7 @@ public class CustomerInputView extends JComponent{
         JButton cancelButton = new JButton("Cancel");
 
         cancelButton.addActionListener(e -> {
-            onCancel.apply(null);
+            controller.reset();
         });
 
         navigationPanel.add(cancelButton);
@@ -80,7 +87,7 @@ public class CustomerInputView extends JComponent{
 
         nextButton.addActionListener(e -> {
             Customer customer = new Customer(nameField.getText(), phoneField.getText(), mailField.getText());
-            onSubmit.apply(customer);
+            controller.onCustomerSubmit(customer);
         });
 
         navigationPanel.add(nextButton);

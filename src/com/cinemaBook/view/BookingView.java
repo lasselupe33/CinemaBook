@@ -1,5 +1,6 @@
 package com.cinemaBook.view;
 
+import com.cinemaBook.controller.BookingController;
 import com.cinemaBook.model.Customer;
 import com.cinemaBook.model.Screenings;
 import com.cinemaBook.model.Seat;
@@ -38,34 +39,19 @@ public class BookingView extends JComponent {
         add(seatSelectionView, SeatSelection);
     }
 
-    public void display(Screenings screenings, String currentView, Function<Integer, Void> onScreeningSelected, int screeningId, Function<Void, Void> onCancel, Function<Customer, Void> onCustomerSubmit, Function<ArrayList<Seat>, Void> onSeatSubmit) {
+    public void display(BookingController controller) {
 
-        cl.show(this, currentView);
+        cl.show(this, controller.getCurrentView());
 
-        switch (currentView) {
+        switch (controller.getCurrentView()) {
             case ScreeningSelection:
-                screeningSelectionView.display(screenings, id -> {
-                    onScreeningSelected.apply(id);
-                    return null;
-                });
+                screeningSelectionView.display(controller);
                 break;
             case CustomerInput:
-                customerInputView.display(screenings.find(s -> s.getId() == screeningId), e -> {
-                    onCancel.apply(null);
-                    return null;
-                },customer -> {
-                    onCustomerSubmit.apply(customer);
-                    return null;
-                });
+                customerInputView.display(controller);
                 break;
             case SeatSelection:
-                seatSelectionView.display(screenings.find(s -> s.getId() == screeningId), e -> {
-                    onCancel.apply(null);
-                    return null;
-                }, seats -> {
-                    onSeatSubmit.apply(seats);
-                    return null;
-                });
+                seatSelectionView.display(controller);
                 break;
             default:
                 throw new RuntimeException("How did you even get here?");

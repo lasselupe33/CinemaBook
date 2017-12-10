@@ -1,5 +1,6 @@
 package com.cinemaBook.view.bookingViews;
 
+import com.cinemaBook.controller.BookingController;
 import com.cinemaBook.globals.DateFormatter;
 import com.cinemaBook.model.Screening;
 import com.cinemaBook.model.Screenings;
@@ -20,7 +21,7 @@ public class ScreeningSelectionView extends JComponent{
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    public void display(Screenings screenings, Function<Integer, Void> onSubmit) {
+    public void display(BookingController controller) {
         removeAll();
 
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -31,13 +32,13 @@ public class ScreeningSelectionView extends JComponent{
         tableModel.addColumn("Minimum age");
         tableModel.addColumn("Seats left");
 
-        screenings.getScreenings().sort(new Comparator<Screening>() {
+        controller.getScreenings().getScreenings().sort(new Comparator<Screening>() {
             @Override
             public int compare(Screening screening, Screening t1) {
                 return screening.getStartTime().compareTo(t1.getStartTime());
             }
         });
-        screenings.getScreenings().forEach(screening -> {
+        controller.getScreenings().getScreenings().forEach(screening -> {
             Calendar calendar = GregorianCalendar.getInstance();
             calendar.setTime(screening.getStartTime());
             tableModel.addRow(new Object[]{screening.getFilm().getName(), new DateFormatter(screening.getStartTime()).str(), screening.getAuditorium().getName(), Integer.toString(screening.getFilm().getMinAge()), screening.getSeatAssignment().getAmountOfAvailableSeats()});
@@ -48,7 +49,7 @@ public class ScreeningSelectionView extends JComponent{
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent listSelectionEvent) {
-                onSubmit.apply(screenings.getScreenings().get(listSelectionEvent.getFirstIndex()).getId());
+                controller.onScreeningSelected(controller.getScreenings().getScreenings().get(listSelectionEvent.getFirstIndex()).getId());
             }
         });
 
