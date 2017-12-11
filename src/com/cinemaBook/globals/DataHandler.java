@@ -3,7 +3,6 @@ package com.cinemaBook.globals;
 import com.cinemaBook.model.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.sql.*;
 
@@ -52,6 +51,12 @@ public class DataHandler {
         try {
             // If more than a timeout amount of time has passed, create a new connection
             if (System.currentTimeMillis() > this.connectionCreationTime + this.timeOut) {
+                // Close the old connection if one exists
+                if (this.connectionCreationTime != 0) {
+                    this.connection.close();
+                }
+
+                // Create the new connection
                 this.connectionCreationTime = System.currentTimeMillis();
                 this.connection = DriverManager.getConnection(db_url, user, password);
             }
@@ -227,7 +232,7 @@ public class DataHandler {
                 Screening screening = this.getScreenings(rs.getInt("screening_id")).get(0);
 
                 // Get the reserved seats in proper format
-                ArrayList<Seat> reservedSeats = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
+                ArrayList<Seat> reservedSeats = ConvertReservedSeats.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
 
                 // Get the associated customer
                 Customer customer = this.getCustomer(rs.getInt("customer_id"));
@@ -274,7 +279,7 @@ public class DataHandler {
                     Screening screening = this.getScreenings(rs.getInt("screening_id")).get(0);
 
                     // Get the reserved seats and format them into an array usable in the code.
-                    ArrayList<Seat> reservedSeats = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
+                    ArrayList<Seat> reservedSeats = ConvertReservedSeats.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
 
                     // Create a booking model with the fetched information
                     Booking booking = new Booking(customer, screening, reservedSeats);
@@ -327,7 +332,7 @@ public class DataHandler {
             // First, get the list of old seats
             ResultSet rs = this.createStatement().executeQuery("SELECT screening_id, reserved_seats FROM Bookings WHERE booking_id = '" + booking_id + "';");
             rs.next();
-            ArrayList<Seat> oldReservedSeats = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
+            ArrayList<Seat> oldReservedSeats = ConvertReservedSeats.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
 
             // Delete old seats
             int screening_id = rs.getInt("screening_id");
@@ -337,7 +342,7 @@ public class DataHandler {
             this.insertSeatReservation(screening_id, newReservedSeats);
 
             // Finally update the booking with the new seats
-            String reservedSeatsString = this.convertReservedSeatsToString(newReservedSeats);
+            String reservedSeatsString = ConvertReservedSeats.convertReservedSeatsToString(newReservedSeats);
             this.createStatement().executeUpdate("UPDATE Bookings SET reserved_seats = '" + reservedSeatsString + "' WHERE booking_id = '" + booking_id + "';");
         } catch (Exception e) {
             throw new Error("Failed to update booking: " + e.getMessage());
@@ -352,7 +357,7 @@ public class DataHandler {
             // First, get the list of seats to delete.
             ResultSet rs = this.createStatement().executeQuery("SELECT screening_id, reserved_seats FROM Bookings WHERE booking_id = '" + booking_id + "';");
             rs.next();
-            ArrayList<Seat> seatsToBeDeleted = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
+            ArrayList<Seat> seatsToBeDeleted = ConvertReservedSeats.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
 
             // Delete the old seats
             int screening_id = rs.getInt("screening_id");
@@ -375,7 +380,7 @@ public class DataHandler {
         HashMap<String, String> bookingMap = new HashMap<>();
         bookingMap.put("customer_id", "" + customer_id);
         bookingMap.put("screening_id", "" + screening_id);
-        bookingMap.put("reserved_seats", convertReservedSeatsToString(booking.getReservedSeats()));
+        bookingMap.put("reserved_seats", ConvertReservedSeats.convertReservedSeatsToString(booking.getReservedSeats()));
         this.insertData("Bookings", bookingMap);
 
         try {
@@ -601,48 +606,5 @@ public class DataHandler {
         } catch (Exception e) {
             throw new Error("Error occurred while creating a filmModel... " + e.getMessage());
         }
-    }
-
-    /**
-     * Internal helper that formats the reserved seats of a booking to a string
-     * @param reservedSeats the ArrayList of reserved seats of the booking
-     * @return A string in the form of "row1,col1:row2,col2:row3:col3....
-     */
-    private String convertReservedSeatsToString(ArrayList<Seat> reservedSeats) {
-        // Convert arrayList of reserved seats into string of the following form "x1,y1:x2,y2:x3,y3...."
-        String seatsString = "";
-        for (int i = 0; i < reservedSeats.size(); i++) {
-            // Add a single seat with the row first followed by a comma and then the column
-            seatsString += reservedSeats.get(i).getRow() + "," + reservedSeats.get(i).getColumn();
-
-            // If this isn't the last reserved seat add a ":" to be used as a delimiter
-            if (i != reservedSeats.size() - 1) {
-                seatsString += ":";
-            }
-        }
-
-        return seatsString;
-    }
-
-    /**
-     * Internal helper that formats a string of reserved seats of a booking back into an ArrayList<Seat>
-     * that contains arrays of seats with a row and a column value.
-     *
-     * @param reservedSeatsString the string of reserved seats of the booking
-     * @return an arrayList of reserved seats rows and columns.
-     */
-    private ArrayList<Seat> convertReservedSeatsStringToArray(String reservedSeatsString) {
-        ArrayList<Seat> reservedSeats = new ArrayList<>();
-
-        // Split the string of reserved seats into an array containing the individual seats
-        String[] seats = reservedSeatsString.split(":");
-
-        for (String seat : seats) {
-            // Convert seat string to an array where the first index is the row and the second the column
-            int[] seatInfo = Arrays.stream(seat.split(",")).mapToInt(Integer::parseInt).toArray();
-            reservedSeats.add(new Seat(seatInfo[0], seatInfo[1], true));
-        }
-
-        return reservedSeats;
     }
 }

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="cinemaBook:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/cinemaBook_jar</output-path>
+    <root id="archive" name="cinemaBook.jar">
+      <element id="module-output" name="cinemaBook" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/dependencies/mysql.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
