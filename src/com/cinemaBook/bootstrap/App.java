@@ -28,6 +28,11 @@ public class App {
             Screening screening = DataHandler.getInstance().getScreenings(2).get(0); // Use .get(0) to get the desired screening)
         }
 
+        // EXAMPLE OF GETTING ALL BOOKINGS
+        if (false) {
+            ArrayList<Booking> bookings = DataHandler.getInstance().getBookings();
+        }
+
         // EXAMPLE OF GETTING BOOKINGS BY CUSTOMER
         if (false) {
             Customer customer = new Customer("Lasse Agersten", "123", "hej@gmail.com");
@@ -95,9 +100,6 @@ public class App {
 
         BookingView bookingView = new BookingView();
 
-
-
-        EditBookingsView editBookingsView = new EditBookingsView();
 
         BookingController bookingController = new BookingController(bookingView, screenings);
 

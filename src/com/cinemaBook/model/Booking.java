@@ -1,5 +1,7 @@
 package com.cinemaBook.model;
 
+import com.cinemaBook.globals.DataHandler;
+
 import java.util.ArrayList;
 
 /**
@@ -19,6 +21,10 @@ public class Booking {
 
     public void setId(int id) { this.id = id; }
 
+    public int getId() {
+        return id;
+    }
+
     public Customer getCustomer() {
         return customer;
     }
@@ -29,5 +35,9 @@ public class Booking {
 
     public ArrayList<Seat> getReservedSeats() {
         return reservedSeats;
+    }
+
+    public void delete() {
+        DataHandler.getInstance().deleteBooking(id);
     }
 }
