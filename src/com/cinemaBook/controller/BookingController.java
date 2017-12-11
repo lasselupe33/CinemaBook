@@ -29,7 +29,6 @@ public class BookingController {
     public void reset() {
         currentView = ScreeningSelection;
         screeningId = -1;
-        customer = null;
         seats = new ArrayList<>();
         screenings = new Screenings(DataHandler.getInstance().getScreenings(-1));
         display();
