@@ -24,4 +24,8 @@ public class Auditorium {
     public int getColumns() {
         return columns;
     }
+
+    public String getName() {
+        return name;
+    }
 }

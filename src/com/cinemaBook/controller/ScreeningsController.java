@@ -3,7 +3,6 @@ package com.cinemaBook.controller;
 import com.cinemaBook.globals.DataHandler;
 import com.cinemaBook.globals.State;
 import com.cinemaBook.model.Screening;
-import com.cinemaBook.view.MainPane;
 import com.cinemaBook.view.ScreeningsView;
 import com.cinemaBook.view.View;
 
@@ -24,8 +23,6 @@ public class ScreeningsController extends Controller {
         // Create the view
         this.view = new ScreeningsView();
 
-        // Swap to the this view
-        MainPane.getInstance().swapComponent(view);
     }
 
     public void setSelectedScreening(int id) {

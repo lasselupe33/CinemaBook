@@ -1,18 +1,15 @@
 package com.cinemaBook.bootstrap;
 
+import com.cinemaBook.controller.BookingController;
 import com.cinemaBook.globals.DataHandler;
-import com.cinemaBook.globals.Router;
-import com.cinemaBook.globals.ViewTypes;
-import com.cinemaBook.model.Booking;
-import com.cinemaBook.model.Customer;
-import com.cinemaBook.model.Screening;
-import com.cinemaBook.model.Seat;
+import com.cinemaBook.model.*;
+import com.cinemaBook.view.BookingView;
+import com.cinemaBook.view.MainView;
 
-import javax.xml.crypto.Data;
+import javax.swing.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class primeApp {
+public class App {
     public static void main(String[] args) {
         if (true) {
             // Create database mock up
@@ -21,7 +18,7 @@ public class primeApp {
         }
 
         // EXAMPLE OF GETTING SCREENINGS
-        if (true) {
+        if (false) {
             // To get all screenings pass "-1"
             ArrayList<Screening> screenings = DataHandler.getInstance().getScreenings(-1);
 
@@ -30,14 +27,14 @@ public class primeApp {
         }
 
         // EXAMPLE OF GETTING BOOKINGS BY CUSTOMER
-        if (true) {
+        if (false) {
             Customer customer = new Customer("Lasse Agersten", "123", "hej@gmail.com");
 
             ArrayList<Booking> bookings = DataHandler.getInstance().getBookingsByCustomer(customer); // will return null if no bookings are found
         }
 
         // EXAMPLE OF SUBMITTING A BOOKING
-        if (true) {
+        if (false) {
             // Create a user to connect to booking to
             Customer customer = new Customer("Test navn", "+45 12345678", "test@gmail.com");
 
@@ -57,7 +54,7 @@ public class primeApp {
         }
 
         // EXAMPLE OF UPDATING A BOOKING
-        if (true) {
+        if (false) {
             // Create a list of new seats to reserve instead
             ArrayList<Seat> newReservedSeats = new ArrayList<>();
             newReservedSeats.add(new Seat(6, 5, true));
@@ -68,14 +65,33 @@ public class primeApp {
         }
 
         // EXAMPLE OF DELETING A BOOKING
-        if (true) {
+        if (false) {
             // Pass the booking id of the booking to be deleted
             DataHandler.getInstance().deleteBooking(2);
         }
 
-        // default to ScreeningsView
-        if (false) {
-            Router.getInstance().updateLocation(ViewTypes.ScreeningsView);
-        }
+        // Getting data from the database
+        DataHandler dataHandler = DataHandler.getInstance();
+        ArrayList<Screening> screeningList = dataHandler.getScreenings(-1);
+
+        System.out.println(screeningList);
+
+        // Getting the tabPane from the main view
+        JTabbedPane tabPane = MainView.getInstance().getTabPane();
+
+        // Setting up Booking View
+        Screenings screenings = new Screenings(screeningList);
+
+        BookingView bookingView = new BookingView();
+
+        BookingController bookingController = new BookingController(bookingView, screenings);
+
+        bookingController.display();
+
+        // Add Views to the tabPane
+        tabPane.addTab("Book", bookingView);
+
+        //tabPane.addTab("Edit booking", );
+
     }
 }

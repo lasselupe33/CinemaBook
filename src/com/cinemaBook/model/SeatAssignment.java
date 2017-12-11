@@ -34,4 +34,8 @@ public class SeatAssignment {
     public Seat getSeat(int row, int column) {
         return seatAssignment[row][column];
     }
+
+    public Seat[][] getSeats() {
+        return seatAssignment;
+    }
 }
