@@ -40,7 +40,13 @@ public class ScreeningSelectionView extends JComponent{
         screenings.getScreenings().forEach(screening -> {
             Calendar calendar = GregorianCalendar.getInstance();
             calendar.setTime(screening.getStartTime());
-            tableModel.addRow(new Object[]{screening.getFilm().getName(), new DateFormatter(screening.getStartTime()).str(), screening.getAuditorium().getName(), Integer.toString(screening.getFilm().getMinAge()), screening.getSeatAssignment().getAmountOfAvailableSeats()});
+            tableModel.addRow(new Object[]{
+                screening.getFilm().getName(),
+                new DateFormatter(screening.getStartTime()).str(),
+                screening.getAuditorium().getName(),
+                Integer.toString(screening.getFilm().getMinAge()),
+                screening.getSeatAssignment().getAmountOfAvailableSeats()
+            });
         });
 
         JTable table = new JTable(tableModel);

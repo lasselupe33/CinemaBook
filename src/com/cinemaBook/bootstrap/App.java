@@ -9,6 +9,8 @@ import com.cinemaBook.view.EditBookingsView;
 import com.cinemaBook.view.MainView;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
 
 public class App {
@@ -110,6 +112,19 @@ public class App {
 
         //tabPane.addTab("Edit booking", );
         tabPane.addTab("Edit booking", editBookingsView);
+
+        ChangeListener changeListener = new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if (tabPane.getSelectedIndex() == 0) {
+                    bookingController.reset();
+                } else {
+                    editBookingController.reset();
+                }
+            }
+        };
+
+        tabPane.addChangeListener(changeListener);
 
     }
 }
