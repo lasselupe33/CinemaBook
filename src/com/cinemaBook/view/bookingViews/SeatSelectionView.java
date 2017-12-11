@@ -2,12 +2,14 @@ package com.cinemaBook.view.bookingViews;
 
 import com.cinemaBook.controller.BookingController;
 import com.cinemaBook.globals.DateFormatter;
+import com.cinemaBook.model.Screening;
 import com.cinemaBook.model.Seat;
 import com.cinemaBook.view.AuditoriumView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import java.util.function.Function;
 
 public class SeatSelectionView extends JComponent{
     private ArrayList<Seat> seats;
@@ -25,7 +27,7 @@ public class SeatSelectionView extends JComponent{
         seats = new ArrayList<>();
     }
 
-    public void display(BookingController controller) {
+    public void display(Screening screening, Function<Void, Void> cancel, Function<ArrayList<Seat>, Void> success) {
         removeAll();
 
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -35,9 +37,9 @@ public class SeatSelectionView extends JComponent{
         tableModel.addColumn("Auditorium");
 
         tableModel.addRow(new Object[]{
-            controller.getSelectedScreening().getFilm().getName(),
-            new DateFormatter(controller.getSelectedScreening().getStartTime()).str(),
-            controller.getSelectedScreening().getAuditorium().getName(),
+            screening.getFilm().getName(),
+            new DateFormatter(screening.getStartTime()).str(),
+            screening.getAuditorium().getName(),
         });
 
         JTable table = new JTable(tableModel);
@@ -47,15 +49,15 @@ public class SeatSelectionView extends JComponent{
         // Add auditorium view
         auditoriumView = new AuditoriumView(seat -> {
             seats.add(seat);
-            auditoriumView.display(controller.getSelectedScreening().getAuditorium(), controller.getSelectedScreening().getSeatAssignment(), seats);
+            auditoriumView.display(screening.getAuditorium(), screening.getSeatAssignment(), seats);
             return null;
         }, index -> {
             seats.remove((int) index);
-            auditoriumView.display(controller.getSelectedScreening().getAuditorium(), controller.getSelectedScreening().getSeatAssignment(), seats);
+            auditoriumView.display(screening.getAuditorium(), screening.getSeatAssignment(), seats);
             return null;
         });
 
-        auditoriumView.display(controller.getSelectedScreening().getAuditorium(), controller.getSelectedScreening().getSeatAssignment(), seats);
+        auditoriumView.display(screening.getAuditorium(), screening.getSeatAssignment(), seats);
 
         add(auditoriumView);
 
@@ -68,7 +70,7 @@ public class SeatSelectionView extends JComponent{
 
         cancelButton.addActionListener(e -> {
             reset();
-            controller.reset();
+            cancel.apply(null);
         });
 
         navigationPanel.add(cancelButton);
@@ -76,7 +78,7 @@ public class SeatSelectionView extends JComponent{
         JButton nextButton = new JButton("Next");
 
         nextButton.addActionListener(e -> {
-            controller.onSeatSubmit(seats);
+            success.apply(seats);
             reset();
         });
 

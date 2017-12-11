@@ -1,6 +1,9 @@
 package com.cinemaBook.view;
 
 
+import com.cinemaBook.controller.EditBookingController;
+import com.cinemaBook.globals.DateFormatter;
+import com.cinemaBook.model.Booking;
 import com.cinemaBook.model.Bookings;
 import com.cinemaBook.model.Screenings;
 
@@ -8,6 +11,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.util.function.Function;
 
@@ -21,6 +25,11 @@ public class EditBookingsView extends JComponent {
         super();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+         }
+
+        public void display(EditBookingController c) {
+        removeAll();
+
         DefaultTableModel tableModel = new DefaultTableModel();
 
         tableModel.addColumn("Navn");
@@ -29,15 +38,53 @@ public class EditBookingsView extends JComponent {
         tableModel.addColumn("Film");
         tableModel.addColumn("Tidspunkt");
         tableModel.addColumn("Antal Sæder");
-        tableModel.addColumn("Edit");
-        tableModel.addColumn("Delete");
 
-        /*
-        * For testing
-         */
-        button = new JButton();
-        button.setText("Hello World");
+        for (Booking booking: c.getBookings().getBookings()) {
+            tableModel.addRow(new Object[]{
+                booking.getCustomer().getName(),
+                booking.getCustomer().getEmail(),
+                booking.getCustomer().getPhone(),
+                booking.getScreening().getFilm().getName(),
+                new DateFormatter(booking.getScreening().getStartTime()).str(),
+                booking.getReservedSeats().size(),
+            });
+        }
 
+        JTable table = new JTable(tableModel);
+        add(new JScrollPane(table));
+
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
+                    c.setSelectedBooking(c.getBookings().getBookings().get(e.getFirstIndex()));
+                }
+            }
+        });
+
+        JPanel navigationPanel = new JPanel();
+        navigationPanel.setLayout(new BoxLayout(navigationPanel, BoxLayout.LINE_AXIS));
+
+        JButton editButton = new JButton("Edit");
+
+        editButton.addActionListener(e -> {
+            // stuff to do when editing
+        });
+
+        navigationPanel.add(editButton);
+
+        JButton deleteButton = new JButton("Delete");
+
+        deleteButton.addActionListener(e -> {
+            if (c.getSelectedBooking() != null) {
+                c.deleteBooking();
+            }
+            //delete stuff
+        });
+
+        navigationPanel.add(deleteButton);
+
+        add(navigationPanel);
     }
 
 }

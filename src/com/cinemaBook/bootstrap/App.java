@@ -1,6 +1,7 @@
 package com.cinemaBook.bootstrap;
 
 import com.cinemaBook.controller.BookingController;
+import com.cinemaBook.controller.EditBookingController;
 import com.cinemaBook.globals.DataHandler;
 import com.cinemaBook.model.*;
 import com.cinemaBook.view.BookingView;
@@ -86,10 +87,19 @@ public class App {
         // Setting up Booking View
         Screenings screenings = new Screenings(screeningList);
 
-        BookingView bookingView = new BookingView();
 
+        // Setting up Edit Booking View
+        Bookings bookings = new Bookings();
 
         EditBookingsView editBookingsView = new EditBookingsView();
+
+        EditBookingController editBookingController = new EditBookingController(editBookingsView, bookings);
+
+        editBookingController.display();
+
+
+        BookingView bookingView = new BookingView();
+
 
         BookingController bookingController = new BookingController(bookingView, screenings);
 
