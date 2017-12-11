@@ -45,13 +45,28 @@ public class BookingView extends JComponent {
 
         switch (controller.getCurrentView()) {
             case ScreeningSelection:
-                screeningSelectionView.display(controller);
-                break;
-            case CustomerInput:
-                customerInputView.display(controller);
+                screeningSelectionView.display(controller.getScreenings(), screening -> {
+                    controller.onScreeningSelected(screening.getId());
+                    return null;
+                });
                 break;
             case SeatSelection:
-                seatSelectionView.display(controller);
+                seatSelectionView.display(controller.getSelectedScreening(), v -> {
+                    controller.reset();
+                    return null;
+                }, seats -> {
+                    controller.onSeatSubmit(seats);
+                    return null;
+                });
+                break;
+            case CustomerInput:
+                customerInputView.display(v -> {
+                    controller.reset();
+                    return null;
+                }, customer -> {
+                    controller.onCustomerSubmit(customer);
+                    return null;
+                });
                 break;
             default:
                 throw new RuntimeException("How did you even get here?");

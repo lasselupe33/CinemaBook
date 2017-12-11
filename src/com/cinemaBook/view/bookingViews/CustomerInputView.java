@@ -6,6 +6,7 @@ import com.cinemaBook.model.Customer;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.function.Function;
 
 public class CustomerInputView extends JComponent{
     public CustomerInputView() {
@@ -13,25 +14,8 @@ public class CustomerInputView extends JComponent{
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    public void display(BookingController controller) {
+    public void display(Function<Void, Void> cancel, Function<Customer, Void> success) {
         removeAll();
-
-        DefaultTableModel tableModel = new DefaultTableModel();
-
-        tableModel.addColumn("Title");
-        tableModel.addColumn("Time");
-        tableModel.addColumn("Auditorium");
-
-        tableModel.addRow(new Object[]{
-            controller.getSelectedScreening().getFilm().getName(),
-            new DateFormatter(controller.getSelectedScreening().getStartTime()).str(),
-            controller.getSelectedScreening().getAuditorium().getName(),
-        });
-
-        JTable table = new JTable(tableModel);
-
-        add(table);
-
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
@@ -72,7 +56,7 @@ public class CustomerInputView extends JComponent{
         JButton cancelButton = new JButton("Cancel");
 
         cancelButton.addActionListener(e -> {
-            controller.reset();
+            cancel.apply(null);
         });
 
         navigationPanel.add(cancelButton);
@@ -81,7 +65,7 @@ public class CustomerInputView extends JComponent{
 
         nextButton.addActionListener(e -> {
             Customer customer = new Customer(nameField.getText(), phoneField.getText(), mailField.getText());
-            controller.onCustomerSubmit(customer);
+            success.apply(customer);
         });
 
         navigationPanel.add(nextButton);
