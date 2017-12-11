@@ -232,6 +232,8 @@ public class DataHandler {
                 // Get the associated customer
                 Customer customer = this.getCustomer(rs.getInt("customer_id"));
 
+                System.out.println(rs.getInt("customer_id"));
+
                 // Create a booking model with the fetched information
                 Booking booking = new Booking(customer, screening, reservedSeats);
 
@@ -471,7 +473,7 @@ public class DataHandler {
      */
     private Customer getCustomer(int customerId) {
         try {
-            String query = "SELECT * FROM Customers";
+            String query = "SELECT * FROM Customers WHERE customer_id=" + customerId;
             ResultSet rs = this.createStatement().executeQuery(query);
             rs.next();
 

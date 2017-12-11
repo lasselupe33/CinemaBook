@@ -3,8 +3,6 @@ package com.cinemaBook.controller;
 import com.cinemaBook.model.*;
 import com.cinemaBook.view.EditBookingsView;
 
-import java.util.ArrayList;
-
 public class EditBookingController {
     private final static String EditBooking = "EditBooking";
 
