@@ -20,8 +20,11 @@ public class DataHandler {
 
     // Database access url
     private static final String db_url = "jdbc:mysql://mydb.itu.dk/" + db;
+
+    // Connection handling
     private Connection connection;
-    private Statement statement;
+    private long connectionCreationTime = 0;
+    private long timeOut = 60000;
 
     // Store a reference to the dataHandler
     private static final DataHandler instance = new DataHandler();
@@ -32,11 +35,8 @@ public class DataHandler {
     private DataHandler() {
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            this.connection = DriverManager.getConnection(db_url, user, password);
-            this.statement = this.connection.createStatement();
         } catch (Exception e) {
-            System.out.println("An error occurred during the attempt to connect to the database");
-            System.out.println(e.getMessage());
+            throw new Error("An error occurred when attempting to register the driver. Error: " + e.getMessage());
         }
     }
 
@@ -46,6 +46,35 @@ public class DataHandler {
     public static DataHandler getInstance() { return instance; }
 
     /**
+     * @return returns a new connection to be used
+     */
+    private Connection createConnection() {
+        try {
+            // If more than a timeout amount of time has passed, create a new connection
+            if (System.currentTimeMillis() > this.connectionCreationTime + this.timeOut) {
+                this.connectionCreationTime = System.currentTimeMillis();
+                this.connection = DriverManager.getConnection(db_url, user, password);
+            }
+
+            // Return the connection
+            return this.connection;
+        } catch (Exception e) {
+            throw new Error("Failed to get database connection! " + e.getMessage());
+        }
+    }
+
+    /**
+     * @return returns a new statement to be used
+     */
+    private Statement createStatement() {
+        try {
+            return this.createConnection().createStatement();
+        } catch (Exception e) {
+            throw new Error("Failed to get database connection! " + e.getMessage());
+        }
+    }
+
+    /**
      * This function is used to clear all tables within the database.
      *
      * NB: This method clears all tables in the database. It should be used with caution!
@@ -53,14 +82,14 @@ public class DataHandler {
     public void clearData() {
         try {
             // Delete all data unconditionally
-            statement.executeQuery("SET FOREIGN_KEY_CHECKS = 0");
+            this.createStatement().executeQuery("SET FOREIGN_KEY_CHECKS = 0");
 
             // Execute query to get all tables in database
             String query = "SHOW TABLES";
-            ResultSet rs = statement.executeQuery(query);
+            ResultSet rs = this.createStatement().executeQuery(query);
 
             // Create a secondary statement to ensure resultSet won't be overwritten
-            Statement clearStatement = connection.createStatement();
+            Statement clearStatement = this.createStatement();
 
             // Loop through all tables and clear them
             while (rs.next()) {
@@ -73,7 +102,7 @@ public class DataHandler {
         } finally {
             try {
                 // Enable foreign keys again
-                statement.executeQuery("SET FOREIGN_KEY_CHECKS = 1");
+                this.createStatement().executeQuery("SET FOREIGN_KEY_CHECKS = 1");
             } catch (Exception e) {
                 throw new Error("Foreign key checks couldn't be enabled again!");
             }
@@ -86,10 +115,9 @@ public class DataHandler {
      */
     public void createTable(String query) {
         try {
-            statement.executeUpdate(query);
+            this.createStatement().executeUpdate(query);
         } catch (Exception e) {
-            System.out.println("Failed to create table..");
-            System.out.println(e.getMessage());
+            throw new Error("Failed to create table.. Error: " + e.getMessage());
         }
     }
 
@@ -115,7 +143,7 @@ public class DataHandler {
         try {
             // Create the query and run it through the database!
             String query = "INSERT INTO " + table + " (" + columnNames + ") VALUES (" + data + ")";
-            statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+            this.createStatement().executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (Exception e) {
             System.out.println("Failed to insert data..");
             System.out.println(table);
@@ -156,7 +184,7 @@ public class DataHandler {
                 "s.film_id = f.film_id";
 
             // Execute the query
-            ResultSet rs = statement.executeQuery(query);
+            ResultSet rs = this.createStatement().executeQuery(query);
 
             // Loop over all active screenings
             while (rs.next()) {
@@ -180,12 +208,8 @@ public class DataHandler {
             // Return the list of screenings
             return screenings;
         } catch (Exception e) {
-            System.out.println("Failed to retrieve screenings...");
-            System.out.println(e.getMessage());
+            throw new Error("Failed to retrieve screenings... " + e.getMessage());
         }
-
-        // If we get here, then no screenings have been found. Therefore null is returned
-        return null;
     }
 
     /**
@@ -194,7 +218,7 @@ public class DataHandler {
     public ArrayList<Booking> getBookings() {
         try {
             String query = "SELECT * FROM Bookings";
-            ResultSet rs = connection.createStatement().executeQuery(query);
+            ResultSet rs = this.createStatement().executeQuery(query);
 
             ArrayList<Booking> bookings = new ArrayList<>();
 
@@ -240,7 +264,7 @@ public class DataHandler {
             try {
                 // Execute query to get all bookings for the customer
                 String query = "SELECT * FROM Bookings WHERE customer_id = '" + customer_id + "';";
-                ResultSet rs = connection.createStatement().executeQuery(query);
+                ResultSet rs = this.createStatement().executeQuery(query);
 
                 ArrayList<Booking> bookings = new ArrayList<>();
 
@@ -301,7 +325,7 @@ public class DataHandler {
     public void updateBooking(int booking_id, ArrayList<Seat> newReservedSeats) {
         try {
             // First, get the list of old seats
-            ResultSet rs = statement.executeQuery("SELECT screening_id, reserved_seats FROM Bookings WHERE booking_id = '" + booking_id + "';");
+            ResultSet rs = this.createStatement().executeQuery("SELECT screening_id, reserved_seats FROM Bookings WHERE booking_id = '" + booking_id + "';");
             rs.next();
             ArrayList<Seat> oldReservedSeats = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
 
@@ -314,7 +338,7 @@ public class DataHandler {
 
             // Finally update the booking with the new seats
             String reservedSeatsString = this.convertReservedSeatsToString(newReservedSeats);
-            statement.executeUpdate("UPDATE Bookings SET reserved_seats = '" + reservedSeatsString + "' WHERE booking_id = '" + booking_id + "';");
+            this.createStatement().executeUpdate("UPDATE Bookings SET reserved_seats = '" + reservedSeatsString + "' WHERE booking_id = '" + booking_id + "';");
         } catch (Exception e) {
             throw new Error("Failed to update booking: " + e.getMessage());
         }
@@ -326,7 +350,7 @@ public class DataHandler {
     public void deleteBooking(int booking_id) {
         try {
             // First, get the list of seats to delete.
-            ResultSet rs = statement.executeQuery("SELECT screening_id, reserved_seats FROM Bookings WHERE booking_id = '" + booking_id + "';");
+            ResultSet rs = this.createStatement().executeQuery("SELECT screening_id, reserved_seats FROM Bookings WHERE booking_id = '" + booking_id + "';");
             rs.next();
             ArrayList<Seat> seatsToBeDeleted = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
 
@@ -335,7 +359,7 @@ public class DataHandler {
             this.deleteSeatReservation(screening_id, seatsToBeDeleted);
 
             // Now delete the booking!
-            statement.executeUpdate("DELETE FROM Bookings WHERE booking_id = '" + booking_id + "';");
+            this.createStatement().executeUpdate("DELETE FROM Bookings WHERE booking_id = '" + booking_id + "';");
         } catch (Exception e) {
             throw new Error("Failed to delete booking! " + e.getMessage());
         }
@@ -356,14 +380,13 @@ public class DataHandler {
 
         try {
             // Create a new statement to get the id of the newly inserted booking
-            ResultSet idResultSet = statement.executeQuery("SELECT LAST_INSERT_ID() id");
+            ResultSet idResultSet = this.createStatement().executeQuery("SELECT LAST_INSERT_ID() id");
             idResultSet.next();
 
             // Update the booking model with the newly created id
             booking.setId(idResultSet.getInt("id"));
         } catch (Exception e) {
-            System.out.println("Failed to set the id of the booking..");
-            System.out.println(e.getMessage());
+            throw new Error("Failed to set the id of the booking.." + e.getMessage());
         }
     }
 
@@ -388,7 +411,7 @@ public class DataHandler {
         // Get seats that have already been created in the database, and set their reserved state accordingly
         try {
             // Create query to get all seatAssignments for the given screening
-            Statement seatAssignmentStatement = connection.createStatement();
+            Statement seatAssignmentStatement = this.createStatement();
             String query = "SELECT * FROM SeatAssignment WHERE screening_id = " + screeningId + ";";
 
             ResultSet rs = seatAssignmentStatement.executeQuery(query);
@@ -422,7 +445,7 @@ public class DataHandler {
                     "customer_phone = '" + customer.getPhone() + "' AND " +
                     "customer_email = '" + customer.getEmail() + "';";
 
-            ResultSet rs = statement.executeQuery(query);
+            ResultSet rs = this.createStatement().executeQuery(query);
 
             int customer_id;
 
@@ -449,7 +472,7 @@ public class DataHandler {
     private Customer getCustomer(int customerId) {
         try {
             String query = "SELECT * FROM Customers";
-            ResultSet rs = statement.executeQuery(query);
+            ResultSet rs = this.createStatement().executeQuery(query);
             rs.next();
 
             // Create and return the customer
@@ -484,7 +507,7 @@ public class DataHandler {
                 this.insertData("Customers", customerMap);
 
                 // Create a new statement to get the id of the newly inserted customer
-                ResultSet idResultSet = statement.executeQuery("SELECT LAST_INSERT_ID() id");
+                ResultSet idResultSet = this.createStatement().executeQuery("SELECT LAST_INSERT_ID() id");
                 idResultSet.next();
 
                 // Return the id of the newly inserted customer
@@ -503,8 +526,6 @@ public class DataHandler {
      * Internal helper that updates the reservation of seats for a given screening
      */
     private void insertSeatReservation(int screeningId, ArrayList<Seat> seats) {
-        Screening screening = this.getScreenings(screeningId).get(0);
-
         // Loop over all the seat reservations and insert the data into the database
         for (Seat seat : seats) {
             HashMap<String, String> seatInformation = new HashMap<>();
@@ -533,7 +554,7 @@ public class DataHandler {
                         "row = '" + seat.getRow() + "' AND " +
                         "col = '" + seat.getColumn() + "'" +
                         ";";
-                statement.executeUpdate(query);
+                this.createStatement().executeUpdate(query);
             } catch (Exception e) {
                 throw new Error("Failed to delete seat with row=" + seat.getRow() + " and col=" + seat.getColumn() + ". " + e.getMessage());
             }
