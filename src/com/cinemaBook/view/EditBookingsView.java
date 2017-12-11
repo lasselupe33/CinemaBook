@@ -38,6 +38,10 @@ public class EditBookingsView extends JComponent {
          */
         button = new JButton();
         button.setText("Hello World");
+        add(button);
+
+        JTable table = new JTable(tableModel);
+        add(new JScrollPane(table));
 
     }
 

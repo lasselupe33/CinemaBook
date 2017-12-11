@@ -5,6 +5,7 @@ import com.cinemaBook.model.Screenings;
 import com.cinemaBook.model.Seat;
 import com.cinemaBook.model.SeatAssignment;
 import com.cinemaBook.view.EditBookingsView;
+import com.cinemaBook.model.Bookings;
 
 import java.util.ArrayList;
 
@@ -17,11 +18,17 @@ public class EditBookingController {
     private ArrayList<Seat> seats;
     private Customer customer;
     private SeatAssignment seatAssignment;
+    private Bookings bookings;
 
-    public EditBookingController(EditBookingsView view) {
+
+    public EditBookingController(EditBookingsView view, Bookings bookings) {
         this.view = view;
+        this.bookings = bookings;
     }
 
+    public Bookings getBookings() {
+        return bookings;
+    }
 
 
 
