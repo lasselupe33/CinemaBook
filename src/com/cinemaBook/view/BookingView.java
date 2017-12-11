@@ -1,13 +1,16 @@
 package com.cinemaBook.view;
 
+import com.cinemaBook.controller.BookingController;
 import com.cinemaBook.model.Customer;
 import com.cinemaBook.model.Screenings;
+import com.cinemaBook.model.Seat;
 import com.cinemaBook.view.bookingViews.CustomerInputView;
 import com.cinemaBook.view.bookingViews.ScreeningSelectionView;
 import com.cinemaBook.view.bookingViews.SeatSelectionView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.function.Function;
 
 public class BookingView extends JComponent {
@@ -36,25 +39,19 @@ public class BookingView extends JComponent {
         add(seatSelectionView, SeatSelection);
     }
 
-    public void display(Screenings screenings, String currentView, Function<Integer, Void> onScreeningSelected, int screeningId, Function<Customer, Void> onCustomerSubmit) {
+    public void display(BookingController controller) {
 
-        cl.show(this, currentView);
+        cl.show(this, controller.getCurrentView());
 
-        switch (currentView) {
+        switch (controller.getCurrentView()) {
             case ScreeningSelection:
-                screeningSelectionView.display(screenings, id -> {
-                    onScreeningSelected.apply(id);
-                    return null;
-                });
+                screeningSelectionView.display(controller);
                 break;
             case CustomerInput:
-                customerInputView.display(screenings.find(s -> s.getId() == screeningId), customer -> {
-                    onCustomerSubmit.apply(customer);
-                    return null;
-                });
+                customerInputView.display(controller);
                 break;
             case SeatSelection:
-                seatSelectionView.display(screenings.find(s -> s.getId() == screeningId));
+                seatSelectionView.display(controller);
                 break;
             default:
                 throw new RuntimeException("How did you even get here?");

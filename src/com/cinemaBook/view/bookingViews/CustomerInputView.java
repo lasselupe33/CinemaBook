@@ -1,10 +1,11 @@
 package com.cinemaBook.view.bookingViews;
 
+import com.cinemaBook.controller.BookingController;
+import com.cinemaBook.globals.DateFormatter;
 import com.cinemaBook.model.Customer;
-import com.cinemaBook.model.Screening;
 
 import javax.swing.*;
-import java.util.function.Function;
+import javax.swing.table.DefaultTableModel;
 
 public class CustomerInputView extends JComponent{
     public CustomerInputView() {
@@ -12,48 +13,79 @@ public class CustomerInputView extends JComponent{
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    public void display(Screening screening, Function<Customer, Void> onSubmit) {
+    public void display(BookingController controller) {
         removeAll();
 
-        JLabel filmLabel = new JLabel(screening.getFilm().getName());
+        DefaultTableModel tableModel = new DefaultTableModel();
 
-        add(filmLabel);
+        tableModel.addColumn("Title");
+        tableModel.addColumn("Time");
+        tableModel.addColumn("Auditorium");
 
+        tableModel.addRow(new Object[]{
+            controller.getSelectedScreening().getFilm().getName(),
+            new DateFormatter(controller.getSelectedScreening().getStartTime()).str(),
+            controller.getSelectedScreening().getAuditorium().getName(),
+        });
+
+        JTable table = new JTable(tableModel);
+
+        add(table);
+
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
         JLabel nameLabel = new JLabel("Name:");
 
-        add(nameLabel);
+        panel.add(nameLabel);
 
         JTextField nameField = new JTextField();
 
-        add(nameField);
+        panel.add(nameField);
 
 
         JLabel phoneLabel = new JLabel("Phone:");
 
-        add(phoneLabel);
+        panel.add(phoneLabel);
 
         JTextField phoneField = new JTextField();
 
-        add(phoneField);
+        panel.add(phoneField);
 
 
         JLabel mailLabel = new JLabel("Email:");
 
-        add(mailLabel);
+        panel.add(mailLabel);
 
         JTextField mailField = new JTextField();
 
-        add(mailField);
+        panel.add(mailField);
 
+        add(panel);
 
-        JButton submitButton = new JButton("Submit");
+        JPanel navigationPanel = new JPanel();
+        navigationPanel.setLayout(new BoxLayout(navigationPanel, BoxLayout.LINE_AXIS));
+        navigationPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        navigationPanel.add(Box.createHorizontalGlue());
 
-        submitButton.addActionListener(e -> {
-            Customer customer = new Customer(nameField.getText(), phoneField.getText(), mailField.getText());
-            onSubmit.apply(customer);
+        JButton cancelButton = new JButton("Cancel");
+
+        cancelButton.addActionListener(e -> {
+            controller.reset();
         });
 
-        add(submitButton);
+        navigationPanel.add(cancelButton);
+
+        JButton nextButton = new JButton("Submit");
+
+        nextButton.addActionListener(e -> {
+            Customer customer = new Customer(nameField.getText(), phoneField.getText(), mailField.getText());
+            controller.onCustomerSubmit(customer);
+        });
+
+        navigationPanel.add(nextButton);
+
+        add(navigationPanel);
     }
 }

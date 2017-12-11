@@ -1,21 +1,24 @@
 package com.cinemaBook.view.bookingViews;
 
-import com.cinemaBook.model.Screenings;
+import com.cinemaBook.controller.BookingController;
+import com.cinemaBook.globals.DateFormatter;
+import com.cinemaBook.model.Screening;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.util.function.Function;
+import java.util.Calendar;
+import java.util.Comparator;
+import java.util.GregorianCalendar;
 
 public class ScreeningSelectionView extends JComponent{
     public ScreeningSelectionView() {
         super();
-        setLayout(new FlowLayout());
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    public void display(Screenings screenings, Function<Integer, Void> func) {
+    public void display(BookingController controller) {
         removeAll();
 
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -24,20 +27,31 @@ public class ScreeningSelectionView extends JComponent{
         tableModel.addColumn("Time");
         tableModel.addColumn("Auditorium");
         tableModel.addColumn("Minimum age");
+        tableModel.addColumn("Seats left");
 
-        screenings.getScreenings().forEach(screening -> {
-            tableModel.addRow(new Object[]{screening.getFilm().getName(), screening.getStartTime(), screening.getAuditorium().getName(), Integer.toString(screening.getFilm().getMinAge())});
+        controller.getScreenings().getScreenings().sort(new Comparator<Screening>() {
+            @Override
+            public int compare(Screening screening, Screening t1) {
+                return screening.getStartTime().compareTo(t1.getStartTime());
+            }
+        });
+        controller.getScreenings().getScreenings().forEach(screening -> {
+            Calendar calendar = GregorianCalendar.getInstance();
+            calendar.setTime(screening.getStartTime());
+            tableModel.addRow(new Object[]{screening.getFilm().getName(), new DateFormatter(screening.getStartTime()).str(), screening.getAuditorium().getName(), Integer.toString(screening.getFilm().getMinAge()), screening.getSeatAssignment().getAmountOfAvailableSeats()});
         });
 
         JTable table = new JTable(tableModel);
 
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent listSelectionEvent) {
-                func.apply(screenings.getScreenings().get(listSelectionEvent.getFirstIndex()).getId());
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {//This line prevents double events
+                    controller.onScreeningSelected(controller.getScreenings().getScreenings().get(e.getFirstIndex()).getId());
+                }
             }
         });
 
-        add(table);
+        add(new JScrollPane(table));
     }
 }

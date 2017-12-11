@@ -18,7 +18,7 @@ public class MainView extends JFrame {
         JFrame frame = new JFrame("CinemaBook");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(tabPane);
-        frame.setBounds(0, 0, 600, 400);
+        frame.setBounds(0, 0, 800, 600);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }

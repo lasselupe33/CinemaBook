@@ -14,12 +14,12 @@ import static java.util.stream.Collectors.joining;
  */
 public class DataHandler {
     // Database credentials
-    private static final String db = "sql11207684";
-    private static final String user = "sql11207684";
-    private static final String password = "tDT6BhIv9L";
+    private static final String db = "cinema_book";
+    private static final String user = "welcometo";
+    private static final String password = "thecinema";
 
     // Database access url
-    private static final String db_url = "jdbc:mysql://sql11.freemysqlhosting.net/" + db;
+    private static final String db_url = "jdbc:mysql://mydb.itu.dk/" + db;
     private Connection connection;
     private Statement statement;
 
@@ -167,7 +167,7 @@ public class DataHandler {
                 Auditorium auditorium = createAuditoriumModel(rs);
 
                 // Get screening specific information
-                Date startTime = rs.getDate("screening_startTime");
+                Date startTime = new Date(rs.getTimestamp("screening_startTime").getTime());
                 int screeningId = rs.getInt("screening_id");
 
                 // Get seat assignment for the given screening
