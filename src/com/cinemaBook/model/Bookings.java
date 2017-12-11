@@ -1,13 +1,15 @@
 package com.cinemaBook.model;
 
+import com.cinemaBook.globals.DataHandler;
+
 import java.util.ArrayList;
 import java.util.function.Function;
 
 public class Bookings {
     private ArrayList<Booking> bookings;
 
-    public Bookings(ArrayList<Booking> bookings) {
-        this.bookings = bookings;
+    public Bookings() {
+        this.bookings = DataHandler.getInstance().getBookings();
     }
 
     public ArrayList<Booking> getBookings() {

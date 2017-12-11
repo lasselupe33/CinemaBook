@@ -83,13 +83,17 @@ public class App {
         Screenings screenings = new Screenings(screeningList);
 
 
+        // Setting up Edit Booking View
         Bookings bookings = new Bookings();
 
-        EditBookingController editBookingController = new EditBookingController(view, bookings);
+        EditBookingsView editBookingsView = new EditBookingsView();
+
+        EditBookingController editBookingController = new EditBookingController(editBookingsView, bookings);
+
+        editBookingController.display();
 
 
         BookingView bookingView = new BookingView();
-
 
 
 

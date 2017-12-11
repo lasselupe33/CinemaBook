@@ -30,6 +30,11 @@ public class EditBookingController {
         return bookings;
     }
 
+    public void display() {
+        view.display();
+
+    }
+
 
 
 }

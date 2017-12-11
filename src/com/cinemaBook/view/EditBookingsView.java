@@ -1,6 +1,7 @@
 package com.cinemaBook.view;
 
 
+import com.cinemaBook.controller.EditBookingController;
 import com.cinemaBook.model.Bookings;
 import com.cinemaBook.model.Screenings;
 
@@ -21,6 +22,10 @@ public class EditBookingsView extends JComponent {
         super();
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+         }
+
+
+        public void display(EditBookingController editBookingController) {
         DefaultTableModel tableModel = new DefaultTableModel();
 
         tableModel.addColumn("Navn");
@@ -42,7 +47,6 @@ public class EditBookingsView extends JComponent {
 
         JTable table = new JTable(tableModel);
         add(new JScrollPane(table));
-
     }
 
 }
