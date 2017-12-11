@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b585772-54ea-4cde-b771-9d2d72db566f" name="Default" comment="">
+    <list default="true" id="3b585772-54ea-4cde-b771-9d2d72db566f" name="Default" comment="Allow more seats to be selected">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" afterPath="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,8 +75,18 @@
       <file leaf-file-name="BookingController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            <state relative-caret-position="380">
+              <caret line="69" column="8" lean-forward="false" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MockDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="182" column="40" lean-forward="false" selection-start-line="182" selection-start-column="40" selection-end-line="182" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -207,7 +217,6 @@
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/ScreeningsController.java" />
         <option value="$PROJECT_DIR$/test/com/cinemaBook/globals/DataHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Booking.java" />
-        <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e51b0cbc-91d8-47c5-b5b5-6e9e566d7a22/console.sql" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/model/Seat.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/primeApp.java" />
@@ -231,6 +240,7 @@
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/ScreeningSelectionView.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/SeatSelectionView.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/view/bookingViews/CustomerInputView.java" />
+        <option value="$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java" />
         <option value="$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java" />
       </list>
     </option>
@@ -718,7 +728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512984310383</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="small fix">
+      <created>1512990353776</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1512990353780</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -819,7 +836,8 @@
     <MESSAGE value="Fixed DateHandling to include time and added timestamp to screening selection" />
     <MESSAGE value="remove lambda funcs in favor of controller method calls" />
     <MESSAGE value="UI changes and seat selection click fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI changes and seat selection click fix" />
+    <MESSAGE value="small fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="small fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -978,14 +996,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1944">
-          <caret line="116" column="41" lean-forward="false" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/globals/DataHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -1056,10 +1066,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/bootstrap/MockDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="182" column="40" lean-forward="false" selection-start-line="182" selection-start-column="40" selection-end-line="182" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cinemaBook/controller/BookingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="30" column="25" lean-forward="false" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        <state relative-caret-position="380">
+          <caret line="69" column="8" lean-forward="false" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
           <folding />
         </state>
       </provider>
