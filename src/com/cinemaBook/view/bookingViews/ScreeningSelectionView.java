@@ -3,17 +3,14 @@ package com.cinemaBook.view.bookingViews;
 import com.cinemaBook.controller.BookingController;
 import com.cinemaBook.globals.DateFormatter;
 import com.cinemaBook.model.Screening;
-import com.cinemaBook.model.Screenings;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.GregorianCalendar;
-import java.util.function.Function;
 
 public class ScreeningSelectionView extends JComponent{
     public ScreeningSelectionView() {
@@ -48,8 +45,10 @@ public class ScreeningSelectionView extends JComponent{
 
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent listSelectionEvent) {
-                controller.onScreeningSelected(controller.getScreenings().getScreenings().get(listSelectionEvent.getFirstIndex()).getId());
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {//This line prevents double events
+                    controller.onScreeningSelected(controller.getScreenings().getScreenings().get(e.getFirstIndex()).getId());
+                }
             }
         });
 

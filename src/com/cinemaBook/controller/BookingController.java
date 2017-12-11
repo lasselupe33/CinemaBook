@@ -18,7 +18,6 @@ public class BookingController {
     private int screeningId;
     private Screening selectedScreening;
     private ArrayList<Seat> seats;
-    private Customer customer;
 
     public BookingController(BookingView view, Screenings screenings) {
         this.view = view;
@@ -60,8 +59,6 @@ public class BookingController {
     }
 
     public void onCustomerSubmit(Customer customer) {
-        this.customer = customer;
-
         try {
             DataHandler.getInstance().submitBooking(new Booking(customer, selectedScreening, seats));
         } catch (Error e) {
@@ -71,7 +68,6 @@ public class BookingController {
                     JOptionPane.ERROR_MESSAGE);
             System.out.println(e.getMessage());
         }
-
         reset();
         display();
     }

@@ -1,13 +1,11 @@
 package com.cinemaBook.view.bookingViews;
 
 import com.cinemaBook.controller.BookingController;
+import com.cinemaBook.globals.DateFormatter;
 import com.cinemaBook.model.Customer;
-import com.cinemaBook.model.Screening;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.util.function.Function;
 
 public class CustomerInputView extends JComponent{
     public CustomerInputView() {
@@ -23,15 +21,11 @@ public class CustomerInputView extends JComponent{
         tableModel.addColumn("Title");
         tableModel.addColumn("Time");
         tableModel.addColumn("Auditorium");
-        tableModel.addColumn("Minimum age");
-        tableModel.addColumn("Seats left");
 
         tableModel.addRow(new Object[]{
             controller.getSelectedScreening().getFilm().getName(),
-            controller.getSelectedScreening().getStartTime(),
+            new DateFormatter(controller.getSelectedScreening().getStartTime()).str(),
             controller.getSelectedScreening().getAuditorium().getName(),
-            Integer.toString(controller.getSelectedScreening().getFilm().getMinAge()),
-            controller.getSelectedScreening().getSeatAssignment().getAmountOfAvailableSeats()
         });
 
         JTable table = new JTable(tableModel);

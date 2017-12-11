@@ -1,18 +1,13 @@
 package com.cinemaBook.view.bookingViews;
 
 import com.cinemaBook.controller.BookingController;
-import com.cinemaBook.model.Screening;
-import com.cinemaBook.model.Screenings;
+import com.cinemaBook.globals.DateFormatter;
 import com.cinemaBook.model.Seat;
 import com.cinemaBook.view.AuditoriumView;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.function.Function;
 
 public class SeatSelectionView extends JComponent{
     private ArrayList<Seat> seats;
@@ -38,15 +33,11 @@ public class SeatSelectionView extends JComponent{
         tableModel.addColumn("Title");
         tableModel.addColumn("Time");
         tableModel.addColumn("Auditorium");
-        tableModel.addColumn("Minimum age");
-        tableModel.addColumn("Seats left");
 
         tableModel.addRow(new Object[]{
             controller.getSelectedScreening().getFilm().getName(),
-            controller.getSelectedScreening().getStartTime(),
+            new DateFormatter(controller.getSelectedScreening().getStartTime()).str(),
             controller.getSelectedScreening().getAuditorium().getName(),
-            Integer.toString(controller.getSelectedScreening().getFilm().getMinAge()),
-            controller.getSelectedScreening().getSeatAssignment().getAmountOfAvailableSeats()
         });
 
         JTable table = new JTable(tableModel);
