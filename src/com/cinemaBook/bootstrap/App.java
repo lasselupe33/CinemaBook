@@ -4,6 +4,7 @@ import com.cinemaBook.controller.BookingController;
 import com.cinemaBook.globals.DataHandler;
 import com.cinemaBook.model.*;
 import com.cinemaBook.view.BookingView;
+import com.cinemaBook.view.EditBookingsView;
 import com.cinemaBook.view.MainView;
 
 import javax.swing.*;
@@ -82,6 +83,9 @@ public class App {
 
         BookingView bookingView = new BookingView();
 
+
+        EditBookingsView editBookingsView = new EditBookingsView();
+
         BookingController bookingController = new BookingController(bookingView, screenings);
 
         bookingController.display();
@@ -90,6 +94,7 @@ public class App {
         tabPane.addTab("Book", bookingView);
 
         //tabPane.addTab("Edit booking", );
+        tabPane.addTab("Edit booking", editBookingsView);
 
     }
 }
