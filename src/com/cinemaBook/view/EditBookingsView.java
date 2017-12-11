@@ -32,7 +32,6 @@ public class EditBookingsView extends JComponent {
         tableModel.addColumn("Edit");
         tableModel.addColumn("Delete");
 
-
         /*
         * For testing
          */

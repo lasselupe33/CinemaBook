@@ -189,6 +189,43 @@ public class DataHandler {
     }
 
     /**
+     * This method returns all bookings that have been made
+     */
+    public ArrayList<Booking> getBookings() {
+        try {
+            String query = "SELECT * FROM Bookings";
+            ResultSet rs = connection.createStatement().executeQuery(query);
+
+            ArrayList<Booking> bookings = new ArrayList<>();
+
+            while (rs.next()) {
+                // Get associated screening
+                Screening screening = this.getScreenings(rs.getInt("screening_id")).get(0);
+
+                // Get the reserved seats in proper format
+                ArrayList<Seat> reservedSeats = this.convertReservedSeatsStringToArray(rs.getString("reserved_seats"));
+
+                // Get the associated customer
+                Customer customer = this.getCustomer(rs.getInt("customer_id"));
+
+                // Create a booking model with the fetched information
+                Booking booking = new Booking(customer, screening, reservedSeats);
+
+                // Store its id as well
+                booking.setId(rs.getInt("booking_id"));
+
+                // Add the booking to the arraylist
+                bookings.add(booking);
+            }
+
+            // Return the bookings
+            return bookings;
+        } catch (Exception e) {
+            throw new Error("Error while getting bookings. Error: " + e.getMessage());
+        }
+    }
+
+    /**
      * This method is made in order to get a list of bookings made by a customer
      * @param customer A customer model
      * @return an arrayList of bookings made by a customer - Will be null if no customer exist
@@ -400,6 +437,29 @@ public class DataHandler {
             return customer_id;
         } catch (Exception e) {
             throw new Error("Failed to retrieve customer id! " + e.getMessage());
+        }
+    }
+
+    /**
+     * This method returns a customer model
+     *
+     * @param customerId the id of the customer
+     * @return a customer
+     */
+    private Customer getCustomer(int customerId) {
+        try {
+            String query = "SELECT * FROM Customers";
+            ResultSet rs = statement.executeQuery(query);
+            rs.next();
+
+            // Create and return the customer
+            String name = rs.getString("customer_name");
+            String phone = rs.getString("customer_phone");
+            String email = rs.getString("customer_email");
+
+            return new Customer(name, phone, email);
+        } catch (Exception e) {
+            throw new Error("Error while attempting to fetch customer. Error: " + e.getMessage());
         }
     }
 
