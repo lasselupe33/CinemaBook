@@ -23,7 +23,7 @@ public class SeatSelectionView extends JComponent{
         seats = new ArrayList<>();
     }
 
-    private void reset() {
+    public void reset() {
         seats = new ArrayList<>();
     }
 

@@ -39,6 +39,10 @@ public class BookingView extends JComponent {
         add(seatSelectionView, SeatSelection);
     }
 
+    public void reset() {
+        seatSelectionView.reset();
+    }
+
     public void display(BookingController controller) {
 
         cl.show(this, controller.getCurrentView());
@@ -46,7 +50,7 @@ public class BookingView extends JComponent {
         switch (controller.getCurrentView()) {
             case ScreeningSelection:
                 screeningSelectionView.display(controller.getScreenings(), screening -> {
-                    controller.onScreeningSelected(screening.getId());
+                    controller.onScreeningSelected(screening);
                     return null;
                 });
                 break;

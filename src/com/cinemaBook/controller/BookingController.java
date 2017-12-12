@@ -14,7 +14,6 @@ public class BookingController {
     private BookingView view;
     private Screenings screenings;
     private String currentView;
-    private int screeningId;
     private Screening selectedScreening;
     private ArrayList<Seat> seats;
 
@@ -22,14 +21,13 @@ public class BookingController {
         this.view = view;
         this.screenings = screenings;
         this.currentView = ScreeningSelection;
-        this.screeningId = -1;
     }
 
     public void reset() {
         currentView = ScreeningSelection;
-        screeningId = -1;
         seats = new ArrayList<>();
         screenings = new Screenings();
+        view.reset();
         display();
     }
 
@@ -41,17 +39,12 @@ public class BookingController {
         return currentView;
     }
 
-    public int getScreeningId() {
-        return screeningId;
-    }
-
     public Screening getSelectedScreening() {
         return selectedScreening;
     }
 
-    public void onScreeningSelected(int id) {
-        this.screeningId = id;
-        this.selectedScreening = screenings.find(s -> s.getId() == screeningId);
+    public void onScreeningSelected(Screening screening) {
+        this.selectedScreening = screening;
         this.currentView = SeatSelection;
         display();
     }
