@@ -186,7 +186,7 @@ public class MockDatabase extends DataHandler {
             "booking_id INT PRIMARY KEY AUTO_INCREMENT," +
             "customer_id INT NOT NULL," +
             "screening_id INT NOT NULL," +
-            "reserved_seats VARCHAR(5096) NOT NULL," +
+            "reserved_seats VARCHAR(20384) NOT NULL," +
             "FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)," +
             "FOREIGN KEY (screening_id) REFERENCES Screenings(screening_id)" +
         ")";
