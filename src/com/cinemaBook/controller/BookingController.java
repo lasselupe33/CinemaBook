@@ -1,6 +1,5 @@
 package com.cinemaBook.controller;
 
-import com.cinemaBook.globals.DataHandler;
 import com.cinemaBook.model.*;
 import com.cinemaBook.view.BookingView;
 
@@ -30,7 +29,7 @@ public class BookingController {
         currentView = ScreeningSelection;
         screeningId = -1;
         seats = new ArrayList<>();
-        screenings = new Screenings(DataHandler.getInstance().getScreenings(-1));
+        screenings = new Screenings();
         display();
     }
 
@@ -59,13 +58,12 @@ public class BookingController {
 
     public void onCustomerSubmit(Customer customer) {
         try {
-            DataHandler.getInstance().submitBooking(new Booking(customer, selectedScreening, seats));
+            new Booking(customer, selectedScreening, seats).addToDB();
         } catch (Error e) {
             JOptionPane.showMessageDialog(view,
-                    e.getMessage(),
+                    "Error creating booking",
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.getMessage());
         }
         reset();
         display();

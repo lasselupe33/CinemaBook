@@ -237,8 +237,6 @@ public class DataHandler {
                 // Get the associated customer
                 Customer customer = this.getCustomer(rs.getInt("customer_id"));
 
-                System.out.println(rs.getInt("customer_id"));
-
                 // Create a booking model with the fetched information
                 Booking booking = new Booking(customer, screening, reservedSeats);
 

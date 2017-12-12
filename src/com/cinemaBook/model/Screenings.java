@@ -1,13 +1,15 @@
 package com.cinemaBook.model;
 
+import com.cinemaBook.globals.DataHandler;
+
 import java.util.ArrayList;
 import java.util.function.Function;
 
 public class Screenings {
     private ArrayList<Screening> screenings;
 
-    public Screenings(ArrayList<Screening> screenings) {
-        this.screenings = screenings;
+    public Screenings() {
+        this.screenings = DataHandler.getInstance().getScreenings(-1);
     }
 
     public ArrayList<Screening> getScreenings() {

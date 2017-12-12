@@ -79,15 +79,11 @@ public class App {
             DataHandler.getInstance().deleteBooking(2);
         }
 
-        // Getting data from the database
-        DataHandler dataHandler = DataHandler.getInstance();
-        ArrayList<Screening> screeningList = dataHandler.getScreenings(-1);
-
         // Getting the tabPane from the main view
         JTabbedPane tabPane = MainView.getInstance().getTabPane();
 
         // Setting up Booking View
-        Screenings screenings = new Screenings(screeningList);
+        Screenings screenings = new Screenings();
 
 
         // Setting up Edit Booking View

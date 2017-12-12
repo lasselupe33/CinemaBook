@@ -37,6 +37,10 @@ public class Booking {
         return reservedSeats;
     }
 
+    public void addToDB() {
+        DataHandler.getInstance().submitBooking(this);
+    }
+
     public void delete() {
         DataHandler.getInstance().deleteBooking(id);
     }
