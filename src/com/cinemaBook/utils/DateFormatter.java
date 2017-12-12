@@ -1,4 +1,4 @@
-package com.cinemaBook.globals;
+package com.cinemaBook.utils;
 
 import java.util.Calendar;
 import java.util.Date;

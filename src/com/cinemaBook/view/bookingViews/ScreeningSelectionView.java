@@ -1,14 +1,12 @@
 package com.cinemaBook.view.bookingViews;
 
-import com.cinemaBook.controller.BookingController;
-import com.cinemaBook.globals.DateFormatter;
+import com.cinemaBook.utils.DateFormatter;
 import com.cinemaBook.model.Screening;
 import com.cinemaBook.model.Screenings;
 
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.GregorianCalendar;

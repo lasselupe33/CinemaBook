@@ -1,20 +1,26 @@
 package com.cinemaBook.bootstrap;
 
-import com.cinemaBook.globals.DataHandler;
+import com.cinemaBook.data.BookingsDataHandler;
+import com.cinemaBook.data.DataHandler;
+import com.cinemaBook.data.ScreeningsDataHandler;
 import com.cinemaBook.model.Booking;
 import com.cinemaBook.model.Customer;
 import com.cinemaBook.model.Screening;
 import com.cinemaBook.model.Seat;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 /**
  * The sole purpose of this class is to mock the database with dummy data if this haven't been done yet.
  */
-public class MockDatabase {
-    private DataHandler dataHandler = DataHandler.getInstance();
+public class MockDatabase extends DataHandler {
+    /**
+     * Initialize the main data handler
+     */
+    public MockDatabase() {
+        super();
+    }
 
     /**
      * When this method is called, it'll go ahead and insert mockup data into the database.
@@ -22,7 +28,7 @@ public class MockDatabase {
      * NB: This function will drop tables, use only when necessary!
      */
     public void createDatabaseMockUp() {
-        dataHandler.clearData();
+        this.clearData();
         createAuditoriumInfo();
         createFilmInfo();
         createScreeningInfo();
@@ -42,28 +48,28 @@ public class MockDatabase {
             "auditorium_rows INT NOT NULL," +
             "auditorium_columns INT NOT NULL" +
         ")";
-        dataHandler.createTable(query);
+        this.createTable(query);
 
         // Create the first auditorium
         HashMap<String, String> auditorium1 = new HashMap<>();
         auditorium1.put("auditorium_name", "Sal 1");
         auditorium1.put("auditorium_rows", "10");
         auditorium1.put("auditorium_columns", "20");
-        dataHandler.insertData("Auditoriums", auditorium1);
+        this.insertData("Auditoriums", auditorium1);
 
         // Create the second auditorium
         HashMap<String, String> auditorium2 = new HashMap<>();
         auditorium2.put("auditorium_name", "Sal 2");
         auditorium2.put("auditorium_rows", "23");
         auditorium2.put("auditorium_columns", "10");
-        dataHandler.insertData("Auditoriums", auditorium2);
+        this.insertData("Auditoriums", auditorium2);
 
         // Create the third auditorium
         HashMap<String, String> auditorium3 = new HashMap<>();
         auditorium3.put("auditorium_name", "Sal 3");
         auditorium3.put("auditorium_rows", "15");
         auditorium3.put("auditorium_columns", "32");
-        dataHandler.insertData("Auditoriums", auditorium3);
+        this.insertData("Auditoriums", auditorium3);
     }
 
     /**
@@ -78,7 +84,7 @@ public class MockDatabase {
             "film_rating DOUBLE NOT NULL," +
             "film_minAge INT NOT NULL" +
         ")";
-        dataHandler.createTable(query);
+        this.createTable(query);
 
         // Create the first film
         HashMap<String, String> film1 = new HashMap<>();
@@ -86,7 +92,7 @@ public class MockDatabase {
         film1.put("film_description", "Star Wars er en science fiction-saga, som foregår i \"en fjern, fjern galakse for meget længe siden\".");
         film1.put("film_rating", "9.5");
         film1.put("film_minAge", "12");
-        dataHandler.insertData("Films", film1);
+        this.insertData("Films", film1);
 
         // Create the second film
         HashMap<String, String> film2 = new HashMap<>();
@@ -94,7 +100,7 @@ public class MockDatabase {
         film2.put("film_description", "Janina Duszejko, an elderly woman, lives alone in the Klodzko Valley where a series of mysterious crimes are committed. Duszejko is convinced that she knows who or what is the murderer, but nobody believes her.");
         film2.put("film_rating", "6.5");
         film2.put("film_minAge", "18");
-        dataHandler.insertData("Films", film2);
+        this.insertData("Films", film2);
 
         // Create the third film
         HashMap<String, String> film3 = new HashMap<>();
@@ -102,7 +108,7 @@ public class MockDatabase {
         film3.put("film_description", "Dokumentaren Kedi skildrer den tyrkiske by, Istanbul, gennem en raekke gadekattes oejne.");
         film3.put("film_rating", "7.4");
         film3.put("film_minAge", "7");
-        dataHandler.insertData("Films", film3);
+        this.insertData("Films", film3);
     }
 
     /**
@@ -118,28 +124,28 @@ public class MockDatabase {
             "FOREIGN KEY (film_id) REFERENCES Films(film_id)," +
             "FOREIGN KEY (auditorium_id) REFERENCES Auditoriums(auditorium_id)" +
         ")";
-        dataHandler.createTable(query);
+        this.createTable(query);
 
         // Create the first screening
         HashMap<String, String> screening1 = new HashMap<>();
         screening1.put("film_id", "1");
         screening1.put("auditorium_id", "1");
         screening1.put("screening_startTime", "2017-12-12 19:30:00");
-        dataHandler.insertData("Screenings", screening1);
+        this.insertData("Screenings", screening1);
 
         // Create a second screening
         HashMap<String, String> screening2 = new HashMap<>();
         screening2.put("film_id", "2");
         screening2.put("auditorium_id", "3");
         screening2.put("screening_startTime", "2017-12-30 21:00:00");
-        dataHandler.insertData("Screenings", screening2);
+        this.insertData("Screenings", screening2);
 
         // Create a third screening
         HashMap<String, String> screening3 = new HashMap<>();
         screening3.put("film_id", "3");
         screening3.put("auditorium_id", "2");
         screening3.put("screening_startTime", "2017-12-20 12:45:00");
-        dataHandler.insertData("Screenings", screening3);
+        this.insertData("Screenings", screening3);
     }
 
     /**
@@ -153,7 +159,7 @@ public class MockDatabase {
             "customer_phone VARCHAR(100) NOT NULL," +
             "customer_email VARCHAR(100) NOT NULL" +
         ")";
-        dataHandler.createTable(query);
+        this.createTable(query);
     }
 
     /**
@@ -168,7 +174,7 @@ public class MockDatabase {
             "isReserved BOOLEAN," +
             "CONSTRAINT UC_Person UNIQUE (screening_id, row, col)" +
         ")";
-        dataHandler.createTable(query);
+        this.createTable(query);
     }
 
     /**
@@ -184,7 +190,7 @@ public class MockDatabase {
             "FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)," +
             "FOREIGN KEY (screening_id) REFERENCES Screenings(screening_id)" +
         ")";
-        dataHandler.createTable(query);
+        this.createTable(query);
 
         // CREATE TESTBOOKING1
         ArrayList<Seat> reservedSeats = new ArrayList<>();
@@ -195,11 +201,11 @@ public class MockDatabase {
 
         // Create booking model
         Customer customer = new Customer("Lasse Agersten", "123", "hej@gmail.com");
-        Screening screening = dataHandler.getScreenings(-1).get(0);
+        Screening screening = ScreeningsDataHandler.getInstance().getScreenings(-1).get(0);
         Booking booking = new Booking(customer, screening, reservedSeats);
 
         // Submit booking model
-        dataHandler.submitBooking(booking);
+        BookingsDataHandler.getInstance().submitBooking(booking);
 
         // CREATE TESTBOOKING2
         ArrayList<Seat> reservedSeats2 = new ArrayList<>();
@@ -211,11 +217,11 @@ public class MockDatabase {
 
         // Create booking model
         customer = new Customer("Lasse Agersten", "123", "hej@gmail.com");
-        screening = dataHandler.getScreenings(-1).get(0);
+        screening = ScreeningsDataHandler.getInstance().getScreenings(-1).get(0);
         booking = new Booking(customer, screening, reservedSeats2);
 
         // Submit booking model
-        dataHandler.submitBooking(booking);
+        BookingsDataHandler.getInstance().submitBooking(booking);
 
         // CREATE TESTBOOKING3
         ArrayList<Seat> reservedSeats3 = new ArrayList<>();
@@ -225,10 +231,10 @@ public class MockDatabase {
 
         // Create booking model
         customer = new Customer("Mads Rued", "1233446", "hej@gmail.com");
-        screening = dataHandler.getScreenings(-1).get(0);
+        screening = ScreeningsDataHandler.getInstance().getScreenings(-1).get(0);
         booking = new Booking(customer, screening, reservedSeats3);
 
         // Submit booking model
-        dataHandler.submitBooking(booking);
+        BookingsDataHandler.getInstance().submitBooking(booking);
     }
 }

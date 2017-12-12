@@ -1,11 +1,8 @@
 package com.cinemaBook.view.bookingViews;
 
-import com.cinemaBook.controller.BookingController;
-import com.cinemaBook.globals.DateFormatter;
 import com.cinemaBook.model.Customer;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.util.function.Function;
 
 public class CustomerInputView extends JComponent{

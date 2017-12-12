@@ -1,4 +1,4 @@
-package com.cinemaBook.globals;
+package com.cinemaBook.utils;
 
 import com.cinemaBook.model.Seat;
 
