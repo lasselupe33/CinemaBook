@@ -1,4 +1,4 @@
-package com.cinemaBook.bootstrap;
+package com.cinemaBook.utils;
 
 import com.cinemaBook.data.BookingsDataHandler;
 import com.cinemaBook.data.DataHandler;
