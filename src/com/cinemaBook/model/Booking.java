@@ -1,7 +1,6 @@
 package com.cinemaBook.model;
 
 import com.cinemaBook.data.BookingsDataHandler;
-import com.cinemaBook.data.DataHandler;
 
 import java.util.ArrayList;
 
@@ -36,6 +35,11 @@ public class Booking {
 
     public ArrayList<Seat> getReservedSeats() {
         return reservedSeats;
+    }
+
+    public void setReservedSeats(ArrayList<Seat> reservedSeats) {
+        this.reservedSeats = reservedSeats;
+        BookingsDataHandler.getInstance().updateBooking(id, reservedSeats);
     }
 
     public void addToDB() {

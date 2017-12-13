@@ -1,11 +1,10 @@
 package com.cinemaBook.data;
 
-import com.cinemaBook.model.*;
-import com.cinemaBook.utils.ConvertReservedSeats;
-
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.HashMap;
-import java.sql.*;
 
 import static java.util.stream.Collectors.joining;
 

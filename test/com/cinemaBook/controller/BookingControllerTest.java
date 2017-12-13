@@ -1,9 +1,11 @@
 package com.cinemaBook.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+/*import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;*/
+
+import static org.junit.Assert.*;
 
 import com.cinemaBook.data.BookingsDataHandler;
 import com.cinemaBook.model.*;

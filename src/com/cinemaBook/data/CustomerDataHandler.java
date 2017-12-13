@@ -87,4 +87,28 @@ public class CustomerDataHandler extends DataHandler {
             throw new Error("Error while inserting user to database... " + e.getMessage());
         }
     }
+
+    public void editCustomer(Customer oldCustomer, Customer customer) {
+        try {
+            System.out.println(customer.getEmail());
+            int customer_id = getCustomerId(oldCustomer);
+
+            if (customer_id != -1) {
+                String query = "UPDATE Customers SET customer_name='" + customer.getName() +
+                                                "', customer_phone='" + customer.getPhone() +
+                                                "', customer_email='" + customer.getEmail() +
+                                                "' WHERE customer_id=" + customer_id;
+
+                System.out.println(query);
+
+                createStatement().execute(query);
+            } else {
+                throw new Error("Customer doesn't exist");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw new Error("Error while updating customer: " + e.getMessage());
+        }
+
+    }
 }

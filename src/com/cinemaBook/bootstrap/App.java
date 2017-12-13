@@ -93,7 +93,7 @@ public class App {
 
         EditBookingsView editBookingsView = new EditBookingsView();
 
-        EditBookingController editBookingController = new EditBookingController(editBookingsView, bookings);
+        EditBookingController editBookingController = new EditBookingController(editBookingsView, bookings, screenings);
 
         editBookingController.display();
 

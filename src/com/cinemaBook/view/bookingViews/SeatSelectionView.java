@@ -1,8 +1,8 @@
 package com.cinemaBook.view.bookingViews;
 
-import com.cinemaBook.utils.DateFormatter;
 import com.cinemaBook.model.Screening;
 import com.cinemaBook.model.Seat;
+import com.cinemaBook.utils.DateFormatter;
 import com.cinemaBook.view.AuditoriumView;
 
 import javax.swing.*;
@@ -26,8 +26,10 @@ public class SeatSelectionView extends JComponent{
         seats = new ArrayList<>();
     }
 
-    public void display(Screening screening, Function<Void, Void> cancel, Function<ArrayList<Seat>, Void> success) {
+    public void display(Screening screening, ArrayList<Seat> initSeats, Function<Void, Void> cancel, Function<ArrayList<Seat>, Void> success) {
         removeAll();
+
+        seats = initSeats;
 
         DefaultTableModel tableModel = new DefaultTableModel();
 

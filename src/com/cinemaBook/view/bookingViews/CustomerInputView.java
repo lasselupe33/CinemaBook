@@ -11,7 +11,7 @@ public class CustomerInputView extends JComponent{
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
-    public void display(Function<Void, Void> cancel, Function<Customer, Void> success) {
+    public void display(Customer customer, Function<Void, Void> cancel, Function<Customer, Void> success) {
         removeAll();
 
         JPanel panel = new JPanel();
@@ -21,7 +21,7 @@ public class CustomerInputView extends JComponent{
 
         panel.add(nameLabel);
 
-        JTextField nameField = new JTextField();
+        JTextField nameField = new JTextField(customer.getName());
 
         panel.add(nameField);
 
@@ -30,7 +30,7 @@ public class CustomerInputView extends JComponent{
 
         panel.add(phoneLabel);
 
-        JTextField phoneField = new JTextField();
+        JTextField phoneField = new JTextField(customer.getPhone());
 
         panel.add(phoneField);
 
@@ -39,7 +39,7 @@ public class CustomerInputView extends JComponent{
 
         panel.add(mailLabel);
 
-        JTextField mailField = new JTextField();
+        JTextField mailField = new JTextField(customer.getEmail());
 
         panel.add(mailField);
 
@@ -61,8 +61,8 @@ public class CustomerInputView extends JComponent{
         JButton nextButton = new JButton("Submit");
 
         nextButton.addActionListener(e -> {
-            Customer customer = new Customer(nameField.getText(), phoneField.getText(), mailField.getText());
-            success.apply(customer);
+            Customer updatedCustomer = new Customer(nameField.getText(), phoneField.getText(), mailField.getText());
+            success.apply(updatedCustomer);
         });
 
         navigationPanel.add(nextButton);

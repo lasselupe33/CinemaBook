@@ -1,12 +1,14 @@
 package com.cinemaBook.view;
 
 import com.cinemaBook.controller.BookingController;
+import com.cinemaBook.model.Customer;
 import com.cinemaBook.view.bookingViews.CustomerInputView;
 import com.cinemaBook.view.bookingViews.ScreeningSelectionView;
 import com.cinemaBook.view.bookingViews.SeatSelectionView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class BookingView extends JComponent {
     private final static String ScreeningSelection = "ScreeningSelectionView";
@@ -50,7 +52,7 @@ public class BookingView extends JComponent {
                 });
                 break;
             case SeatSelection:
-                seatSelectionView.display(controller.getSelectedScreening(), v -> {
+                seatSelectionView.display(controller.getSelectedScreening(), new ArrayList<>(), v -> {
                     controller.reset();
                     return null;
                 }, seats -> {
@@ -59,7 +61,7 @@ public class BookingView extends JComponent {
                 });
                 break;
             case CustomerInput:
-                customerInputView.display(v -> {
+                customerInputView.display(new Customer("", "", ""), v -> {
                     controller.reset();
                     return null;
                 }, customer -> {

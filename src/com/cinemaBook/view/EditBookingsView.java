@@ -2,32 +2,44 @@ package com.cinemaBook.view;
 
 
 import com.cinemaBook.controller.EditBookingController;
-<<<<<<< HEAD
-import com.cinemaBook.controller.EditBookingController;
-import com.cinemaBook.globals.DateFormatter;
-=======
-import com.cinemaBook.utils.DateFormatter;
->>>>>>> 017f898f69d5c68c9a324649c9d0f537c8b5c4f2
-import com.cinemaBook.model.Booking;
+import com.cinemaBook.view.bookingViews.BookingSelectionView;
+import com.cinemaBook.view.bookingViews.CustomerInputView;
+import com.cinemaBook.view.bookingViews.ScreeningSelectionView;
+import com.cinemaBook.view.bookingViews.SeatSelectionView;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 
 public class EditBookingsView extends JComponent {
-    private JPanel panel;
+    private final static String BookingSelection = "BookingSelectionView";
+    private final static String ScreeningSelection = "ScreeningSelectionView";
+    private final static String CustomerInput = "CustomerInputView";
+    private final static String SeatSelection = "SeatSelectionView";
+
+    private BookingSelectionView bookingSelectionView;
+    private ScreeningSelectionView screeningSelectionView;
+    private CustomerInputView customerInputView;
+    private SeatSelectionView seatSelectionView;
 
     private CardLayout cl;
-
-    JButton button;
 
     public EditBookingsView() {
         super();
         cl = new CardLayout();
         setLayout(cl);
 
+        bookingSelectionView = new BookingSelectionView();
+        add(bookingSelectionView, BookingSelection);
+
+        screeningSelectionView = new ScreeningSelectionView();
+        add(screeningSelectionView, ScreeningSelection);
+
+        customerInputView = new CustomerInputView();
+        add(customerInputView, CustomerInput);
+
+        seatSelectionView = new SeatSelectionView();
+        add(seatSelectionView, SeatSelection);
     }
 
 
@@ -37,27 +49,30 @@ public class EditBookingsView extends JComponent {
         cl.show(this, controller.getCurrentView());
 
         switch (controller.getCurrentView()) {
+            case BookingSelection:
+                bookingSelectionView.display(controller);
+                break;
             case ScreeningSelection:
-                screeningSelectionView.display(controller.getScreenings(), screening -> {
+                /*screeningSelectionView.display(controller.getScreenings(), screening -> {
                     controller.onScreeningSelected(screening.getId());
                     return null;
-                });
+                });*/
                 break;
             case SeatSelection:
-                seatSelectionView.display(controller.getSelectedScreening(), v -> {
+                seatSelectionView.display(controller.getSelectedBooking().getScreening(), controller.getSelectedBooking().getReservedSeats(), v -> {
                     controller.reset();
                     return null;
                 }, seats -> {
-                    controller.onSeatSubmit(seats);
+                    controller.submitSeats(seats);
                     return null;
                 });
                 break;
             case CustomerInput:
-                customerInputView.display(v -> {
+                customerInputView.display(controller.getSelectedBooking().getCustomer(), v -> {
                     controller.reset();
                     return null;
                 }, customer -> {
-                    controller.onCustomerSubmit(customer);
+                    controller.submitCustomer(customer);
                     return null;
                 });
                 break;

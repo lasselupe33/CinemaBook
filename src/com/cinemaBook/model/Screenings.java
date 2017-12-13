@@ -1,6 +1,5 @@
 package com.cinemaBook.model;
 
-import com.cinemaBook.data.DataHandler;
 import com.cinemaBook.data.ScreeningsDataHandler;
 
 import java.util.ArrayList;

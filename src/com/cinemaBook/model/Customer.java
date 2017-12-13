@@ -1,7 +1,5 @@
 package com.cinemaBook.model;
 
-import java.util.ArrayList;
-
 /**
  * This model contains information about a given customer.
  */

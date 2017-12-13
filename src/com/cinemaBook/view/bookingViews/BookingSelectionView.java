@@ -1,12 +1,10 @@
-package com.cinemaBook.view;
+package com.cinemaBook.view.bookingViews;
 
 import com.cinemaBook.controller.EditBookingController;
-import com.cinemaBook.globals.DateFormatter;
 import com.cinemaBook.model.Booking;
+import com.cinemaBook.utils.DateFormatter;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 public class BookingSelectionView extends JComponent {
@@ -43,12 +41,9 @@ public class BookingSelectionView extends JComponent {
         JTable table = new JTable(tableModel);
         add(new JScrollPane(table));
 
-        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    c.setSelectedBooking(c.getBookings().getBookings().get(e.getFirstIndex()));
-                }
+        table.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                c.setSelectedBooking(c.getBookings().getBookings().get(e.getFirstIndex()));
             }
         });
 
@@ -71,7 +66,7 @@ public class BookingSelectionView extends JComponent {
         JButton editSeatsButton = new JButton("Edit seats");
 
         editSeatsButton.addActionListener(e -> {
-            // stuff to do when editing
+            c.editSeats();
         });
 
         navigationPanel.add(editSeatsButton);
@@ -82,7 +77,7 @@ public class BookingSelectionView extends JComponent {
         JButton editCustomerButton = new JButton("Edit Customer information");
 
         editCustomerButton.addActionListener(e -> {
-            // stuff to do when editing customer
+            c.editCustomer();
         });
 
         navigationPanel.add(editCustomerButton);
