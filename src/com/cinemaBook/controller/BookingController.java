@@ -27,6 +27,7 @@ public class BookingController {
         currentView = ScreeningSelection;
         seats = new ArrayList<>();
         screenings = new Screenings();
+        selectedScreening = null;
         view.reset();
         display();
     }
@@ -41,6 +42,10 @@ public class BookingController {
 
     public Screening getSelectedScreening() {
         return selectedScreening;
+    }
+
+    public ArrayList<Seat> getSeats() {
+        return seats;
     }
 
     public void onScreeningSelected(Screening screening) {
@@ -62,7 +67,7 @@ public class BookingController {
         display();
     }
 
-    public void onSeatSubmit(ArrayList<Seat> seats) {
+    public void onSeatsSelected(ArrayList<Seat> seats) {
         this.seats = seats;
         this.currentView = CustomerInput;
         display();
