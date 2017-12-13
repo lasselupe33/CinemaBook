@@ -21,18 +21,8 @@ public class SeatAssignment {
         return availableSeats;
     }
 
-    public int getAmountOfReservedSeats() {
-        int totalSeats = seatAssignment.length * seatAssignment[0].length;
-
-        return totalSeats - getAmountOfAvailableSeats();
-    }
-
     public boolean isSeatReserved(int row, int column) {
         return seatAssignment[row][column].isReserved();
-    }
-
-    public Seat getSeat(int row, int column) {
-        return seatAssignment[row][column];
     }
 
     public Seat[][] getSeats() {
