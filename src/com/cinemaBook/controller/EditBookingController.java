@@ -27,10 +27,12 @@ public class EditBookingController {
         return bookings;
     }
 
+
     public void display() {
         view.display(this);
 
     }
+
 
     public void setSelectedBooking(Booking selectedBooking) {
         this.selectedBooking = selectedBooking;
@@ -46,4 +48,11 @@ public class EditBookingController {
             reset();
         }
     }
+
+
+
+    public void editBooking() {
+
+    }
+
 }
