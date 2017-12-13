@@ -13,10 +13,6 @@ public class Auditorium {
         this.columns = columns;
     }
 
-    public int getAmountOfSeats() {
-        return this.rows * this.columns;
-    }
-
     public int getRows() {
         return rows;
     }
