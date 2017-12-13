@@ -12,7 +12,7 @@ import static java.util.stream.Collectors.joining;
 /**
  * This class contains the core functionality to connect to the database and will be extends by subHandlers
  */
-public class DataHandler {
+public abstract class DataHandler {
     // Database credentials
     private static final String db = "cinema_book";
     private static final String user = "welcometo";
@@ -25,9 +25,6 @@ public class DataHandler {
     private Connection connection;
     private long connectionCreationTime = 0;
     private long timeOut = 60000;
-
-    // Store a reference to the dataHandler
-    private static final DataHandler instance = new DataHandler();
 
     /**
      * The constructor sets up the connection with the database and creates the default statement.
