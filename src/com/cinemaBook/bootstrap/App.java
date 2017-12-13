@@ -2,13 +2,17 @@ package com.cinemaBook.bootstrap;
 
 import com.cinemaBook.controller.BookingController;
 import com.cinemaBook.controller.EditBookingController;
-import com.cinemaBook.globals.DataHandler;
+import com.cinemaBook.data.BookingsDataHandler;
+import com.cinemaBook.data.ScreeningsDataHandler;
 import com.cinemaBook.model.*;
+import com.cinemaBook.utils.MockDatabase;
 import com.cinemaBook.view.BookingView;
 import com.cinemaBook.view.EditBookingsView;
 import com.cinemaBook.view.MainView;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.util.ArrayList;
 
 public class App {
@@ -22,22 +26,22 @@ public class App {
         // EXAMPLE OF GETTING SCREENINGS
         if (false) {
             // To get all screenings pass "-1"
-            ArrayList<Screening> screenings = DataHandler.getInstance().getScreenings(-1);
+            ArrayList<Screening> screenings = ScreeningsDataHandler.getInstance().getScreenings(-1);
 
             // Pass the id of a screening to get an ArrayList<Screening> only containing said screening
-            Screening screening = DataHandler.getInstance().getScreenings(2).get(0); // Use .get(0) to get the desired screening)
+            Screening screening = ScreeningsDataHandler.getInstance().getScreenings(2).get(0); // Use .get(0) to get the desired screening)
         }
 
         // EXAMPLE OF GETTING ALL BOOKINGS
         if (false) {
-            ArrayList<Booking> bookings = DataHandler.getInstance().getBookings();
+            ArrayList<Booking> bookings = BookingsDataHandler.getInstance().getBookings();
         }
 
         // EXAMPLE OF GETTING BOOKINGS BY CUSTOMER
         if (false) {
             Customer customer = new Customer("Lasse Agersten", "123", "hej@gmail.com");
 
-            ArrayList<Booking> bookings = DataHandler.getInstance().getBookingsByCustomer(customer); // will return null if no bookings are found
+            ArrayList<Booking> bookings = BookingsDataHandler.getInstance().getBookingsByCustomer(customer); // will return null if no bookings are found
         }
 
         // EXAMPLE OF SUBMITTING A BOOKING
@@ -46,7 +50,7 @@ public class App {
             Customer customer = new Customer("Test navn", "+45 12345678", "test@gmail.com");
 
             // Fetch the screening the booking is related to
-            Screening screening = DataHandler.getInstance().getScreenings(1).get(0);
+            Screening screening = ScreeningsDataHandler.getInstance().getScreenings(1).get(0);
 
             // Create a list of new seats to reserve instead
             ArrayList<Seat> reservedSeats = new ArrayList<>();
@@ -57,7 +61,7 @@ public class App {
             Booking booking = new Booking(customer, screening, reservedSeats);
 
             // Submit the booking
-            DataHandler.getInstance().submitBooking(booking);
+            BookingsDataHandler.getInstance().submitBooking(booking);
         }
 
         // EXAMPLE OF UPDATING A BOOKING
@@ -68,24 +72,20 @@ public class App {
             newReservedSeats.add(new Seat(6, 6, true));
 
             // Pass the booking id along with the new reserved seats
-            DataHandler.getInstance().updateBooking(1, newReservedSeats);
+            BookingsDataHandler.getInstance().updateBooking(1, newReservedSeats);
         }
 
         // EXAMPLE OF DELETING A BOOKING
         if (false) {
             // Pass the booking id of the booking to be deleted
-            DataHandler.getInstance().deleteBooking(2);
+            BookingsDataHandler.getInstance().deleteBooking(2);
         }
-
-        // Getting data from the database
-        DataHandler dataHandler = DataHandler.getInstance();
-        ArrayList<Screening> screeningList = dataHandler.getScreenings(-1);
 
         // Getting the tabPane from the main view
         JTabbedPane tabPane = MainView.getInstance().getTabPane();
 
         // Setting up Booking View
-        Screenings screenings = new Screenings(screeningList);
+        Screenings screenings = new Screenings();
 
 
         // Setting up Edit Booking View
@@ -110,6 +110,19 @@ public class App {
 
         //tabPane.addTab("Edit booking", );
         tabPane.addTab("Edit booking", editBookingsView);
+
+        ChangeListener changeListener = new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if (tabPane.getSelectedIndex() == 0) {
+                    bookingController.reset();
+                } else {
+                    editBookingController.reset();
+                }
+            }
+        };
+
+        tabPane.addChangeListener(changeListener);
 
     }
 }

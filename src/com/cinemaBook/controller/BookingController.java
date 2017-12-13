@@ -1,6 +1,5 @@
 package com.cinemaBook.controller;
 
-import com.cinemaBook.globals.DataHandler;
 import com.cinemaBook.model.*;
 import com.cinemaBook.view.BookingView;
 
@@ -15,7 +14,6 @@ public class BookingController {
     private BookingView view;
     private Screenings screenings;
     private String currentView;
-    private int screeningId;
     private Screening selectedScreening;
     private ArrayList<Seat> seats;
 
@@ -23,14 +21,14 @@ public class BookingController {
         this.view = view;
         this.screenings = screenings;
         this.currentView = ScreeningSelection;
-        this.screeningId = -1;
     }
 
     public void reset() {
         currentView = ScreeningSelection;
-        screeningId = -1;
         seats = new ArrayList<>();
-        screenings = new Screenings(DataHandler.getInstance().getScreenings(-1));
+        screenings = new Screenings();
+        selectedScreening = null;
+        view.reset();
         display();
     }
 
@@ -42,36 +40,34 @@ public class BookingController {
         return currentView;
     }
 
-    public int getScreeningId() {
-        return screeningId;
-    }
-
     public Screening getSelectedScreening() {
         return selectedScreening;
     }
 
-    public void onScreeningSelected(int id) {
-        this.screeningId = id;
-        this.selectedScreening = screenings.find(s -> s.getId() == screeningId);
+    public ArrayList<Seat> getSeats() {
+        return seats;
+    }
+
+    public void onScreeningSelected(Screening screening) {
+        this.selectedScreening = screening;
         this.currentView = SeatSelection;
         display();
     }
 
     public void onCustomerSubmit(Customer customer) {
         try {
-            DataHandler.getInstance().submitBooking(new Booking(customer, selectedScreening, seats));
+            new Booking(customer, selectedScreening, seats).addToDB();
         } catch (Error e) {
             JOptionPane.showMessageDialog(view,
-                    e.getMessage(),
+                    "Error creating booking",
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.getMessage());
         }
         reset();
         display();
     }
 
-    public void onSeatSubmit(ArrayList<Seat> seats) {
+    public void onSeatsSelected(ArrayList<Seat> seats) {
         this.seats = seats;
         this.currentView = CustomerInput;
         display();

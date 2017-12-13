@@ -1,6 +1,7 @@
 package com.cinemaBook.model;
 
-import com.cinemaBook.globals.DataHandler;
+import com.cinemaBook.data.BookingsDataHandler;
+import com.cinemaBook.data.DataHandler;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,11 @@ public class Booking {
         return reservedSeats;
     }
 
+    public void addToDB() {
+        BookingsDataHandler.getInstance().submitBooking(this);
+    }
+
     public void delete() {
-        DataHandler.getInstance().deleteBooking(id);
+        BookingsDataHandler.getInstance().deleteBooking(id);
     }
 }

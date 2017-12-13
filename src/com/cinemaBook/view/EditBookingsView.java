@@ -2,19 +2,18 @@ package com.cinemaBook.view;
 
 
 import com.cinemaBook.controller.EditBookingController;
+<<<<<<< HEAD
 import com.cinemaBook.controller.EditBookingController;
 import com.cinemaBook.globals.DateFormatter;
+=======
+import com.cinemaBook.utils.DateFormatter;
+>>>>>>> 017f898f69d5c68c9a324649c9d0f537c8b5c4f2
 import com.cinemaBook.model.Booking;
-import com.cinemaBook.model.Bookings;
-import com.cinemaBook.model.Screenings;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import java.awt.*;
-import java.util.function.Function;
 
 
 public class EditBookingsView extends JComponent {

@@ -1,21 +1,31 @@
 package com.cinemaBook.model;
 
 import com.cinemaBook.model.Customer;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class CustomerTest {
-    /**
-     * This test is made to ensure that upon creating a customer, that the methods that returns the fields, actually
-     * do that.
-     */
-    @Test
-    public void testCustomer() {
-        Customer testCustomer = new Customer("Lasse Agersten", "+4512345678", "someemail@gmail.com");
+    private Customer customer;
 
-        assertEquals("Lasse Agersten", testCustomer.getName());
-        assertEquals("+4512345678", testCustomer.getPhone());
-        assertEquals("someemail@gmail.com", testCustomer.getEmail());
+    @Before
+    public void setupCustomer() {
+        this.customer = new Customer("Lasse Agersten", "+4512345678", "someemail@gmail.com");
+    }
+
+    @Test
+    public void testGetName() {
+        assertEquals("Lasse Agersten", customer.getName());
+    }
+
+    @Test
+    public void testGetPhone() {
+        assertEquals("+4512345678", customer.getPhone());
+    }
+
+    @Test
+    public void testGetEmail() {
+        assertEquals("someemail@gmail.com", customer.getEmail());
     }
 }

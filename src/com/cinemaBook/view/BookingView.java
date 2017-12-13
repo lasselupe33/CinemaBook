@@ -1,17 +1,12 @@
 package com.cinemaBook.view;
 
 import com.cinemaBook.controller.BookingController;
-import com.cinemaBook.model.Customer;
-import com.cinemaBook.model.Screenings;
-import com.cinemaBook.model.Seat;
 import com.cinemaBook.view.bookingViews.CustomerInputView;
 import com.cinemaBook.view.bookingViews.ScreeningSelectionView;
 import com.cinemaBook.view.bookingViews.SeatSelectionView;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.function.Function;
 
 public class BookingView extends JComponent {
     private final static String ScreeningSelection = "ScreeningSelectionView";
@@ -39,6 +34,10 @@ public class BookingView extends JComponent {
         add(seatSelectionView, SeatSelection);
     }
 
+    public void reset() {
+        seatSelectionView.reset();
+    }
+
     public void display(BookingController controller) {
 
         cl.show(this, controller.getCurrentView());
@@ -46,7 +45,7 @@ public class BookingView extends JComponent {
         switch (controller.getCurrentView()) {
             case ScreeningSelection:
                 screeningSelectionView.display(controller.getScreenings(), screening -> {
-                    controller.onScreeningSelected(screening.getId());
+                    controller.onScreeningSelected(screening);
                     return null;
                 });
                 break;
@@ -55,7 +54,7 @@ public class BookingView extends JComponent {
                     controller.reset();
                     return null;
                 }, seats -> {
-                    controller.onSeatSubmit(seats);
+                    controller.onSeatsSelected(seats);
                     return null;
                 });
                 break;
