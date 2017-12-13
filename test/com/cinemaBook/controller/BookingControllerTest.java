@@ -6,20 +6,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.cinemaBook.data.BookingsDataHandler;
-import com.cinemaBook.data.DataHandler;
 import com.cinemaBook.model.*;
 import com.cinemaBook.utils.MockDatabase;
 import com.cinemaBook.view.BookingView;
-import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 
 public class BookingControllerTest {
-
-    @Before
-    public void setUp() {
+    public BookingControllerTest() {
         MockDatabase mockUp = new MockDatabase();
         mockUp.createDatabaseMockUp();
     }
