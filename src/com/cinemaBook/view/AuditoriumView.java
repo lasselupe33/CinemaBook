@@ -61,7 +61,7 @@ public class AuditoriumView extends JComponent {
 
     public void paint(Graphics g) {
         int seatWidth = getWidth() / auditorium.getColumns();
-        int seatHeight = getHeight() / auditorium.getRows();
+        int seatHeight = (getHeight() - 10) / auditorium.getRows();
         int seatSize = (seatWidth > seatHeight ? seatHeight : seatWidth) - 2;
 
         int marginWidth = getWidth() - ((seatSize+2) * auditorium.getColumns());
@@ -74,12 +74,15 @@ public class AuditoriumView extends JComponent {
                 g.setColor(Color.GREEN);
             }
 
-            g.fillRect(marginWidth/2 + seat.getColumn() * (seatSize + 2), marginHeight/2 + seat.getRow() * (seatSize + 2), seatSize, seatSize);
+            g.fillRect(marginWidth/2 + seat.getColumn() * (seatSize + 2), marginHeight/3 + seat.getRow() * (seatSize + 2), seatSize, seatSize);
         }));
 
         pendingSeats.forEach(seat -> {
             g.setColor(Color.BLUE);
-            g.fillRect(marginWidth/2 + seat.getColumn() * (seatSize + 2), marginHeight/2 + seat.getRow() * (seatSize + 2), seatSize, seatSize);
+            g.fillRect(marginWidth/2 + seat.getColumn() * (seatSize + 2), marginHeight/3 + seat.getRow() * (seatSize + 2), seatSize, seatSize);
         });
+
+        g.setColor(Color.GRAY);
+        g.fillRect(marginWidth / 2, getHeight() - 10, (seatSize+2)*auditorium.getColumns() - 2, 5);
     }
 }

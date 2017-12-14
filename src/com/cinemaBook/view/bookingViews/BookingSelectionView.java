@@ -5,17 +5,50 @@ import com.cinemaBook.model.Booking;
 import com.cinemaBook.utils.DateFormatter;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 
 public class BookingSelectionView extends JComponent {
+    private String filter;
 
     public BookingSelectionView() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
+        filter = "";
     }
 
     public void display(EditBookingController c) {
         removeAll();
+
+        JTextField filterField = new JTextField(filter);
+        //filter.setMaximumSize(new Dimension(getWidth(), 30));
+        filterField.addActionListener(e -> {
+            System.out.println(filterField.getText());
+        });
+
+        filterField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent documentEvent) {
+                filter = filterField.getText();
+                display(c);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent documentEvent) {
+                filter = filterField.getText();
+                display(c);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent documentEvent) {
+                filter = filterField.getText();
+                display(c);
+            }
+        });
+
+        add(filterField);
+
+        filterField.requestFocus();
 
         // Create table
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -28,14 +61,19 @@ public class BookingSelectionView extends JComponent {
         tableModel.addColumn("Antal Sæder");
 
         for (Booking booking: c.getBookings().getBookings()) {
-            tableModel.addRow(new Object[]{
-                    booking.getCustomer().getName(),
-                    booking.getCustomer().getEmail(),
-                    booking.getCustomer().getPhone(),
-                    booking.getScreening().getFilm().getName(),
-                    new DateFormatter(booking.getScreening().getStartTime()).str(),
-                    booking.getReservedSeats().size(),
-            });
+            //screening.getFilm().getName().toLowerCase().contains(filter.toLowerCase())
+            if (booking.getCustomer().getEmail().toLowerCase().contains(filter.toLowerCase()) ||
+                booking.getCustomer().getPhone().toLowerCase().contains(filter.toLowerCase()) ||
+                booking.getCustomer().getName().toLowerCase().contains(filter.toLowerCase())) {
+                tableModel.addRow(new Object[]{
+                        booking.getCustomer().getName(),
+                        booking.getCustomer().getEmail(),
+                        booking.getCustomer().getPhone(),
+                        booking.getScreening().getFilm().getName(),
+                        new DateFormatter(booking.getScreening().getStartTime()).str(),
+                        booking.getReservedSeats().size(),
+                });
+            }
         }
 
         JTable table = new JTable(tableModel);
