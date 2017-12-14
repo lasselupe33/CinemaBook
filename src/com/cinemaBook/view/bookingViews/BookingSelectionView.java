@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 public class BookingSelectionView extends JComponent {
     private String filter;
@@ -21,7 +22,7 @@ public class BookingSelectionView extends JComponent {
         removeAll();
 
         JTextField filterField = new JTextField(filter);
-        //filter.setMaximumSize(new Dimension(getWidth(), 30));
+        filterField.setMaximumSize(new Dimension(getWidth(), 30));
         filterField.addActionListener(e -> {
             System.out.println(filterField.getText());
         });
@@ -66,12 +67,12 @@ public class BookingSelectionView extends JComponent {
                 booking.getCustomer().getPhone().toLowerCase().contains(filter.toLowerCase()) ||
                 booking.getCustomer().getName().toLowerCase().contains(filter.toLowerCase())) {
                 tableModel.addRow(new Object[]{
-                        booking.getCustomer().getName(),
-                        booking.getCustomer().getEmail(),
-                        booking.getCustomer().getPhone(),
-                        booking.getScreening().getFilm().getName(),
-                        new DateFormatter(booking.getScreening().getStartTime()).str(),
-                        booking.getReservedSeats().size(),
+                    booking.getCustomer().getName(),
+                    booking.getCustomer().getEmail(),
+                    booking.getCustomer().getPhone(),
+                    booking.getScreening().getFilm().getName(),
+                    new DateFormatter(booking.getScreening().getStartTime()).str(),
+                    booking.getReservedSeats().size(),
                 });
             }
         }

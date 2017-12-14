@@ -10,6 +10,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.GregorianCalendar;
@@ -28,7 +29,7 @@ public class ScreeningSelectionView extends JComponent{
         removeAll();
 
         JTextField filterField = new JTextField(filter);
-        //filter.setMaximumSize(new Dimension(getWidth(), 30));
+        filterField.setMaximumSize(new Dimension(getWidth(), 30));
         filterField.addActionListener(e -> {
             System.out.println(filterField.getText());
         });

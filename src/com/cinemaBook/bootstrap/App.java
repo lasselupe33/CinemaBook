@@ -87,6 +87,11 @@ public class App {
         // Setting up Booking View
         Screenings screenings = new Screenings();
 
+        BookingView bookingView = new BookingView();
+
+        BookingController bookingController = new BookingController(bookingView, screenings);
+        bookingController.display();
+
 
         // Setting up Edit Booking View
         Bookings bookings = new Bookings();
@@ -95,21 +100,16 @@ public class App {
 
         EditBookingController editBookingController = new EditBookingController(editBookingsView, bookings, screenings);
 
-        editBookingController.display();
-
-
-        BookingView bookingView = new BookingView();
-
-
-        BookingController bookingController = new BookingController(bookingView, screenings);
-
-        bookingController.display();
 
         // Add Views to the tabPane
         tabPane.addTab("Book", bookingView);
 
+        bookingController.display();
+
         //tabPane.addTab("Edit booking", );
         tabPane.addTab("Edit booking", editBookingsView);
+
+        bookingController.display();
 
         ChangeListener changeListener = new ChangeListener() {
             @Override
