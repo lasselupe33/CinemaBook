@@ -14,10 +14,10 @@ public class BookingSelectionView extends JComponent {
 
     }
 
-
     public void display(EditBookingController c) {
         removeAll();
 
+        // Create table
         DefaultTableModel tableModel = new DefaultTableModel();
 
         tableModel.addColumn("Navn");
@@ -41,28 +41,27 @@ public class BookingSelectionView extends JComponent {
         JTable table = new JTable(tableModel);
         add(new JScrollPane(table));
 
+        // Set listener on table
         table.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 c.setSelectedBooking(c.getBookings().getBookings().get(e.getFirstIndex()));
             }
         });
 
+        // Create the naviagtion panel
         JPanel navigationPanel = new JPanel();
         navigationPanel.setLayout(new BoxLayout(navigationPanel, BoxLayout.LINE_AXIS));
 
-
-
-
-
+        // Add button to edit film
         JButton editFilmButton = new JButton("Edit film");
 
         editFilmButton.addActionListener(e -> {
-            // stuff to do when editing film
+            c.editFilm();
         });
 
         navigationPanel.add(editFilmButton);
 
-
+        // Add button to edit seat selection
         JButton editSeatsButton = new JButton("Edit seats");
 
         editSeatsButton.addActionListener(e -> {
@@ -71,9 +70,7 @@ public class BookingSelectionView extends JComponent {
 
         navigationPanel.add(editSeatsButton);
 
-
-
-
+        // Add button to edit customer info
         JButton editCustomerButton = new JButton("Edit Customer information");
 
         editCustomerButton.addActionListener(e -> {
@@ -82,27 +79,18 @@ public class BookingSelectionView extends JComponent {
 
         navigationPanel.add(editCustomerButton);
 
-
-
-
-
+        // Add button to delete booking
         JButton deleteButton = new JButton("Delete");
 
         deleteButton.addActionListener(e -> {
             if (c.getSelectedBooking() != null) {
                 c.deleteBooking();
             }
-            //delete stuff
         });
 
         navigationPanel.add(deleteButton);
 
+        // Add navigation panel
         add(navigationPanel);
     }
-
-
-
-
-
-
 }

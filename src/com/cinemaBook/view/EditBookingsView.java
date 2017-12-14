@@ -9,6 +9,7 @@ import com.cinemaBook.view.bookingViews.SeatSelectionView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 
 public class EditBookingsView extends JComponent {
@@ -53,19 +54,29 @@ public class EditBookingsView extends JComponent {
                 bookingSelectionView.display(controller);
                 break;
             case ScreeningSelection:
-                /*screeningSelectionView.display(controller.getScreenings(), screening -> {
-                    controller.onScreeningSelected(screening.getId());
-                    return null;
-                });*/
-                break;
-            case SeatSelection:
-                seatSelectionView.display(controller.getSelectedBooking().getScreening(), controller.getSelectedBooking().getReservedSeats(), v -> {
-                    controller.reset();
-                    return null;
-                }, seats -> {
-                    controller.submitSeats(seats);
+                screeningSelectionView.display(controller.getScreenings(), screening -> {
+                    controller.selectFilmSeats(screening);
                     return null;
                 });
+                break;
+            case SeatSelection:
+                if (controller.selectingFilm) {
+                    seatSelectionView.display(controller.getSelectedScreening(), new ArrayList<>(), v -> {
+                        controller.reset();
+                        return null;
+                    }, seats -> {
+                        controller.submitUpdatedBooking(seats);
+                        return null;
+                    });
+                } else {
+                    seatSelectionView.display(controller.getSelectedBooking().getScreening(), controller.getSelectedBooking().getReservedSeats(), v -> {
+                        controller.reset();
+                        return null;
+                    }, seats -> {
+                        controller.submitSeats(seats);
+                        return null;
+                    });
+                }
                 break;
             case CustomerInput:
                 customerInputView.display(controller.getSelectedBooking().getCustomer(), v -> {

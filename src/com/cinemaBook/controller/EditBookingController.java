@@ -19,6 +19,9 @@ public class EditBookingController {
     private String currentView;
     private Booking selectedBooking;
 
+    private Screening selectedScreening;
+    public boolean selectingFilm;
+
 
     public EditBookingController(EditBookingsView view, Bookings bookings, Screenings screenings) {
         this.view = view;
@@ -31,6 +34,7 @@ public class EditBookingController {
         currentView = BookingSelection;
         selectedBooking = null;
         bookings = new Bookings();
+        selectingFilm = false;
         display();
     }
 
@@ -48,6 +52,14 @@ public class EditBookingController {
 
     public Booking getSelectedBooking() {
         return selectedBooking;
+    }
+
+    public Screening getSelectedScreening() {
+        return selectedScreening;
+    }
+
+    public Screenings getScreenings() {
+        return screenings;
     }
 
     public void deleteBooking() {
@@ -82,6 +94,24 @@ public class EditBookingController {
 
     public void submitCustomer(Customer customer) {
         CustomerDataHandler.getInstance().editCustomer(selectedBooking.getCustomer(), customer);
+        reset();
+    }
+
+    public void editFilm() {
+        this.currentView = ScreeningSelection;
+        selectingFilm = true;
+        display();
+    }
+
+    public void selectFilmSeats(Screening screening) {
+        this.selectedScreening = screening;
+        this.currentView = SeatSelection;
+        display();
+    }
+
+    public void submitUpdatedBooking(ArrayList<Seat> seats) {
+        new Booking(getSelectedBooking().getCustomer(), selectedScreening, seats).addToDB();
+        selectedBooking.delete();
         reset();
     }
 

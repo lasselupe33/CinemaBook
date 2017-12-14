@@ -90,7 +90,6 @@ public class CustomerDataHandler extends DataHandler {
 
     public void editCustomer(Customer oldCustomer, Customer customer) {
         try {
-            System.out.println(customer.getEmail());
             int customer_id = getCustomerId(oldCustomer);
 
             if (customer_id != -1) {
@@ -98,8 +97,6 @@ public class CustomerDataHandler extends DataHandler {
                                                 "', customer_phone='" + customer.getPhone() +
                                                 "', customer_email='" + customer.getEmail() +
                                                 "' WHERE customer_id=" + customer_id;
-
-                System.out.println(query);
 
                 createStatement().execute(query);
             } else {
