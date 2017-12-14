@@ -28,4 +28,8 @@ public class SeatAssignment {
     public Seat[][] getSeats() {
         return seatAssignment;
     }
+
+    public void setSeat(int row, int col, boolean reserved) {
+        seatAssignment[row][col] = new Seat(row, col, reserved);
+    }
 }

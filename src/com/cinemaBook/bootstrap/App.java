@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
-        if (true) {
+        if (false) {
             // Create database mock up
             MockDatabase mockUp = new MockDatabase();
             mockUp.createDatabaseMockUp();

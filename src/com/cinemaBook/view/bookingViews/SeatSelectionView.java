@@ -2,6 +2,7 @@ package com.cinemaBook.view.bookingViews;
 
 import com.cinemaBook.model.Screening;
 import com.cinemaBook.model.Seat;
+import com.cinemaBook.model.SeatAssignment;
 import com.cinemaBook.utils.DateFormatter;
 import com.cinemaBook.view.AuditoriumView;
 
@@ -26,6 +27,16 @@ public class SeatSelectionView extends JComponent{
         seats = new ArrayList<>();
     }
 
+    private SeatAssignment removeDuplicateSeats(SeatAssignment assignment, ArrayList<Seat> seats) {
+        SeatAssignment newAssignment = new SeatAssignment(assignment.getSeats());
+
+        seats.forEach(seat -> {
+            newAssignment.setSeat(seat.getRow(), seat.getColumn(), false);
+        });
+
+        return newAssignment;
+    }
+
     public void display(Screening screening, ArrayList<Seat> initSeats, Function<Void, Void> cancel, Function<ArrayList<Seat>, Void> success) {
         removeAll();
 
@@ -46,6 +57,8 @@ public class SeatSelectionView extends JComponent{
         JTable table = new JTable(tableModel);
 
         add(table);
+
+        SeatAssignment assignment = removeDuplicateSeats(screening.getSeatAssignment(), seats);
 
         // Add auditorium view
         auditoriumView = new AuditoriumView(seat -> {
