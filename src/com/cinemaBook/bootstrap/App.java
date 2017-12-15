@@ -90,7 +90,6 @@ public class App {
         BookingView bookingView = new BookingView();
 
         BookingController bookingController = new BookingController(bookingView, screenings);
-        bookingController.display();
 
 
         // Setting up Edit Booking View
@@ -109,16 +108,11 @@ public class App {
         //tabPane.addTab("Edit booking", );
         tabPane.addTab("Edit booking", editBookingsView);
 
-        bookingController.display();
-
-        ChangeListener changeListener = new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                if (tabPane.getSelectedIndex() == 0) {
-                    bookingController.reset();
-                } else {
-                    editBookingController.reset();
-                }
+        ChangeListener changeListener = e -> {
+            if (tabPane.getSelectedIndex() == 0) {
+                bookingController.reset();
+            } else {
+                editBookingController.reset();
             }
         };
 
